@@ -71,6 +71,72 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-リストについて" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/02/06/%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/" class="article-date">
+  <time class="dt-published" datetime="2021-02-06T14:55:25.000Z" itemprop="datePublished">2021-02-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/02/06/%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/">リストについて</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="ul-番号なしリスト-タグ"><a href="#ul-番号なしリスト-タグ" class="headerlink" title="ul(番号なしリスト)タグ"></a>ul(番号なしリスト)タグ</h1><ul>
+<li>ul = Unorderd List</li>
+<li><code>&lt;ul&gt;&lt;/ul&gt;</code>で指定するのはリストの<code>タイトル</code></li>
+</ul>
+<h2 id="li-項目-タグ"><a href="#li-項目-タグ" class="headerlink" title="li(項目)タグ"></a>li(項目)タグ</h2><ul>
+<li>li = List Item</li>
+<li><code>&lt;li&gt;&lt;/li&gt;</code>リスト内の項目を記述する</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span>曜日</span><br><span class="line">	<span class="tag">&lt;<span class="name">li</span>&gt;</span>月<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">li</span>&gt;</span>火<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">li</span>&gt;</span>水<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">li</span>&gt;</span>木<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">li</span>&gt;</span>金<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h1 id="ol-番号付きリスト-タグ"><a href="#ol-番号付きリスト-タグ" class="headerlink" title="ol(番号付きリスト)タグ"></a>ol(番号付きリスト)タグ</h1><ul>
+<li>ol = Ordered List</li>
+<li>基本は<code>ul</code>(番号なしリスト)と同じだが、オプションをつけることができる</li>
+</ul>
+<h2 id="オプション"><a href="#オプション" class="headerlink" title="オプション"></a>オプション</h2><p>複数のオプションを同時に指定も可能</p>
+<ul>
+<li><code>&lt;ol start=&quot;番号&quot;&gt;</code> : 振られる番号のスタート数字を変更する</li>
+<li><code>&lt;ol reversed&gt;</code>     : 番号を逆順にする </li>
+<li><code>&lt;ol type=&quot;&quot;&gt;</code>      : 番号の表現を変える<ul>
+<li>1,A,l,a,i</li>
+</ul>
+</li>
+</ul>
+<h2 id="li-項目-タグ-1"><a href="#li-項目-タグ-1" class="headerlink" title="li(項目)タグ"></a>li(項目)タグ</h2><ul>
+<li>li = List Item</li>
+<li><code>&lt;li&gt;&lt;/li&gt;</code>リスト内の項目を記述する</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ol</span> <span class="attr">start</span>=<span class="string">&quot;4&quot;</span> <span class="attr">reversed</span>&gt;</span>曜日</span><br><span class="line">	<span class="tag">&lt;<span class="name">li</span>&gt;</span>月<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">li</span>&gt;</span>火<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">li</span>&gt;</span>水<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">li</span>&gt;</span>木<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">li</span>&gt;</span>金<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ol</span>&gt;</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://daiki-iijima.github.io/2021/02/06/%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/" data-id="ckktucdj10000dmb689kh3bg7" data-title="リストについて" class="article-share-link">共有</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-テキストレイアウトについて" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2021/02/05/%E3%83%86%E3%82%AD%E3%82%B9%E3%83%88%E3%83%AC%E3%82%A4%E3%82%A2%E3%82%A6%E3%83%88%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/" class="article-date">
@@ -414,6 +480,10 @@
       <ul>
         
           <li>
+            <a href="/2021/02/06/%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/">リストについて</a>
+          </li>
+        
+          <li>
             <a href="/2021/02/05/%E3%83%86%E3%82%AD%E3%82%B9%E3%83%88%E3%83%AC%E3%82%A4%E3%82%A2%E3%82%A6%E3%83%88%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/">テキストレイアウトについて</a>
           </li>
         
@@ -427,10 +497,6 @@
         
           <li>
             <a href="/2021/01/25/GitHub%E3%81%A7%E3%83%96%E3%83%AD%E3%82%B0%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B/">GitHubでブログを作成する(Hexo)</a>
-          </li>
-        
-          <li>
-            <a href="/2021/01/25/XCode%E3%81%A7Swift%E3%81%AE%E7%B7%B4%E7%BF%92/">XCodeでSwiftの練習</a>
           </li>
         
       </ul>
