@@ -71,6 +71,54 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-VimにPluginマネージャー「Vundle」を入れる" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/02/17/Vim%E3%81%ABPlugin%E3%83%9E%E3%83%8D%E3%83%BC%E3%82%B8%E3%83%A3%E3%83%BC%E3%80%8CVundle%E3%80%8D%E3%82%92%E5%85%A5%E3%82%8C%E3%82%8B/" class="article-date">
+  <time class="dt-published" datetime="2021-02-17T13:33:59.000Z" itemprop="datePublished">2021-02-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/02/17/Vim%E3%81%ABPlugin%E3%83%9E%E3%83%8D%E3%83%BC%E3%82%B8%E3%83%A3%E3%83%BC%E3%80%8CVundle%E3%80%8D%E3%82%92%E5%85%A5%E3%82%8C%E3%82%8B/">VimにPluginマネージャー「Vundle」を入れる</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="環境"><a href="#環境" class="headerlink" title="環境"></a>環境</h1><ul>
+<li>Mac MacBook Air (M1, 2020) </li>
+<li>OS Big Sur v11.0.1</li>
+<li>VIM - Vi IMproved 8.2 (2019 Dec 12, compiled Oct 29 2020 23:33:57)</li>
+</ul>
+<h1 id="手順"><a href="#手順" class="headerlink" title="手順"></a>手順</h1><h2 id="1-ホームディレクトリにフォルダを作る"><a href="#1-ホームディレクトリにフォルダを作る" class="headerlink" title="1. ホームディレクトリにフォルダを作る"></a>1. ホームディレクトリにフォルダを作る</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p ~&#x2F;.vim&#x2F;bundle&#x2F;Vundle.vim</span><br></pre></td></tr></table></figure>
+<h2 id="2-GitHubからダウンロード"><a href="#2-GitHubからダウンロード" class="headerlink" title="2. GitHubからダウンロード"></a>2. GitHubからダウンロード</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;VundleVim&#x2F;Vundle.vim.git ~&#x2F;.vim&#x2F;bundle&#x2F;Vundle.vim</span><br></pre></td></tr></table></figure>
+<h2 id="3-vimrcにの先頭に設定を記述"><a href="#3-vimrcにの先頭に設定を記述" class="headerlink" title="3. .vimrcにの先頭に設定を記述"></a>3. .vimrcにの先頭に設定を記述</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">set nocompatible</span><br><span class="line">filetype off</span><br><span class="line">set rtp+&#x3D;~&#x2F;.vim&#x2F;bundle&#x2F;Vundle.vim</span><br><span class="line">call vundle#begin()</span><br><span class="line"></span><br><span class="line">Plugin &#39;VundleVim&#x2F;Vundle.vim&#39;</span><br><span class="line"></span><br><span class="line">&quot; 導入したいプラグインを以下に列挙</span><br><span class="line">&quot; Plugin &#39;[Github Author]&#x2F;[Github repo]&#39; の形式で記入</span><br><span class="line">Plugin &#39;airblade&#x2F;vim-gitgutter&#39;</span><br><span class="line"></span><br><span class="line">call vundle#end()</span><br><span class="line">filetype plugin indent on</span><br><span class="line"></span><br><span class="line">&quot;　その他のカスタム設定を以下に書く</span><br></pre></td></tr></table></figure>
+<h2 id="4-vimを開いた状態でコマンドを打ってインストール"><a href="#4-vimを開いた状態でコマンドを打ってインストール" class="headerlink" title="4. vimを開いた状態でコマンドを打ってインストール"></a>4. vimを開いた状態でコマンドを打ってインストール</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:PluginInstall</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://daiki-iijima.github.io/2021/02/17/Vim%E3%81%ABPlugin%E3%83%9E%E3%83%8D%E3%83%BC%E3%82%B8%E3%83%A3%E3%83%BC%E3%80%8CVundle%E3%80%8D%E3%82%92%E5%85%A5%E3%82%8C%E3%82%8B/" data-id="ckl9hgr9j0000jyb66i0lea5x" data-title="VimにPluginマネージャー「Vundle」を入れる" class="article-share-link">共有</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vim/" rel="tag">Vim</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-zshとaliasについて" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2021/02/16/zsh%E3%81%A8alias%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/" class="article-date">
@@ -711,61 +759,6 @@
 
 
   
-    <article id="post-画像を扱う" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/02/08/%E7%94%BB%E5%83%8F%E3%82%92%E6%89%B1%E3%81%86/" class="article-date">
-  <time class="dt-published" datetime="2021-02-08T13:15:06.000Z" itemprop="datePublished">2021-02-08</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/02/08/%E7%94%BB%E5%83%8F%E3%82%92%E6%89%B1%E3%81%86/">画像を扱う</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="img-画像-タグ"><a href="#img-画像-タグ" class="headerlink" title="img(画像)タグ"></a>img(画像)タグ</h1><ul>
-<li>自己完結型のタグ</li>
-<li>画像へのパスはホットリンクを使うこともできる<ul>
-<li>ホットリンク = 動的に他のウェブ上の画像をリンクする</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;画像へのパス&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="サイズ変更-ピクセル数を指定"><a href="#サイズ変更-ピクセル数を指定" class="headerlink" title="サイズ変更(ピクセル数を指定)"></a>サイズ変更(ピクセル数を指定)</h2><ul>
-<li><code>width=&quot;&quot;</code>   : 幅を指定</li>
-<li><code>height=&quot;&quot;</code>  : 高さを指定</li>
-</ul>
-<h2 id="小ネタ"><a href="#小ネタ" class="headerlink" title="小ネタ"></a>小ネタ</h2><ul>
-<li>上下でイメージを配置したい場合、<code>&lt;p&gt;&lt;/p&gt;</code>を使うといい        </li>
-</ul>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;image.png&quot;</span> <span class="attr">width</span>=<span class="string">&quot;100&quot;</span> <span class="attr">height</span>=<span class="string">&quot;40&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;https://1.bp.blogspot.com/-QNMuJ-k-bYU/X68bIi2gjjI/AAAAAAABcUs/39kmQwXcZPM3w4s8O1vrcIswGqd2r6EWgCNcBGAsYHQ/s400/fantasy_unicorn_rainbow.png&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://daiki-iijima.github.io/2021/02/08/%E7%94%BB%E5%83%8F%E3%82%92%E6%89%B1%E3%81%86/" data-id="ckkwlltqz0000ddb6clb74i7h" data-title="画像を扱う" class="article-share-link">共有</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
@@ -801,7 +794,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">タグクラウド</h3>
     <div class="widget tagcloud">
-      <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/HEML/" style="font-size: 10px;">HEML</a> <a href="/tags/HTML/" style="font-size: 20px;">HTML</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/Vim/" style="font-size: 10px;">Vim</a> <a href="/tags/Xcode/" style="font-size: 10px;">Xcode</a> <a href="/tags/zsh-alias/" style="font-size: 10px;">zsh,alias</a>
+      <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/HEML/" style="font-size: 10px;">HEML</a> <a href="/tags/HTML/" style="font-size: 20px;">HTML</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/Vim/" style="font-size: 15px;">Vim</a> <a href="/tags/Xcode/" style="font-size: 10px;">Xcode</a> <a href="/tags/zsh-alias/" style="font-size: 10px;">zsh,alias</a>
     </div>
   </div>
 
@@ -823,6 +816,10 @@
       <ul>
         
           <li>
+            <a href="/2021/02/17/Vim%E3%81%ABPlugin%E3%83%9E%E3%83%8D%E3%83%BC%E3%82%B8%E3%83%A3%E3%83%BC%E3%80%8CVundle%E3%80%8D%E3%82%92%E5%85%A5%E3%82%8C%E3%82%8B/">VimにPluginマネージャー「Vundle」を入れる</a>
+          </li>
+        
+          <li>
             <a href="/2021/02/16/zsh%E3%81%A8alias%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/">zshとaliasについて</a>
           </li>
         
@@ -836,10 +833,6 @@
         
           <li>
             <a href="/2021/02/12/iframe%E3%81%AEaline%E5%B1%9E%E6%80%A7%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/">iframeのaline属性について</a>
-          </li>
-        
-          <li>
-            <a href="/2021/02/11/iframe%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/">iframeについて</a>
           </li>
         
       </ul>
