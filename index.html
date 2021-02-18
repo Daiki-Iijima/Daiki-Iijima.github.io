@@ -71,6 +71,76 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-入力補完プラグイン「Deoplete」の導入方法" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/02/18/%E5%85%A5%E5%8A%9B%E8%A3%9C%E5%AE%8C%E3%83%97%E3%83%A9%E3%82%B0%E3%82%A4%E3%83%B3%E3%80%8CDeoplete%E3%80%8D%E3%81%AE%E5%B0%8E%E5%85%A5%E6%96%B9%E6%B3%95/" class="article-date">
+  <time class="dt-published" datetime="2021-02-18T00:21:32.000Z" itemprop="datePublished">2021-02-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/02/18/%E5%85%A5%E5%8A%9B%E8%A3%9C%E5%AE%8C%E3%83%97%E3%83%A9%E3%82%B0%E3%82%A4%E3%83%B3%E3%80%8CDeoplete%E3%80%8D%E3%81%AE%E5%B0%8E%E5%85%A5%E6%96%B9%E6%B3%95/">入力補完プラグイン「Deoplete」の導入方法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="vimにdeopleteを入れる"><a href="#vimにdeopleteを入れる" class="headerlink" title="vimにdeopleteを入れる"></a>vimにdeopleteを入れる</h1><p>インストールに前提条件の多いPluginなので詰まるところが多かった</p>
+<h1 id="環境"><a href="#環境" class="headerlink" title="環境"></a>環境</h1><ul>
+<li>M1 Mac </li>
+<li>macOS Big Sur(11.2)</li>
+<li>vim 8.2</li>
+</ul>
+<h2 id="公式の手順"><a href="#公式の手順" class="headerlink" title="公式の手順"></a>公式の手順</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/Shougo/deoplete.nvim">Shougo/deoplete</a></li>
+</ul>
+<h1 id="日本語訳"><a href="#日本語訳" class="headerlink" title="日本語訳"></a>日本語訳</h1><h2 id="最初に"><a href="#最初に" class="headerlink" title="最初に"></a>最初に</h2><p>注意: <code>deoplete</code> は<code>Vim</code>で使用する場合でも <code>Neovim</code> (最新のものを推奨) が必要<br><code>Vimを使用する場合</code>Vimバージョン8.1以上 で <code>Python 3.6.1以上</code> と<code>timers</code>が有効になっている必要がある。</p>
+<p>注意: deopleteはmsgpackパッケージ1.0.0+を必要とします。pipでmsgpackパッケージをインストール/アップグレードしてください。<br><a target="_blank" rel="noopener" href="https://github.com/msgpack/msgpack-python">msgpack/msgpack-python</a></p>
+<p>注意: どうしても古い msgpack を使う必要がある場合は、代わりに deoplete ver.5.2 を使ってください。<br><a target="_blank" rel="noopener" href="https://github.com/Shougo/deoplete.nvim/releases/tag/5.2">Shougo/deoplete.vim</a></p>
+<h2 id="要件"><a href="#要件" class="headerlink" title="要件"></a>要件</h2><ul>
+<li>neovimをインストールしておく  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install --user pyvim</span><br></pre></td></tr></table></figure></li>
+<li>neovimでpython3が有効かを確認<ul>
+<li>nvimを起動して以下のコマンドで<code>1</code>が出るか確認<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:echo has(&quot;python3&quot;)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="vimrcに記述"><a href="#vimrcに記述" class="headerlink" title=".vimrcに記述"></a>.vimrcに記述</h2><ol>
+<li>今回はプラグイン管理ツールの<code>Vundle</code>を使用する <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Plugin &#39;Shougo&#x2F;deoplete.nvim&#39;</span><br><span class="line">Plugin &#39;roxma&#x2F;nvim-yarp&#39;</span><br><span class="line">Plugin &#39;roxma&#x2F;vim-hug-neovim-rpc&#39;</span><br></pre></td></tr></table></figure>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&quot; deopleteをVim起動時に有効にする</span><br><span class="line">let g:deoplete#enable_at_startup &#x3D; 1</span><br></pre></td></tr></table></figure></li>
+<li><code>:PluginInstall</code>でインストール </li>
+</ol>
+<h2 id="トラブル対応"><a href="#トラブル対応" class="headerlink" title="トラブル対応"></a>トラブル対応</h2><h3 id="ファイルを開くとエラーが表示される"><a href="#ファイルを開くとエラーが表示される" class="headerlink" title="ファイルを開くとエラーが表示される"></a>ファイルを開くとエラーが表示される</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[deoplete] deoplete failed to load. Try the :UpdateRemotePlugins command and restart Neovim. See also :checkhealth.</span><br></pre></td></tr></table></figure>
+<ul>
+<li>参考サイト<br><a target="_blank" rel="noopener" href="https://blog.fakiyer.com/entry/2018/11/20/101826">deoplete.nvimのエラー解消</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://daiki-iijima.github.io/2021/02/18/%E5%85%A5%E5%8A%9B%E8%A3%9C%E5%AE%8C%E3%83%97%E3%83%A9%E3%82%B0%E3%82%A4%E3%83%B3%E3%80%8CDeoplete%E3%80%8D%E3%81%AE%E5%B0%8E%E5%85%A5%E6%96%B9%E6%B3%95/" data-id="ckla4dyiw0000pnb6gbh10pf3" data-title="入力補完プラグイン「Deoplete」の導入方法" class="article-share-link">共有</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vim-VimPlugin/" rel="tag">Vim,VimPlugin</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-VimにPluginマネージャー「Vundle」を入れる" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2021/02/17/Vim%E3%81%ABPlugin%E3%83%9E%E3%83%8D%E3%83%BC%E3%82%B8%E3%83%A3%E3%83%BC%E3%80%8CVundle%E3%80%8D%E3%82%92%E5%85%A5%E3%82%8C%E3%82%8B/" class="article-date">
@@ -691,74 +761,6 @@
 
 
   
-    <article id="post-リンクについて" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/02/10/%E3%83%AA%E3%83%B3%E3%82%AF%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/" class="article-date">
-  <time class="dt-published" datetime="2021-02-09T23:33:10.000Z" itemprop="datePublished">2021-02-10</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/02/10/%E3%83%AA%E3%83%B3%E3%82%AF%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/">リンクについて</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="a-hrefを使用してリンクする"><a href="#a-hrefを使用してリンクする" class="headerlink" title="a hrefを使用してリンクする"></a>a hrefを使用してリンクする</h1><ul>
-<li>a = Anker</li>
-<li>href = hiper reference<ul>
-<li>hrefにURL or パス    </li>
-</ul>
-</li>
-</ul>
-<h1 id="リンクの種類"><a href="#リンクの種類" class="headerlink" title="リンクの種類"></a>リンクの種類</h1><p><code>href</code>属性にURLを指定する</p>
-<ul>
-<li>絶対リンク</li>
-<li>相対リンク</li>
-</ul>
-<p>タグを使うことでリンクさせる</p>
-<ul>
-<li>アンカーリンク</li>
-</ul>
-<h1 id="絶対リンク"><a href="#絶対リンク" class="headerlink" title="絶対リンク"></a>絶対リンク</h1><ul>
-<li><code>ホームディレクトリからのパス</code>or<code>http://xxx</code>に移動する<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;http://www.wikipedia.org&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h1 id="相対リンク"><a href="#相対リンク" class="headerlink" title="相対リンク"></a>相対リンク</h1></li>
-<li>今のディレクトリからの相対的なリンクに移動する<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;table.html&quot;</span>&gt;</span>table.htmlへのリンク<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h1 id="アンカーリンク"><a href="#アンカーリンク" class="headerlink" title="アンカーリンク"></a>アンカーリンク</h1></li>
-<li>ページ内で移動する(スクロール位置を移動する)</li>
-<li><code>a</code>タグの<code>href</code>に任意の<code>識別子</code>を指定</li>
-<li><code>p</code>タグの<code>id</code>属性に<code>a</code>タグで指定した<code>識別子</code>と同じ<code>識別子</code>を指定<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">&quot;top&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;http://www.google.com&quot;</span>&gt;</span>google検索<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;table.html&quot;</span>&gt;</span>テーブル.htmlへのリンク<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>スペース<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>スペース<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>スペース<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>スペース<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>スペース<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>スペース<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>スペース<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#top&quot;</span>&gt;</span>トップへ戻る<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h1 id="画像にリンクを設置する"><a href="#画像にリンクを設置する" class="headerlink" title="画像にリンクを設置する"></a>画像にリンクを設置する</h1></li>
-<li><code>img</code>タグを<code>&lt;a href=&quot;&quot;&gt;</code>で囲む<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;http://www.google.com&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;image.png&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://daiki-iijima.github.io/2021/02/10/%E3%83%AA%E3%83%B3%E3%82%AF%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/" data-id="ckkyn6jcp00001eb6et70hmj8" data-title="リンクについて" class="article-share-link">共有</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HEML/" rel="tag">HEML</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
@@ -784,7 +786,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">タグ</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/GitHub/" rel="tag">GitHub</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HEML/" rel="tag">HEML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/" rel="tag">Vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Xcode/" rel="tag">Xcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zsh-alias/" rel="tag">zsh,alias</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/GitHub/" rel="tag">GitHub</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HEML/" rel="tag">HEML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/" rel="tag">Vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim-VimPlugin/" rel="tag">Vim,VimPlugin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Xcode/" rel="tag">Xcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zsh-alias/" rel="tag">zsh,alias</a></li></ul>
     </div>
   </div>
 
@@ -794,7 +796,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">タグクラウド</h3>
     <div class="widget tagcloud">
-      <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/HEML/" style="font-size: 10px;">HEML</a> <a href="/tags/HTML/" style="font-size: 20px;">HTML</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/Vim/" style="font-size: 15px;">Vim</a> <a href="/tags/Xcode/" style="font-size: 10px;">Xcode</a> <a href="/tags/zsh-alias/" style="font-size: 10px;">zsh,alias</a>
+      <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/HEML/" style="font-size: 10px;">HEML</a> <a href="/tags/HTML/" style="font-size: 20px;">HTML</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/Vim/" style="font-size: 15px;">Vim</a> <a href="/tags/Vim-VimPlugin/" style="font-size: 10px;">Vim,VimPlugin</a> <a href="/tags/Xcode/" style="font-size: 10px;">Xcode</a> <a href="/tags/zsh-alias/" style="font-size: 10px;">zsh,alias</a>
     </div>
   </div>
 
@@ -816,6 +818,10 @@
       <ul>
         
           <li>
+            <a href="/2021/02/18/%E5%85%A5%E5%8A%9B%E8%A3%9C%E5%AE%8C%E3%83%97%E3%83%A9%E3%82%B0%E3%82%A4%E3%83%B3%E3%80%8CDeoplete%E3%80%8D%E3%81%AE%E5%B0%8E%E5%85%A5%E6%96%B9%E6%B3%95/">入力補完プラグイン「Deoplete」の導入方法</a>
+          </li>
+        
+          <li>
             <a href="/2021/02/17/Vim%E3%81%ABPlugin%E3%83%9E%E3%83%8D%E3%83%BC%E3%82%B8%E3%83%A3%E3%83%BC%E3%80%8CVundle%E3%80%8D%E3%82%92%E5%85%A5%E3%82%8C%E3%82%8B/">VimにPluginマネージャー「Vundle」を入れる</a>
           </li>
         
@@ -829,10 +835,6 @@
         
           <li>
             <a href="/2021/02/14/Markdown%E3%81%A7%E6%94%B9%E8%A1%8C%E3%82%92%E5%85%A5%E3%82%8C%E3%82%8B/">Markdownで改行を入れる</a>
-          </li>
-        
-          <li>
-            <a href="/2021/02/12/iframe%E3%81%AEaline%E5%B1%9E%E6%80%A7%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/">iframeのaline属性について</a>
           </li>
         
       </ul>
