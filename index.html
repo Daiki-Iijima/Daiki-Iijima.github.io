@@ -71,6 +71,93 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-AppleScriptでVimの保存時のファイル更新を取得してブラウザを更新する" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/02/21/AppleScript%E3%81%A7Vim%E3%81%AE%E4%BF%9D%E5%AD%98%E6%99%82%E3%81%AE%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E6%9B%B4%E6%96%B0%E3%82%92%E5%8F%96%E5%BE%97%E3%81%97%E3%81%A6%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6%E3%82%92%E6%9B%B4%E6%96%B0%E3%81%99%E3%82%8B/" class="article-date">
+  <time class="dt-published" datetime="2021-02-21T02:41:11.000Z" itemprop="datePublished">2021-02-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/02/21/AppleScript%E3%81%A7Vim%E3%81%AE%E4%BF%9D%E5%AD%98%E6%99%82%E3%81%AE%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E6%9B%B4%E6%96%B0%E3%82%92%E5%8F%96%E5%BE%97%E3%81%97%E3%81%A6%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6%E3%82%92%E6%9B%B4%E6%96%B0%E3%81%99%E3%82%8B/">AppleScriptでVimの保存時のファイル更新を取得してブラウザを更新する</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h1><p>Vimでファイルを保存した時にファイルをブラウザで開いている場合(HTMLを書いている場合など)、いちいちブラウザにフォーカスを当てて、ブラウザ再読み込みを行うのは面倒くさいので、</p>
+<ol>
+<li>ブラウザにフォーカスを当てる</li>
+<li><code>command + r</code>イベントを発行</li>
+<li>フォーカスをターミナルに戻す</li>
+</ol>
+<p>の動作を自動化する</p>
+<h2 id="Vimで使用するコマンドを実装する"><a href="#Vimで使用するコマンドを実装する" class="headerlink" title="Vimで使用するコマンドを実装する"></a>Vimで使用するコマンドを実装する</h2><ol>
+<li><code>/Users/daiki/.vim/plugin</code>に<code>chrome.vim</code>を配置<ul>
+<li>ディレクトリがない場合は作成する</li>
+</ul>
+</li>
+<li>以下のコードを<code>chrome.vim</code>に書き込んで保存</li>
+</ol>
+<p><code>chrome.vim</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">command! -bar ChromeReload silent !osascript $HOME&#x2F;bin&#x2F;chrome_reload.scpt &amp;&amp; osascript $HOME&#x2F;bin&#x2F;terminal_focus.scpt</span><br><span class="line">command! -bar ChromeStartObserve ChromeStopObserve | autocmd BufWritePost &lt;buffer&gt; ChromeReload</span><br><span class="line">command! -bar ChromeStopObserve autocmd! BufWritePost &lt;buffer&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="ブラウザにフォーカスを当ててリロードするコマンドを実装"><a href="#ブラウザにフォーカスを当ててリロードするコマンドを実装" class="headerlink" title="ブラウザにフォーカスを当ててリロードするコマンドを実装"></a>ブラウザにフォーカスを当ててリロードするコマンドを実装</h2><ol>
+<li><code>/Users/daiki/bin</code>に<code>chrome_reload.scpt</code>を配置<ul>
+<li>ディレクトリがない場合は作成する </li>
+</ul>
+</li>
+<li>以下のコードを<code>chrome_reload.scpt</code>に書き込んで保存<h3 id="カスタマイズ"><a href="#カスタマイズ" class="headerlink" title="カスタマイズ"></a>カスタマイズ</h3></li>
+</ol>
+<ul>
+<li>1行目:<code>tell application &quot;safari&quot; to activate</code>の<code>safari</code>の部分を別のブラウザの名前に変更すると開くブラウザを変更できる</li>
+</ul>
+<p><code>chrome_reload.scpt</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tell application &quot;safari&quot; to activate</span><br><span class="line">tell application &quot;System Events&quot; to keystroke &quot;r&quot; using &#123;command down&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="ターミナルにフォーカスを戻すコマンド"><a href="#ターミナルにフォーカスを戻すコマンド" class="headerlink" title="ターミナルにフォーカスを戻すコマンド"></a>ターミナルにフォーカスを戻すコマンド</h2><ol>
+<li><code>/Users/daiki/bin</code>に<code>terminal_focus.scpt</code>を配置<ul>
+<li>ディレクトリがない場合は作成する </li>
+</ul>
+</li>
+<li>以下のコードを<code>terminal_focus.scpt</code>に書き込んで保存<h3 id="カスタマイズ-1"><a href="#カスタマイズ-1" class="headerlink" title="カスタマイズ"></a>カスタマイズ</h3></li>
+</ol>
+<ul>
+<li><code>&quot;Terminal&quot;</code>の部分を書き換えると別アプリにフォーカスを当てられる</li>
+</ul>
+<p><code>terminal_focus.scpt</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tell application &quot;Terminal&quot; to activate</span><br></pre></td></tr></table></figure>
+<h2 id="Vimで使用するには"><a href="#Vimで使用するには" class="headerlink" title="Vimで使用するには"></a>Vimで使用するには</h2><p>vimを開いて、ブラウザで更新したいファイルに対して以下のコマンドを打つ</p>
+<ul>
+<li><code>:ChromeReload</code>:１回ブラウザをリロードする</li>
+<li><code>:ChromeStartObserve</code>:Vimで保存するたびにブラウザをリロードする</li>
+<li><code>:ChromeStopObserve</code>:<code>ChromeStartObserve</code>の保存時の自動リロードを停止する</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a target="_blank" rel="noopener" href="https://lukesilvia.hatenablog.com/entry/20101023/p2">https://lukesilvia.hatenablog.com/entry/20101023/p2</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://daiki-iijima.github.io/2021/02/21/AppleScript%E3%81%A7Vim%E3%81%AE%E4%BF%9D%E5%AD%98%E6%99%82%E3%81%AE%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E6%9B%B4%E6%96%B0%E3%82%92%E5%8F%96%E5%BE%97%E3%81%97%E3%81%A6%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6%E3%82%92%E6%9B%B4%E6%96%B0%E3%81%99%E3%82%8B/" data-id="cklejpba500006jb6fn5qe0r2" data-title="AppleScriptでVimの保存時のファイル更新を取得してブラウザを更新する" class="article-share-link">共有</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AppleScript/" rel="tag">AppleScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vim/" rel="tag">Vim</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%87%AA%E5%8B%95%E5%8C%96/" rel="tag">自動化</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-Swiftで迷路を解く" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2021/02/20/Swift%E3%81%A7%E8%BF%B7%E8%B7%AF%E3%82%92%E8%A7%A3%E3%81%8F/" class="article-date">
@@ -721,70 +808,6 @@
 
 
   
-    <article id="post-テーブルについて" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/02/10/%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/" class="article-date">
-  <time class="dt-published" datetime="2021-02-09T23:46:10.000Z" itemprop="datePublished">2021-02-10</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/02/10/%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/">テーブルについて</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="table-テーブル-を生成する方法"><a href="#table-テーブル-を生成する方法" class="headerlink" title="table(テーブル)を生成する方法"></a>table(テーブル)を生成する方法</h1><ul>
-<li><code>&lt;table&gt;&lt;/table&gt;</code>タグを使用して、テーブルセクションを作成する<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span></span><br><span class="line">	テーブルの内容の記述</span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h1 id="テーブルの内容を追加する"><a href="#テーブルの内容を追加する" class="headerlink" title="テーブルの内容を追加する"></a>テーブルの内容を追加する</h1>行とデータを別々に記述する必要がある</li>
-<li><code>&lt;tr&gt;&lt;/tr&gt;</code>タグで<code>行</code>を生成<ul>
-<li>tr = table row</li>
-</ul>
-</li>
-<li><code>&lt;td&gt;&lt;/td&gt;</code>タグで行内の要素指定<ul>
-<li>td = table data</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">ラーメン値段表	&lt;!--タイトルのつもり--&gt;</span><br><span class="line">&lt;table&gt;</span><br><span class="line">	&lt;tr&gt;</span><br><span class="line">		&lt;td&gt;塩ラーメン&lt;&#x2F;td&gt;</span><br><span class="line">		&lt;td&gt;299&lt;&#x2F;td&gt;</span><br><span class="line">	&lt;&#x2F;tr&gt;</span><br><span class="line">	&lt;tr&gt;</span><br><span class="line">		&lt;td&gt;豚骨ラーメン&lt;&#x2F;td&gt;</span><br><span class="line">		&lt;td&gt;399&lt;&#x2F;td&gt;</span><br><span class="line">	&lt;&#x2F;tr&gt;</span><br><span class="line">	&lt;tr&gt;</span><br><span class="line">		&lt;td&gt;醤油ラーメン&lt;&#x2F;td&gt;</span><br><span class="line">		&lt;td&gt;499&lt;&#x2F;td&gt;</span><br><span class="line">	&lt;&#x2F;tr&gt;</span><br><span class="line">	&lt;tr&gt;</span><br><span class="line">		&lt;td&gt;味噌ラーメン&lt;&#x2F;td&gt;</span><br><span class="line">		&lt;td&gt;599&lt;&#x2F;td&gt;</span><br><span class="line">	&lt;&#x2F;tr&gt;</span><br><span class="line">&lt;&#x2F;table&gt;</span><br></pre></td></tr></table></figure>
-<h1 id="もう少しリッチな表現を入れる"><a href="#もう少しリッチな表現を入れる" class="headerlink" title="もう少しリッチな表現を入れる"></a>もう少しリッチな表現を入れる</h1><h2 id="枠線をつける"><a href="#枠線をつける" class="headerlink" title="枠線をつける"></a>枠線をつける</h2><ul>
-<li><code>&lt;table&gt;</code>タグに<code>border</code>属性を記述する<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">ラーメン値段表	<span class="comment">&lt;!--タイトルのつもり--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">border</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">td</span>&gt;</span>塩ラーメン<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">td</span>&gt;</span>299<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">td</span>&gt;</span>豚骨ラーメン<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">td</span>&gt;</span>399<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">td</span>&gt;</span>醤油ラーメン<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">td</span>&gt;</span>499<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">td</span>&gt;</span>味噌ラーメン<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">td</span>&gt;</span>599<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="見出しをつける"><a href="#見出しをつける" class="headerlink" title="見出しをつける"></a>見出しをつける</h2></li>
-<li><code>&lt;thead&gt;&lt;/thead&gt;</code>タグでヘッダーセクションを生成する<ul>
-<li>thead = table head</li>
-</ul>
-</li>
-<li><code>&lt;tr&gt;&lt;/tr&gt;</code>タグで行セクションを生成する</li>
-<li><code>&lt;th&gt;&lt;/th&gt;</code>タグでヘッダー情報を記述する </li>
-<li>ヘッダーと本文を区別するために本文部分は<code>&lt;tbody&gt;&lt;/tbody&gt;</code>セクションで囲む</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">ラーメン値段表	<span class="comment">&lt;!--タイトルのつもり--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">thead</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">th</span>&gt;</span>ラーメン名<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">th</span>&gt;</span>価格<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">thead</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">tbody</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">td</span>&gt;</span>塩ラーメン<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">td</span>&gt;</span>299<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">td</span>&gt;</span>豚骨ラーメン<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">td</span>&gt;</span>399<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">td</span>&gt;</span>醤油ラーメン<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">td</span>&gt;</span>499<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">td</span>&gt;</span>味噌ラーメン<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">td</span>&gt;</span>599<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">tbody</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://daiki-iijima.github.io/2021/02/10/%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/" data-id="ckkynl9d700006cb63c17df73" data-title="テーブルについて" class="article-share-link">共有</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
@@ -810,7 +833,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">タグ</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/GitHub/" rel="tag">GitHub</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HEML/" rel="tag">HEML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift/" rel="tag">Swift</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/" rel="tag">Vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim-VimPlugin/" rel="tag">Vim,VimPlugin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Xcode/" rel="tag">Xcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zsh-alias/" rel="tag">zsh,alias</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AppleScript/" rel="tag">AppleScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GitHub/" rel="tag">GitHub</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HEML/" rel="tag">HEML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift/" rel="tag">Swift</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/" rel="tag">Vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim-VimPlugin/" rel="tag">Vim,VimPlugin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Xcode/" rel="tag">Xcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zsh-alias/" rel="tag">zsh,alias</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%87%AA%E5%8B%95%E5%8C%96/" rel="tag">自動化</a></li></ul>
     </div>
   </div>
 
@@ -820,7 +843,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">タグクラウド</h3>
     <div class="widget tagcloud">
-      <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/HEML/" style="font-size: 10px;">HEML</a> <a href="/tags/HTML/" style="font-size: 20px;">HTML</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/Swift/" style="font-size: 10px;">Swift</a> <a href="/tags/Vim/" style="font-size: 15px;">Vim</a> <a href="/tags/Vim-VimPlugin/" style="font-size: 10px;">Vim,VimPlugin</a> <a href="/tags/Xcode/" style="font-size: 10px;">Xcode</a> <a href="/tags/zsh-alias/" style="font-size: 10px;">zsh,alias</a>
+      <a href="/tags/AppleScript/" style="font-size: 10px;">AppleScript</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/HEML/" style="font-size: 10px;">HEML</a> <a href="/tags/HTML/" style="font-size: 20px;">HTML</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/Swift/" style="font-size: 10px;">Swift</a> <a href="/tags/Vim/" style="font-size: 15px;">Vim</a> <a href="/tags/Vim-VimPlugin/" style="font-size: 10px;">Vim,VimPlugin</a> <a href="/tags/Xcode/" style="font-size: 10px;">Xcode</a> <a href="/tags/zsh-alias/" style="font-size: 10px;">zsh,alias</a> <a href="/tags/%E8%87%AA%E5%8B%95%E5%8C%96/" style="font-size: 10px;">自動化</a>
     </div>
   </div>
 
@@ -842,6 +865,10 @@
       <ul>
         
           <li>
+            <a href="/2021/02/21/AppleScript%E3%81%A7Vim%E3%81%AE%E4%BF%9D%E5%AD%98%E6%99%82%E3%81%AE%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E6%9B%B4%E6%96%B0%E3%82%92%E5%8F%96%E5%BE%97%E3%81%97%E3%81%A6%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6%E3%82%92%E6%9B%B4%E6%96%B0%E3%81%99%E3%82%8B/">AppleScriptでVimの保存時のファイル更新を取得してブラウザを更新する</a>
+          </li>
+        
+          <li>
             <a href="/2021/02/20/Swift%E3%81%A7%E8%BF%B7%E8%B7%AF%E3%82%92%E8%A7%A3%E3%81%8F/">Swiftで迷路を解く</a>
           </li>
         
@@ -855,10 +882,6 @@
         
           <li>
             <a href="/2021/02/16/zsh%E3%81%A8alias%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/">zshとaliasについて</a>
-          </li>
-        
-          <li>
-            <a href="/2021/02/14/Ctrl-c%E3%81%A8Esc%E3%81%AE%E9%81%95%E3%81%84/">Ctrl+cとEscの違い</a>
           </li>
         
       </ul>
