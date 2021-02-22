@@ -96,23 +96,25 @@
         <h2 id="openコマンドを使う"><a href="#openコマンドを使う" class="headerlink" title="openコマンドを使う"></a>openコマンドを使う</h2><ul>
 <li>vimでは<code>%</code>でカレントファイルのパスを取得できる</li>
 <li><code>!</code>はOS用のコマンド(<code>echo</code>や<code>pwd</code>など)の先頭につけることで<code>vimエディタ</code>上からOS用コマンドを実行することができる</li>
+<li><code>open</code>はファイルのデフォルトで開くソフトに設定されているソフトで開かれる</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:!open %</span><br></pre></td></tr></table></figure>
-<h2 id="さらに便利に使う"><a href="#さらに便利に使う" class="headerlink" title="さらに便利に使う"></a>さらに便利に使う</h2><ul>
-<li><code>!open %</code>だけでも、ブラウザでファイルを開くことはできるが、開いた後<code>Enterを押してください</code>的な表示がでてエディタ画面に戻るのにキーを押す必要が出てしまう</li>
-<li>この問題の解決方法として、<code>silent</code>をコマンドの先頭につける方法をとる</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:silent !open %</span><br></pre></td></tr></table></figure>
-<h2 id="画面真っ黒になる問題"><a href="#画面真っ黒になる問題" class="headerlink" title="画面真っ黒になる問題"></a>画面真っ黒になる問題</h2><p>これで、すぐにエディタを使えるようになったと思ったが、私の環境が悪いのかエディタ画面が真っ黒になってしまったので、<code>再描画</code>のコマンドを一緒に実行するようにした</p>
-<ul>
-<li><code>redraw</code>と完全再描画のために末尾に<code>!</code>をつけて<code>redraw!</code>を使う</li>
-<li>これを<code>open</code>コマンドと一緒に使うために<code>|</code>でコマンドをつなぐ</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:silent !opne % | redraw!</span><br></pre></td></tr></table></figure>
 <h2 id="入力の手間を減らす"><a href="#入力の手間を減らす" class="headerlink" title="入力の手間を減らす"></a>入力の手間を減らす</h2><ul>
 <li>これまでのコマンドをショートカットキーで呼び出せるように<code>.vimrc</code>に追記する</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&quot; スペースキーをショートカットのトリガーとして認識するように設定</span><br><span class="line">let mapleader &#x3D; &quot;\&lt;Space&gt;&quot; </span><br><span class="line"></span><br><span class="line">&quot;	スペースキー + o で実行できる</span><br><span class="line">nnoremap &lt;silent&gt;&lt;Leader&gt;o :!open %&lt;CR&gt; | :redraw!</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&quot; スペースキーをショートカットのトリガーとして認識するように設定</span><br><span class="line">let mapleader &#x3D; &quot;\&lt;Space&gt;&quot; </span><br><span class="line"></span><br><span class="line">&quot;	スペースキー + o で実行できる</span><br><span class="line">nnoremap &lt;Leader&gt;o :!open %&lt;CR&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="フォーカスを戻す-Mac"><a href="#フォーカスを戻す-Mac" class="headerlink" title="フォーカスを戻す(Mac)"></a>フォーカスを戻す(Mac)</h2><ul>
+<li><code>open</code>コマンドを使うとフォーカスがブラウザになってしまうので、<code>AppleScript</code>を使ってフォーカスをVim(iTerm)に戻す<ul>
+<li><code>terminal_focus</code>の対象アプリを変更すればiTerm以外のソフトにも対応可能</li>
+</ul>
+</li>
+</ul>
+<p>~/.vim/plugin/BrowserOpen.vim</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">command! -bar BrowserOpen !open % | osascript $HOME&#x2F;bin&#x2F;terminal_focus.scpt</span><br></pre></td></tr></table></figure>
+<p>~/bin/terminal_focus.scpt</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tell application &quot;iTerm&quot; to activate</span><br></pre></td></tr></table></figure>
+<p>~/.vimrc</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&quot; スペースキーをショートカットのトリガーとして認識するように設定</span><br><span class="line">let mapleader &#x3D; &quot;\&lt;Space&gt;&quot; </span><br><span class="line"></span><br><span class="line">&quot;	スペースキー + o で実行できる</span><br><span class="line">nnoremap &lt;Leader&gt;o :BrowserOpen&lt;CR&gt;</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
