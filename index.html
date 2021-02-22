@@ -71,6 +71,65 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-vimのカレントファイルをブラウザで開く" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/02/22/vim%E3%81%AE%E3%82%AB%E3%83%AC%E3%83%B3%E3%83%88%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6%E3%81%A7%E9%96%8B%E3%81%8F/" class="article-date">
+  <time class="dt-published" datetime="2021-02-22T13:35:42.000Z" itemprop="datePublished">2021-02-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/02/22/vim%E3%81%AE%E3%82%AB%E3%83%AC%E3%83%B3%E3%83%88%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6%E3%81%A7%E9%96%8B%E3%81%8F/">vimのカレントファイルをブラウザで開く</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="openコマンドを使う"><a href="#openコマンドを使う" class="headerlink" title="openコマンドを使う"></a>openコマンドを使う</h2><ul>
+<li>vimでは<code>%</code>でカレントファイルのパスを取得できる</li>
+<li><code>!</code>はOS用のコマンド(<code>echo</code>や<code>pwd</code>など)の先頭につけることで<code>vimエディタ</code>上からOS用コマンドを実行することができる</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:!open %</span><br></pre></td></tr></table></figure>
+<h2 id="さらに便利に使う"><a href="#さらに便利に使う" class="headerlink" title="さらに便利に使う"></a>さらに便利に使う</h2><ul>
+<li><code>!open %</code>だけでも、ブラウザでファイルを開くことはできるが、開いた後<code>Enterを押してください</code>的な表示がでてエディタ画面に戻るのにキーを押す必要が出てしまう</li>
+<li>この問題の解決方法として、<code>silent</code>をコマンドの先頭につける方法をとる</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:silent !open %</span><br></pre></td></tr></table></figure>
+<h2 id="画面真っ黒になる問題"><a href="#画面真っ黒になる問題" class="headerlink" title="画面真っ黒になる問題"></a>画面真っ黒になる問題</h2><p>これで、すぐにエディタを使えるようになったと思ったが、私の環境が悪いのかエディタ画面が真っ黒になってしまったので、<code>再描画</code>のコマンドを一緒に実行するようにした</p>
+<ul>
+<li><code>redraw</code>と完全再描画のために末尾に<code>!</code>をつけて<code>redraw!</code>を使う</li>
+<li>これを<code>open</code>コマンドと一緒に使うために<code>|</code>でコマンドをつなぐ</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:silent !opne % | redraw!</span><br></pre></td></tr></table></figure>
+<h2 id="入力の手間を減らす"><a href="#入力の手間を減らす" class="headerlink" title="入力の手間を減らす"></a>入力の手間を減らす</h2><ul>
+<li>これまでのコマンドをショートカットキーで呼び出せるように<code>.vimrc</code>に追記する</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&quot; スペースキーをショートカットのトリガーとして認識するように設定</span><br><span class="line">let mapleader &#x3D; &quot;\&lt;Space&gt;&quot; </span><br><span class="line"></span><br><span class="line">&quot;	スペースキー + o で実行できる</span><br><span class="line">nnoremap &lt;silent&gt;&lt;Leader&gt;o :!open %&lt;CR&gt; | :redraw!</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://daiki-iijima.github.io/2021/02/22/vim%E3%81%AE%E3%82%AB%E3%83%AC%E3%83%B3%E3%83%88%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6%E3%81%A7%E9%96%8B%E3%81%8F/" data-id="cklgmos0v0000rlb6dybb30kd" data-title="vimのカレントファイルをブラウザで開く" class="article-share-link">共有</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vim/" rel="tag">Vim</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-AppleScriptでVimの保存時のファイル更新を取得してブラウザを更新する" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2021/02/21/AppleScript%E3%81%A7Vim%E3%81%AE%E4%BF%9D%E5%AD%98%E6%99%82%E3%81%AE%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E6%9B%B4%E6%96%B0%E3%82%92%E5%8F%96%E5%BE%97%E3%81%97%E3%81%A6%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6%E3%82%92%E6%9B%B4%E6%96%B0%E3%81%99%E3%82%8B/" class="article-date">
@@ -624,195 +683,11 @@
 
 
   
-    <article id="post-formについて" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/02/10/form%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/" class="article-date">
-  <time class="dt-published" datetime="2021-02-09T23:59:29.000Z" itemprop="datePublished">2021-02-10</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/02/10/form%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/">formについて</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a target="_blank" rel="noopener" href="https://www.kanzaki.com/docs/html/htminfo31.html">基本的なフォーム</a></p>
-<h1 id="form-入力・送信フォーム-タグ"><a href="#form-入力・送信フォーム-タグ" class="headerlink" title="form(入力・送信フォーム)タグ"></a>form(入力・送信フォーム)タグ</h1><ul>
-<li>どこに、どうやって送信するかを記述するタグ</li>
-<li>このタグセクションの中には、何を送信するかを示す</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span>&gt;</span><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="input-入力-タグ"><a href="#input-入力-タグ" class="headerlink" title="input(入力)タグ"></a>input(入力)タグ</h2><ul>
-<li>formタグの「何を」送信するかを記述するためのタグ</li>
-<li>formタグで囲む必要があるのは、入力した値を送信したい場合<ul>
-<li>必ずformタグに記述する必要はない</li>
-</ul>
-</li>
-<li><code>type</code>属性を指定することで、入力インターフェイスを変更できる</li>
-</ul>
-<h3 id="type属性の種類"><a href="#type属性の種類" class="headerlink" title="type属性の種類"></a>type属性の種類</h3><p><a target="_blank" rel="noopener" href="http://www.htmq.com/html5/input.shtml">type属性の値</a></p>
-<ul>
-<li>type=”hidden”<ul>
-<li>画面上は表示されない隠しデータを指定する</li>
-</ul>
-</li>
-<li>type=”text”<ul>
-<li>一行テキストボックスを作成する（初期値）</li>
-</ul>
-</li>
-<li>type=”search”<ul>
-<li>検索テキストの入力欄を作成するHTML5から追加</li>
-</ul>
-</li>
-<li>type=”tel”<ul>
-<li>電話番号の入力欄を作成するHTML5から追加</li>
-</ul>
-</li>
-<li>type=”url”<ul>
-<li>URLの入力欄を作成するHTML5から追加</li>
-</ul>
-</li>
-<li>type=”email”<ul>
-<li>メールアドレスの入力欄を作成するHTML5から追加</li>
-</ul>
-</li>
-<li>type=”password”<ul>
-<li>パスワード入力欄を作成する</li>
-</ul>
-</li>
-<li>type=”datetime”<ul>
-<li>UTC（協定世界時）による日時の入力欄を作成するHTML5から追加</li>
-</ul>
-</li>
-<li>type=”date”<ul>
-<li>日付の入力欄を作成するHTML5から追加</li>
-</ul>
-</li>
-<li>type=”month”<ul>
-<li>月の入力欄を作成するHTML5から追加</li>
-</ul>
-</li>
-<li>type=”week”<ul>
-<li>週の入力欄を作成するHTML5から追加</li>
-</ul>
-</li>
-<li>type=”time”<ul>
-<li>時間の入力欄を作成するHTML5から追加</li>
-</ul>
-</li>
-<li>type=”datetime-local”<ul>
-<li>UTC（協定世界時）によらないローカル日時の入力欄を作成するHTML5から追加</li>
-</ul>
-</li>
-<li>type=”number”<ul>
-<li>数値の入力欄を作成するHTML5から追加</li>
-</ul>
-</li>
-<li>type=”range”<ul>
-<li>レンジの入力欄を作成するHTML5から追加</li>
-</ul>
-</li>
-<li>type=”color”<ul>
-<li>色の入力欄を作成するHTML5から追加</li>
-</ul>
-</li>
-<li>type=”checkbox”<ul>
-<li>チェックボックスを作成する</li>
-</ul>
-</li>
-<li>type=”radio”<ul>
-<li>ラジオボタンを作成する</li>
-</ul>
-</li>
-<li>type=”file”<ul>
-<li>サーバーへファイルを送信する</li>
-</ul>
-</li>
-<li>type=”submit”<ul>
-<li>送信ボタンを作成する</li>
-</ul>
-</li>
-<li>type=”image”<ul>
-<li>画像ボタンを作成する</li>
-</ul>
-</li>
-<li>type=”reset”<ul>
-<li>リセットボタンを作成する</li>
-</ul>
-</li>
-<li>type=”button”<ul>
-<li>汎用ボタンを作成する</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="ボタンにアクションを設定する"><a href="#ボタンにアクションを設定する" class="headerlink" title="ボタンにアクションを設定する"></a>ボタンにアクションを設定する</h3><ul>
-<li><code>action</code>属性を設定することで、ボタンを押した時の挙動を指定できる</li>
-</ul>
-<p>この例の場合、ボタンを押すと<code>action</code>で指定しているURLを開く</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;http://www.google.co.jp&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="テキストをデフォルトで設定しておく"><a href="#テキストをデフォルトで設定しておく" class="headerlink" title="テキストをデフォルトで設定しておく"></a>テキストをデフォルトで設定しておく</h3><ul>
-<li>入力された状態でデフォルト設定<ul>
-<li><code>value</code>タグを使用する<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">value</span>=<span class="string">&quot;デフォルト&quot;</span>&gt;</span> </span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li>ガイドラインとして表示する<ul>
-<li><code>placeholder</code>タグを使用する<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">placeholder</span>=<span class="string">&quot;デフォルト&quot;</span>&gt;</span> </span><br></pre></td></tr></table></figure>
-<h3 id="チェックボックスをデフォルトでチェックした状態にする"><a href="#チェックボックスをデフォルトでチェックした状態にする" class="headerlink" title="チェックボックスをデフォルトでチェックした状態にする"></a>チェックボックスをデフォルトでチェックした状態にする</h3></li>
-</ul>
-</li>
-<li><code>checked</code>属性を使う<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> <span class="attr">checked</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="ボタンの表示名を変える"><a href="#ボタンの表示名を変える" class="headerlink" title="ボタンの表示名を変える"></a>ボタンの表示名を変える</h3></li>
-<li><code>value</code>属性を設定する</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type&#x3D;&quot;button&quot; value&#x3D;&quot;これはボタンです&quot;&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="複数のラジオボタンの連携"><a href="#複数のラジオボタンの連携" class="headerlink" title="複数のラジオボタンの連携"></a>複数のラジオボタンの連携</h3><ul>
-<li><code>name</code>属性をつけることで、グルーピングができる</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">name</span>=<span class="string">&quot;test&quot;</span>&gt;</span></span><br><span class="line">2<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">name</span>=<span class="string">&quot;test&quot;</span>&gt;</span></span><br><span class="line">3<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">name</span>=<span class="string">&quot;test&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="ラジオボタンをデフォルトでチェックした状態にする"><a href="#ラジオボタンをデフォルトでチェックした状態にする" class="headerlink" title="ラジオボタンをデフォルトでチェックした状態にする"></a>ラジオボタンをデフォルトでチェックした状態にする</h3><ul>
-<li><code>checked</code>属性を使う<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> <span class="attr">checked</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h2 id="ドロップダウンを生成する"><a href="#ドロップダウンを生成する" class="headerlink" title="ドロップダウンを生成する"></a>ドロップダウンを生成する</h2><ul>
-<li><code>&lt;select&gt;&lt;/select&gt;</code>タグを使用して、その中のセクションに<code>&lt;option&gt;&lt;/option&gt;</code>タグで項目を記述する<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">option</span>&gt;</span>塩ラーメン<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">option</span>&gt;</span>味噌ラーメン<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">option</span>&gt;</span>醤油ラーメン<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">option</span>&gt;</span>豚骨ラーメン<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="ドロップダウンのデフォルト選択項目を指定する"><a href="#ドロップダウンのデフォルト選択項目を指定する" class="headerlink" title="ドロップダウンのデフォルト選択項目を指定する"></a>ドロップダウンのデフォルト選択項目を指定する</h3></li>
-<li>デフォルトで選択させた状態にしたい<code>&lt;option&gt;</code>タグに、<code>selected</code>属性を付与する</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">option</span>&gt;</span>塩ラーメン<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">option</span>&gt;</span>味噌ラーメン<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">option</span> <span class="attr">selected</span>&gt;</span>醤油ラーメン<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">option</span>&gt;</span>豚骨ラーメン<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://daiki-iijima.github.io/2021/02/10/form%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/" data-id="ckkyo7qhg0000u8b656t06w4n" data-title="formについて" class="article-share-link">共有</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">次へ &raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">次へ &raquo;</a>
   </nav>
 
 </section>
@@ -865,6 +740,10 @@
       <ul>
         
           <li>
+            <a href="/2021/02/22/vim%E3%81%AE%E3%82%AB%E3%83%AC%E3%83%B3%E3%83%88%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6%E3%81%A7%E9%96%8B%E3%81%8F/">vimのカレントファイルをブラウザで開く</a>
+          </li>
+        
+          <li>
             <a href="/2021/02/21/AppleScript%E3%81%A7Vim%E3%81%AE%E4%BF%9D%E5%AD%98%E6%99%82%E3%81%AE%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E6%9B%B4%E6%96%B0%E3%82%92%E5%8F%96%E5%BE%97%E3%81%97%E3%81%A6%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6%E3%82%92%E6%9B%B4%E6%96%B0%E3%81%99%E3%82%8B/">AppleScriptでVimの保存時のファイル更新を取得してブラウザを更新する</a>
           </li>
         
@@ -878,10 +757,6 @@
         
           <li>
             <a href="/2021/02/17/Vim%E3%81%ABPlugin%E3%83%9E%E3%83%8D%E3%83%BC%E3%82%B8%E3%83%A3%E3%83%BC%E3%80%8CVundle%E3%80%8D%E3%82%92%E5%85%A5%E3%82%8C%E3%82%8B/">VimにPluginマネージャー「Vundle」を入れる</a>
-          </li>
-        
-          <li>
-            <a href="/2021/02/16/zsh%E3%81%A8alias%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/">zshとaliasについて</a>
           </li>
         
       </ul>
