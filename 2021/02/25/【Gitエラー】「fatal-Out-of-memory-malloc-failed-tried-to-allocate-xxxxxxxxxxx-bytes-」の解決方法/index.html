@@ -4,19 +4,19 @@
   <meta charset="utf-8">
   
   
-  <title>Ctrl+cとEscの違い | Inside the Black box .</title>
+  <title>【Gitエラー】「fatal: Out of memory, malloc failed (tried to allocate xxxxxxxxxxx bytes)」の解決方法 | Inside the Black box .</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Ctrl+cはEscと同じ挙動をしない場合がある例えば、矩形選択モードctrl + vでマルチカーソル処理を行おうとした時に、入力内容を確定するために、インサートモードを抜けるが、その時の挙動がCtrl + cとEscでは、違ったものになる  Ctrl + c : 最初の１行しか入力内容が反映されない Esc : 期待通りの選択している全ての行に入力値が反映される  対策 キーマップを書き換えてC">
+  <meta name="description" content="原因ファイル容量の大きいGitリポジトリをチェックアウトしようとしたら起きたので、Gitの解凍処理でメモリが食い尽くされているのが原因らいしい 解決策解凍処理を小分けにする ~&#x2F;.gitconfigに以下を追記する 12345678[core]packedGitLimit &#x3D; 128mpackedGitWindowSize &#x3D; 128m[pack]deltaCacheSize">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Ctrl+cとEscの違い">
-<meta property="og:url" content="https://daiki-iijima.github.io/2021/02/14/Ctrl-c%E3%81%A8Esc%E3%81%AE%E9%81%95%E3%81%84/index.html">
+<meta property="og:title" content="【Gitエラー】「fatal: Out of memory, malloc failed (tried to allocate xxxxxxxxxxx bytes)」の解決方法">
+<meta property="og:url" content="https://daiki-iijima.github.io/2021/02/25/%E3%80%90Git%E3%82%A8%E3%83%A9%E3%83%BC%E3%80%91%E3%80%8Cfatal-Out-of-memory-malloc-failed-tried-to-allocate-xxxxxxxxxxx-bytes-%E3%80%8D%E3%81%AE%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%B3%95/index.html">
 <meta property="og:site_name" content="Inside the Black box .">
-<meta property="og:description" content="Ctrl+cはEscと同じ挙動をしない場合がある例えば、矩形選択モードctrl + vでマルチカーソル処理を行おうとした時に、入力内容を確定するために、インサートモードを抜けるが、その時の挙動がCtrl + cとEscでは、違ったものになる  Ctrl + c : 最初の１行しか入力内容が反映されない Esc : 期待通りの選択している全ての行に入力値が反映される  対策 キーマップを書き換えてC">
+<meta property="og:description" content="原因ファイル容量の大きいGitリポジトリをチェックアウトしようとしたら起きたので、Gitの解凍処理でメモリが食い尽くされているのが原因らいしい 解決策解凍処理を小分けにする ~&#x2F;.gitconfigに以下を追記する 12345678[core]packedGitLimit &#x3D; 128mpackedGitWindowSize &#x3D; 128m[pack]deltaCacheSize">
 <meta property="og:locale" content="ja_JP">
-<meta property="article:published_time" content="2021-02-14T14:57:38.000Z">
-<meta property="article:modified_time" content="2021-02-14T14:58:30.627Z">
+<meta property="article:published_time" content="2021-02-25T13:48:44.000Z">
+<meta property="article:modified_time" content="2021-02-25T13:58:10.095Z">
 <meta property="article:author" content="Daiki Iijima">
-<meta property="article:tag" content="Vim">
+<meta property="article:tag" content="Git">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="Inside the Black box ." type="application/atom+xml">
@@ -74,10 +74,10 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-Ctrl-cとEscの違い" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-【Gitエラー】「fatal-Out-of-memory-malloc-failed-tried-to-allocate-xxxxxxxxxxx-bytes-」の解決方法" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2021/02/14/Ctrl-c%E3%81%A8Esc%E3%81%AE%E9%81%95%E3%81%84/" class="article-date">
-  <time class="dt-published" datetime="2021-02-14T14:57:38.000Z" itemprop="datePublished">2021-02-14</time>
+    <a href="/2021/02/25/%E3%80%90Git%E3%82%A8%E3%83%A9%E3%83%BC%E3%80%91%E3%80%8Cfatal-Out-of-memory-malloc-failed-tried-to-allocate-xxxxxxxxxxx-bytes-%E3%80%8D%E3%81%AE%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%B3%95/" class="article-date">
+  <time class="dt-published" datetime="2021-02-25T13:48:44.000Z" itemprop="datePublished">2021-02-25</time>
 </a>
     
   </div>
@@ -88,7 +88,7 @@
         
   
     <h1 class="p-name article-title" itemprop="headline name">
-      Ctrl+cとEscの違い
+      【Gitエラー】「fatal: Out of memory, malloc failed (tried to allocate xxxxxxxxxxx bytes)」の解決方法
     </h1>
   
 
@@ -96,28 +96,18 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="Ctrl-cはEscと同じ挙動をしない場合がある"><a href="#Ctrl-cはEscと同じ挙動をしない場合がある" class="headerlink" title="Ctrl+cはEscと同じ挙動をしない場合がある"></a>Ctrl+cはEscと同じ挙動をしない場合がある</h1><p>例えば、矩形選択モード<code>ctrl + v</code>でマルチカーソル処理を行おうとした時に、入力内容を確定するために、インサートモードを抜けるが、その時の挙動が<code>Ctrl + c</code>と<code>Esc</code>では、違ったものになる</p>
-<ul>
-<li>Ctrl + c : 最初の１行しか入力内容が反映されない</li>
-<li>Esc : 期待通りの選択している全ての行に入力値が反映される</li>
-</ul>
-<h1 id="対策"><a href="#対策" class="headerlink" title="対策"></a>対策</h1><ol>
-<li><p>キーマップを書き換えて<code>Ctrl + c</code>を<code>Esc</code>と同じ扱いにする</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">imap &lt;C-c&gt; &lt;Esc&gt;</span><br></pre></td></tr></table></figure></li>
-<li><p><code>Ctrl + [</code>を使う</p>
-</li>
-<li><p>素直に<code>Esc</code>を使用する</p>
-</li>
-</ol>
-
+        <h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>ファイル容量の大きいGitリポジトリをチェックアウトしようとしたら起きたので、Gitの解凍処理でメモリが食い尽くされているのが原因らいしい</p>
+<h2 id="解決策"><a href="#解決策" class="headerlink" title="解決策"></a>解決策</h2><p>解凍処理を小分けにする</p>
+<p><code>~/.gitconfig</code>に以下を追記する</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[core]</span><br><span class="line">packedGitLimit &#x3D; 128m</span><br><span class="line">packedGitWindowSize &#x3D; 128m</span><br><span class="line"></span><br><span class="line">[pack]</span><br><span class="line">deltaCacheSize &#x3D; 128m</span><br><span class="line">packSizeLimit &#x3D; 128m</span><br><span class="line">windowMemory &#x3D; 128m</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://daiki-iijima.github.io/2021/02/14/Ctrl-c%E3%81%A8Esc%E3%81%AE%E9%81%95%E3%81%84/" data-id="ckl59xii70000tzb6ex2k9n3h" data-title="Ctrl+cとEscの違い" class="article-share-link">共有</a>
+      <a data-url="https://daiki-iijima.github.io/2021/02/25/%E3%80%90Git%E3%82%A8%E3%83%A9%E3%83%BC%E3%80%91%E3%80%8Cfatal-Out-of-memory-malloc-failed-tried-to-allocate-xxxxxxxxxxx-bytes-%E3%80%8D%E3%81%AE%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%B3%95/" data-id="cklkxmkxt0000aob60nbm6k8y" data-title="【Gitエラー】「fatal: Out of memory, malloc failed (tried to allocate xxxxxxxxxxx bytes)」の解決方法" class="article-share-link">共有</a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vim/" rel="tag">Vim</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/" rel="tag">Git</a></li></ul>
 
     </footer>
   </div>
@@ -125,19 +115,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2021/02/16/zsh%E3%81%A8alias%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">次の記事</strong>
-      <div class="article-nav-title">
-        
-          zshとaliasについて
-        
-      </div>
-    </a>
   
-  
-    <a href="/2021/02/14/Markdown%E3%81%A7%E6%94%B9%E8%A1%8C%E3%82%92%E5%85%A5%E3%82%8C%E3%82%8B/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2021/02/24/%E8%87%AA%E4%BD%9C%E3%82%BD%E3%83%BC%E3%83%88%E3%80%90Swift%E3%80%91/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">前の記事</strong>
-      <div class="article-nav-title">Markdownで改行を入れる</div>
+      <div class="article-nav-title">自作ソート【Swift】</div>
     </a>
   
 </nav>
