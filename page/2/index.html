@@ -71,6 +71,59 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Ctrl-cとEscの違い" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/02/14/Ctrl-c%E3%81%A8Esc%E3%81%AE%E9%81%95%E3%81%84/" class="article-date">
+  <time class="dt-published" datetime="2021-02-14T14:57:38.000Z" itemprop="datePublished">2021-02-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/02/14/Ctrl-c%E3%81%A8Esc%E3%81%AE%E9%81%95%E3%81%84/">Ctrl+cとEscの違い</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Ctrl-cはEscと同じ挙動をしない場合がある"><a href="#Ctrl-cはEscと同じ挙動をしない場合がある" class="headerlink" title="Ctrl+cはEscと同じ挙動をしない場合がある"></a>Ctrl+cはEscと同じ挙動をしない場合がある</h1><p>例えば、矩形選択モード<code>ctrl + v</code>でマルチカーソル処理を行おうとした時に、入力内容を確定するために、インサートモードを抜けるが、その時の挙動が<code>Ctrl + c</code>と<code>Esc</code>では、違ったものになる</p>
+<ul>
+<li>Ctrl + c : 最初の１行しか入力内容が反映されない</li>
+<li>Esc : 期待通りの選択している全ての行に入力値が反映される</li>
+</ul>
+<h1 id="対策"><a href="#対策" class="headerlink" title="対策"></a>対策</h1><ol>
+<li><p>キーマップを書き換えて<code>Ctrl + c</code>を<code>Esc</code>と同じ扱いにする</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">imap &lt;C-c&gt; &lt;Esc&gt;</span><br></pre></td></tr></table></figure></li>
+<li><p><code>Ctrl + [</code>を使う</p>
+</li>
+<li><p>素直に<code>Esc</code>を使用する</p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://daiki-iijima.github.io/2021/02/14/Ctrl-c%E3%81%A8Esc%E3%81%AE%E9%81%95%E3%81%84/" data-id="ckl59xii70000tzb6ex2k9n3h" data-title="Ctrl+cとEscの違い" class="article-share-link">共有</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vim/" rel="tag">Vim</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-Markdownで改行を入れる" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2021/02/14/Markdown%E3%81%A7%E6%94%B9%E8%A1%8C%E3%82%92%E5%85%A5%E3%82%8C%E3%82%8B/" class="article-date">
@@ -704,81 +757,6 @@
 
 
   
-    <article id="post-テキストレイアウトについて" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/02/05/%E3%83%86%E3%82%AD%E3%82%B9%E3%83%88%E3%83%AC%E3%82%A4%E3%82%A2%E3%82%A6%E3%83%88%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/" class="article-date">
-  <time class="dt-published" datetime="2021-02-05T14:11:53.000Z" itemprop="datePublished">2021-02-05</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/02/05/%E3%83%86%E3%82%AD%E3%82%B9%E3%83%88%E3%83%AC%E3%82%A4%E3%82%A2%E3%82%A6%E3%83%88%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/">テキストレイアウトについて</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="参考URL"><a href="#参考URL" class="headerlink" title="参考URL"></a>参考URL</h1><p><a target="_blank" rel="noopener" href="https://www.w3schools.com/html/html_formatting.asp">w3schools.com</a></p>
-<h1 id="strong-太文字"><a href="#strong-太文字" class="headerlink" title="strong(太文字)"></a>strong(太文字)</h1><ul>
-<li><code>&lt;b&gt;&lt;/b&gt;</code>で表現をすることもできるが、HTML5からは、<code>&lt;strong&gt;&lt;/strong&gt;</code>タグが推奨されている<ul>
-<li>人が目視で確認する時に、<code>&lt;strong&gt;&lt;/strong&gt;</code>の方が読みやすいから</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">これは<span class="tag">&lt;<span class="name">strong</span>&gt;</span>太文字<span class="tag">&lt;/<span class="name">strong</span>&gt;</span>だよ</span><br></pre></td></tr></table></figure>
-<h1 id="em-イタリック-タグ"><a href="#em-イタリック-タグ" class="headerlink" title="em(イタリック)タグ"></a>em(イタリック)タグ</h1><ul>
-<li><code>&lt;i&gt;&lt;/i&gt;</code>で表現することもできるが、HTML5からは、<code>&lt;em&gt;&lt;/em&gt;</code>タグが推奨されている<ul>
-<li>em = Enphasize</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">これは<span class="tag">&lt;<span class="name">em</span>&gt;</span>イタリック文字<span class="tag">&lt;/<span class="name">em</span>&gt;</span>だよ</span><br></pre></td></tr></table></figure>
-<h1 id="ins-下線-タグ"><a href="#ins-下線-タグ" class="headerlink" title="ins(下線)タグ"></a>ins(下線)タグ</h1><ul>
-<li><code>&lt;u&gt;&lt;/u&gt;</code>で表現でこともできるが、HTML5からは、<code>&lt;ins&gt;&lt;/ins&gt;</code>タグが推奨されている<ul>
-<li>ins = insert</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>これは<span class="tag">&lt;<span class="name">ins</span>&gt;</span>下線<span class="tag">&lt;/<span class="name">ins</span>&gt;</span>だよ<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h1 id="sup-上付き文字-タグ"><a href="#sup-上付き文字-タグ" class="headerlink" title="sup(上付き文字)タグ"></a>sup(上付き文字)タグ</h1><ul>
-<li>sup = Superscript<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>これは<span class="tag">&lt;<span class="name">sup</span>&gt;</span>上付き文字<span class="tag">&lt;/<span class="name">sup</span>&gt;</span>だよ<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h1 id="sub-下付き文字-タグ"><a href="#sub-下付き文字-タグ" class="headerlink" title="sub(下付き文字)タグ"></a>sub(下付き文字)タグ</h1></li>
-<li>sub = Subscript<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>これは<span class="tag">&lt;<span class="name">sub</span>&gt;</span>下付き文字<span class="tag">&lt;/<span class="name">sub</span>&gt;</span>だよ<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h1 id="del-打ち消し-タグ"><a href="#del-打ち消し-タグ" class="headerlink" title="del(打ち消し)タグ"></a>del(打ち消し)タグ</h1></li>
-<li>del = delete<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>これは<span class="tag">&lt;<span class="name">del</span>&gt;</span>打ち消し<span class="tag">&lt;/<span class="name">del</span>&gt;</span>だよ<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h1 id="hr-区切り線-タグ"><a href="#hr-区切り線-タグ" class="headerlink" title="hr(区切り線)タグ"></a>hr(区切り線)タグ</h1></li>
-<li>自己完結型(<code>&lt;/hr&gt;</code>がいらない)</li>
-<li>勝手に改行が入る</li>
-<li>hr = Horizontal Rule<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ここから下に区切り線が入る<span class="tag">&lt;<span class="name">hr</span>&gt;</span>ここから上に区切り線が入る</span><br></pre></td></tr></table></figure>
-<h1 id="mark-ハイライト-タグ"><a href="#mark-ハイライト-タグ" class="headerlink" title="mark(ハイライト)タグ"></a>mark(ハイライト)タグ</h1></li>
-<li>mark = marking <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>これは<span class="tag">&lt;<span class="name">mark</span>&gt;</span>ハイライト<span class="tag">&lt;/<span class="name">mark</span>&gt;</span>だよ<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://daiki-iijima.github.io/2021/02/05/%E3%83%86%E3%82%AD%E3%82%B9%E3%83%88%E3%83%AC%E3%82%A4%E3%82%A2%E3%82%A6%E3%83%88%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/" data-id="ckksdd3220000qub62ekibd52" data-title="テキストレイアウトについて" class="article-share-link">共有</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
@@ -836,6 +814,10 @@
       <ul>
         
           <li>
+            <a href="/2021/02/26/%E3%80%90Vim%E3%80%91%E3%83%90%E3%83%83%E3%82%AF%E3%82%B9%E3%83%9A%E3%83%BC%E3%82%B9%E3%81%8C%E5%8A%B9%E3%81%8B%E3%81%AA%E3%81%8F%E3%81%AA%E3%81%A3%E3%81%9F%E5%A0%B4%E5%90%88%E3%81%AE%E5%AF%BE%E5%87%A6%E6%B3%95/">【Vim】バックスペースが効かなくなった場合の対処方</a>
+          </li>
+        
+          <li>
             <a href="/2021/02/25/%E3%80%90Git%E3%82%A8%E3%83%A9%E3%83%BC%E3%80%91%E3%80%8Cfatal-Out-of-memory-malloc-failed-tried-to-allocate-xxxxxxxxxxx-bytes-%E3%80%8D%E3%81%AE%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%B3%95/">【Gitエラー】「fatal: Out of memory, malloc failed (tried to allocate xxxxxxxxxxx bytes)」の解決方法</a>
           </li>
         
@@ -849,10 +831,6 @@
         
           <li>
             <a href="/2021/02/22/vim%E3%81%AE%E3%82%AB%E3%83%AC%E3%83%B3%E3%83%88%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6%E3%81%A7%E9%96%8B%E3%81%8F/">vimのカレントファイルをブラウザで開く</a>
-          </li>
-        
-          <li>
-            <a href="/2021/02/21/AppleScript%E3%81%A7Vim%E3%81%AE%E4%BF%9D%E5%AD%98%E6%99%82%E3%81%AE%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E6%9B%B4%E6%96%B0%E3%82%92%E5%8F%96%E5%BE%97%E3%81%97%E3%81%A6%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6%E3%82%92%E6%9B%B4%E6%96%B0%E3%81%99%E3%82%8B/">AppleScriptでVimの保存時のファイル更新を取得してブラウザを更新する</a>
           </li>
         
       </ul>
