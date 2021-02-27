@@ -4,19 +4,18 @@
   <meta charset="utf-8">
   
   
-  <title>vimのカレントファイルをブラウザで開く | Inside the Black box .</title>
+  <title>Floatレイアウトについて | Inside the Black box .</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="openコマンドを使う vimでは%でカレントファイルのパスを取得できる !はOS用のコマンド(echoやpwdなど)の先頭につけることでvimエディタ上からOS用コマンドを実行することができる openはファイルのデフォルトで開くソフトに設定されているソフトで開かれる  1:!open % 入力の手間を減らす これまでのコマンドをショートカットキーで呼び出せるように.vimrcに追記する  12">
-<meta property="og:type" content="article">
-<meta property="og:title" content="vimのカレントファイルをブラウザで開く">
-<meta property="og:url" content="https://daiki-iijima.github.io/2021/02/22/vim%E3%81%AE%E3%82%AB%E3%83%AC%E3%83%B3%E3%83%88%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6%E3%81%A7%E9%96%8B%E3%81%8F/index.html">
+  <meta property="og:type" content="article">
+<meta property="og:title" content="Floatレイアウトについて">
+<meta property="og:url" content="https://daiki-iijima.github.io/2021/02/26/Float%E3%83%AC%E3%82%A4%E3%82%A2%E3%82%A6%E3%83%88%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/index.html">
 <meta property="og:site_name" content="Inside the Black box .">
-<meta property="og:description" content="openコマンドを使う vimでは%でカレントファイルのパスを取得できる !はOS用のコマンド(echoやpwdなど)の先頭につけることでvimエディタ上からOS用コマンドを実行することができる openはファイルのデフォルトで開くソフトに設定されているソフトで開かれる  1:!open % 入力の手間を減らす これまでのコマンドをショートカットキーで呼び出せるように.vimrcに追記する  12">
 <meta property="og:locale" content="ja_JP">
-<meta property="article:published_time" content="2021-02-22T13:35:42.000Z">
-<meta property="article:modified_time" content="2021-02-22T23:37:27.870Z">
+<meta property="article:published_time" content="2021-02-26T12:26:11.000Z">
+<meta property="article:modified_time" content="2021-02-26T12:26:23.577Z">
 <meta property="article:author" content="Daiki Iijima">
-<meta property="article:tag" content="Vim">
+<meta property="article:tag" content="HTML">
+<meta property="article:tag" content="CSS">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="Inside the Black box ." type="application/atom+xml">
@@ -74,10 +73,10 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-vimのカレントファイルをブラウザで開く" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-Floatレイアウトについて" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2021/02/22/vim%E3%81%AE%E3%82%AB%E3%83%AC%E3%83%B3%E3%83%88%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6%E3%81%A7%E9%96%8B%E3%81%8F/" class="article-date">
-  <time class="dt-published" datetime="2021-02-22T13:35:42.000Z" itemprop="datePublished">2021-02-22</time>
+    <a href="/2021/02/26/Float%E3%83%AC%E3%82%A4%E3%82%A2%E3%82%A6%E3%83%88%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/" class="article-date">
+  <time class="dt-published" datetime="2021-02-26T12:26:11.000Z" itemprop="datePublished">2021-02-26</time>
 </a>
     
   </div>
@@ -88,7 +87,7 @@
         
   
     <h1 class="p-name article-title" itemprop="headline name">
-      vimのカレントファイルをブラウザで開く
+      Floatレイアウトについて
     </h1>
   
 
@@ -96,36 +95,15 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h2 id="openコマンドを使う"><a href="#openコマンドを使う" class="headerlink" title="openコマンドを使う"></a>openコマンドを使う</h2><ul>
-<li>vimでは<code>%</code>でカレントファイルのパスを取得できる</li>
-<li><code>!</code>はOS用のコマンド(<code>echo</code>や<code>pwd</code>など)の先頭につけることで<code>vimエディタ</code>上からOS用コマンドを実行することができる</li>
-<li><code>open</code>はファイルのデフォルトで開くソフトに設定されているソフトで開かれる</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:!open %</span><br></pre></td></tr></table></figure>
-<h2 id="入力の手間を減らす"><a href="#入力の手間を減らす" class="headerlink" title="入力の手間を減らす"></a>入力の手間を減らす</h2><ul>
-<li>これまでのコマンドをショートカットキーで呼び出せるように<code>.vimrc</code>に追記する</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&quot; スペースキーをショートカットのトリガーとして認識するように設定</span><br><span class="line">let mapleader &#x3D; &quot;\&lt;Space&gt;&quot; </span><br><span class="line"></span><br><span class="line">&quot;	スペースキー + o で実行できる</span><br><span class="line">nnoremap &lt;Leader&gt;o :!open %&lt;CR&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="フォーカスを戻す-Mac"><a href="#フォーカスを戻す-Mac" class="headerlink" title="フォーカスを戻す(Mac)"></a>フォーカスを戻す(Mac)</h2><ul>
-<li><code>open</code>コマンドを使うとフォーカスがブラウザになってしまうので、<code>AppleScript</code>を使ってフォーカスをVim(iTerm)に戻す<ul>
-<li><code>terminal_focus</code>の対象アプリを変更すればiTerm以外のソフトにも対応可能</li>
-</ul>
-</li>
-</ul>
-<p>~/.vim/plugin/BrowserOpen.vim</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">command! -bar BrowserOpen !open % | osascript $HOME&#x2F;bin&#x2F;terminal_focus.scpt</span><br></pre></td></tr></table></figure>
-<p>~/bin/terminal_focus.scpt</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tell application &quot;iTerm&quot; to activate</span><br></pre></td></tr></table></figure>
-<p>~/.vimrc</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&quot; スペースキーをショートカットのトリガーとして認識するように設定</span><br><span class="line">let mapleader &#x3D; &quot;\&lt;Space&gt;&quot; </span><br><span class="line"></span><br><span class="line">&quot;	スペースキー + o で実行できる</span><br><span class="line">nnoremap &lt;Leader&gt;o :BrowserOpen&lt;CR&gt;</span><br></pre></td></tr></table></figure>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://daiki-iijima.github.io/2021/02/22/vim%E3%81%AE%E3%82%AB%E3%83%AC%E3%83%B3%E3%83%88%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6%E3%81%A7%E9%96%8B%E3%81%8F/" data-id="cklgmos0v0000rlb6dybb30kd" data-title="vimのカレントファイルをブラウザで開く" class="article-share-link">共有</a>
+      <a data-url="https://daiki-iijima.github.io/2021/02/26/Float%E3%83%AC%E3%82%A4%E3%82%A2%E3%82%A6%E3%83%88%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/" data-id="cklnjopps0000kzb6busxdpih" data-title="Floatレイアウトについて" class="article-share-link">共有</a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vim/" rel="tag">Vim</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li></ul>
 
     </footer>
   </div>
@@ -133,19 +111,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2021/02/23/div%E5%B1%9E%E6%80%A7%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2021/02/27/%E3%80%90Vim%E3%83%97%E3%83%A9%E3%82%B0%E3%82%A4%E3%83%B3%E3%80%91%E5%9B%B2%E3%81%86%E8%A8%98%E8%BF%B0%E3%82%92%E6%A5%BD%E3%81%AB%E3%81%99%E3%82%8B%E3%80%8Cvim-surround%E3%80%8D/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">次の記事</strong>
       <div class="article-nav-title">
         
-          div属性について
+          【Vimプラグイン】囲う記述を楽にする「vim-surround」
         
       </div>
     </a>
   
   
-    <a href="/2021/02/21/AppleScript%E3%81%A7Vim%E3%81%AE%E4%BF%9D%E5%AD%98%E6%99%82%E3%81%AE%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E6%9B%B4%E6%96%B0%E3%82%92%E5%8F%96%E5%BE%97%E3%81%97%E3%81%A6%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6%E3%82%92%E6%9B%B4%E6%96%B0%E3%81%99%E3%82%8B/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2021/02/26/%E3%80%90Vim%E3%80%91%E3%83%90%E3%83%83%E3%82%AF%E3%82%B9%E3%83%9A%E3%83%BC%E3%82%B9%E3%81%8C%E5%8A%B9%E3%81%8B%E3%81%AA%E3%81%8F%E3%81%AA%E3%81%A3%E3%81%9F%E5%A0%B4%E5%90%88%E3%81%AE%E5%AF%BE%E5%87%A6%E6%B3%95/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">前の記事</strong>
-      <div class="article-nav-title">AppleScriptでVimの保存時のファイル更新を取得してブラウザを更新する</div>
+      <div class="article-nav-title">【Vim】バックスペースが効かなくなった場合の対処方</div>
     </a>
   
 </nav>
