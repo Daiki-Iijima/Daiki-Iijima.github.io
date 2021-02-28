@@ -71,6 +71,76 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-入力補完プラグイン「Deoplete」の導入方法" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/02/18/%E5%85%A5%E5%8A%9B%E8%A3%9C%E5%AE%8C%E3%83%97%E3%83%A9%E3%82%B0%E3%82%A4%E3%83%B3%E3%80%8CDeoplete%E3%80%8D%E3%81%AE%E5%B0%8E%E5%85%A5%E6%96%B9%E6%B3%95/" class="article-date">
+  <time class="dt-published" datetime="2021-02-18T00:21:32.000Z" itemprop="datePublished">2021-02-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/02/18/%E5%85%A5%E5%8A%9B%E8%A3%9C%E5%AE%8C%E3%83%97%E3%83%A9%E3%82%B0%E3%82%A4%E3%83%B3%E3%80%8CDeoplete%E3%80%8D%E3%81%AE%E5%B0%8E%E5%85%A5%E6%96%B9%E6%B3%95/">入力補完プラグイン「Deoplete」の導入方法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="vimにdeopleteを入れる"><a href="#vimにdeopleteを入れる" class="headerlink" title="vimにdeopleteを入れる"></a>vimにdeopleteを入れる</h1><p>インストールに前提条件の多いPluginなので詰まるところが多かった</p>
+<h1 id="環境"><a href="#環境" class="headerlink" title="環境"></a>環境</h1><ul>
+<li>M1 Mac </li>
+<li>macOS Big Sur(11.2)</li>
+<li>vim 8.2</li>
+</ul>
+<h2 id="公式の手順"><a href="#公式の手順" class="headerlink" title="公式の手順"></a>公式の手順</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/Shougo/deoplete.nvim">Shougo/deoplete</a></li>
+</ul>
+<h1 id="日本語訳"><a href="#日本語訳" class="headerlink" title="日本語訳"></a>日本語訳</h1><h2 id="最初に"><a href="#最初に" class="headerlink" title="最初に"></a>最初に</h2><p>注意: <code>deoplete</code> は<code>Vim</code>で使用する場合でも <code>Neovim</code> (最新のものを推奨) が必要<br><code>Vimを使用する場合</code>Vimバージョン8.1以上 で <code>Python 3.6.1以上</code> と<code>timers</code>が有効になっている必要がある。</p>
+<p>注意: deopleteはmsgpackパッケージ1.0.0+を必要とします。pipでmsgpackパッケージをインストール/アップグレードしてください。<br><a target="_blank" rel="noopener" href="https://github.com/msgpack/msgpack-python">msgpack/msgpack-python</a></p>
+<p>注意: どうしても古い msgpack を使う必要がある場合は、代わりに deoplete ver.5.2 を使ってください。<br><a target="_blank" rel="noopener" href="https://github.com/Shougo/deoplete.nvim/releases/tag/5.2">Shougo/deoplete.vim</a></p>
+<h2 id="要件"><a href="#要件" class="headerlink" title="要件"></a>要件</h2><ul>
+<li>neovimをインストールしておく  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install --user pyvim</span><br></pre></td></tr></table></figure></li>
+<li>neovimでpython3が有効かを確認<ul>
+<li>nvimを起動して以下のコマンドで<code>1</code>が出るか確認<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:echo has(&quot;python3&quot;)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="vimrcに記述"><a href="#vimrcに記述" class="headerlink" title=".vimrcに記述"></a>.vimrcに記述</h2><ol>
+<li>今回はプラグイン管理ツールの<code>Vundle</code>を使用する <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Plugin &#39;Shougo&#x2F;deoplete.nvim&#39;</span><br><span class="line">Plugin &#39;roxma&#x2F;nvim-yarp&#39;</span><br><span class="line">Plugin &#39;roxma&#x2F;vim-hug-neovim-rpc&#39;</span><br></pre></td></tr></table></figure>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&quot; deopleteをVim起動時に有効にする</span><br><span class="line">let g:deoplete#enable_at_startup &#x3D; 1</span><br></pre></td></tr></table></figure></li>
+<li><code>:PluginInstall</code>でインストール </li>
+</ol>
+<h2 id="トラブル対応"><a href="#トラブル対応" class="headerlink" title="トラブル対応"></a>トラブル対応</h2><h3 id="ファイルを開くとエラーが表示される"><a href="#ファイルを開くとエラーが表示される" class="headerlink" title="ファイルを開くとエラーが表示される"></a>ファイルを開くとエラーが表示される</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[deoplete] deoplete failed to load. Try the :UpdateRemotePlugins command and restart Neovim. See also :checkhealth.</span><br></pre></td></tr></table></figure>
+<ul>
+<li>参考サイト<br><a target="_blank" rel="noopener" href="https://blog.fakiyer.com/entry/2018/11/20/101826">deoplete.nvimのエラー解消</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://daiki-iijima.github.io/2021/02/18/%E5%85%A5%E5%8A%9B%E8%A3%9C%E5%AE%8C%E3%83%97%E3%83%A9%E3%82%B0%E3%82%A4%E3%83%B3%E3%80%8CDeoplete%E3%80%8D%E3%81%AE%E5%B0%8E%E5%85%A5%E6%96%B9%E6%B3%95/" data-id="ckla4dyiw0000pnb6gbh10pf3" data-title="入力補完プラグイン「Deoplete」の導入方法" class="article-share-link">共有</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vim/" rel="tag">Vim</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VimPlugin/" rel="tag">VimPlugin</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-VimにPluginマネージャー「Vundle」を入れる" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2021/02/17/Vim%E3%81%ABPlugin%E3%83%9E%E3%83%8D%E3%83%BC%E3%82%B8%E3%83%A3%E3%83%BC%E3%80%8CVundle%E3%80%8D%E3%82%92%E5%85%A5%E3%82%8C%E3%82%8B/" class="article-date">
@@ -731,61 +801,6 @@
 
 
   
-    <article id="post-画像を扱う" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/02/08/%E7%94%BB%E5%83%8F%E3%82%92%E6%89%B1%E3%81%86/" class="article-date">
-  <time class="dt-published" datetime="2021-02-08T13:15:06.000Z" itemprop="datePublished">2021-02-08</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/02/08/%E7%94%BB%E5%83%8F%E3%82%92%E6%89%B1%E3%81%86/">画像を扱う</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="img-画像-タグ"><a href="#img-画像-タグ" class="headerlink" title="img(画像)タグ"></a>img(画像)タグ</h1><ul>
-<li>自己完結型のタグ</li>
-<li>画像へのパスはホットリンクを使うこともできる<ul>
-<li>ホットリンク = 動的に他のウェブ上の画像をリンクする</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;画像へのパス&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="サイズ変更-ピクセル数を指定"><a href="#サイズ変更-ピクセル数を指定" class="headerlink" title="サイズ変更(ピクセル数を指定)"></a>サイズ変更(ピクセル数を指定)</h2><ul>
-<li><code>width=&quot;&quot;</code>   : 幅を指定</li>
-<li><code>height=&quot;&quot;</code>  : 高さを指定</li>
-</ul>
-<h2 id="小ネタ"><a href="#小ネタ" class="headerlink" title="小ネタ"></a>小ネタ</h2><ul>
-<li>上下でイメージを配置したい場合、<code>&lt;p&gt;&lt;/p&gt;</code>を使うといい        </li>
-</ul>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;image.png&quot;</span> <span class="attr">width</span>=<span class="string">&quot;100&quot;</span> <span class="attr">height</span>=<span class="string">&quot;40&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;https://1.bp.blogspot.com/-QNMuJ-k-bYU/X68bIi2gjjI/AAAAAAABcUs/39kmQwXcZPM3w4s8O1vrcIswGqd2r6EWgCNcBGAsYHQ/s400/fantasy_unicorn_rainbow.png&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://daiki-iijima.github.io/2021/02/08/%E7%94%BB%E5%83%8F%E3%82%92%E6%89%B1%E3%81%86/" data-id="ckkwlltqz0000ddb6clb74i7h" data-title="画像を扱う" class="article-share-link">共有</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
@@ -811,7 +826,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">タグ</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AppleScript/" rel="tag">AppleScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GitHub/" rel="tag">GitHub</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HEML/" rel="tag">HEML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift/" rel="tag">Swift</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/" rel="tag">Vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VimPlugin/" rel="tag">VimPlugin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim%E3%83%97%E3%83%A9%E3%82%B0%E3%82%A4%E3%83%B3/" rel="tag">Vimプラグイン</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Xcode/" rel="tag">Xcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/alias/" rel="tag">alias</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zsh/" rel="tag">zsh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%87%AA%E5%8B%95%E5%8C%96/" rel="tag">自動化</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AppleScript/" rel="tag">AppleScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GitHub/" rel="tag">GitHub</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HEML/" rel="tag">HEML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89/" rel="tag">Linuxコマンド</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift/" rel="tag">Swift</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/" rel="tag">Vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VimPlugin/" rel="tag">VimPlugin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim%E3%83%97%E3%83%A9%E3%82%B0%E3%82%A4%E3%83%B3/" rel="tag">Vimプラグイン</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Xcode/" rel="tag">Xcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/alias/" rel="tag">alias</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zsh/" rel="tag">zsh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%87%AA%E5%8B%95%E5%8C%96/" rel="tag">自動化</a></li></ul>
     </div>
   </div>
 
@@ -821,7 +836,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">タグクラウド</h3>
     <div class="widget tagcloud">
-      <a href="/tags/AppleScript/" style="font-size: 10px;">AppleScript</a> <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/HEML/" style="font-size: 10px;">HEML</a> <a href="/tags/HTML/" style="font-size: 20px;">HTML</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/Swift/" style="font-size: 13.33px;">Swift</a> <a href="/tags/Vim/" style="font-size: 16.67px;">Vim</a> <a href="/tags/VimPlugin/" style="font-size: 10px;">VimPlugin</a> <a href="/tags/Vim%E3%83%97%E3%83%A9%E3%82%B0%E3%82%A4%E3%83%B3/" style="font-size: 10px;">Vimプラグイン</a> <a href="/tags/Xcode/" style="font-size: 10px;">Xcode</a> <a href="/tags/alias/" style="font-size: 10px;">alias</a> <a href="/tags/zsh/" style="font-size: 10px;">zsh</a> <a href="/tags/%E8%87%AA%E5%8B%95%E5%8C%96/" style="font-size: 10px;">自動化</a>
+      <a href="/tags/AppleScript/" style="font-size: 10px;">AppleScript</a> <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/HEML/" style="font-size: 10px;">HEML</a> <a href="/tags/HTML/" style="font-size: 20px;">HTML</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Linux%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89/" style="font-size: 10px;">Linuxコマンド</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/Swift/" style="font-size: 13.33px;">Swift</a> <a href="/tags/Vim/" style="font-size: 16.67px;">Vim</a> <a href="/tags/VimPlugin/" style="font-size: 10px;">VimPlugin</a> <a href="/tags/Vim%E3%83%97%E3%83%A9%E3%82%B0%E3%82%A4%E3%83%B3/" style="font-size: 10px;">Vimプラグイン</a> <a href="/tags/Xcode/" style="font-size: 10px;">Xcode</a> <a href="/tags/alias/" style="font-size: 10px;">alias</a> <a href="/tags/zsh/" style="font-size: 10px;">zsh</a> <a href="/tags/%E8%87%AA%E5%8B%95%E5%8C%96/" style="font-size: 10px;">自動化</a>
     </div>
   </div>
 
@@ -843,6 +858,10 @@
       <ul>
         
           <li>
+            <a href="/2021/02/28/%E3%80%90Linux%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%80%91%E3%82%88%E3%81%8F%E4%BD%BF%E3%81%86ls%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%82%AA%E3%83%97%E3%82%B7%E3%83%A7%E3%83%B3/">【Linuxコマンド】よく使うlsコマンドオプション</a>
+          </li>
+        
+          <li>
             <a href="/2021/02/27/%E3%80%90Vim%E3%83%97%E3%83%A9%E3%82%B0%E3%82%A4%E3%83%B3%E3%80%91%E5%9B%B2%E3%81%86%E8%A8%98%E8%BF%B0%E3%82%92%E6%A5%BD%E3%81%AB%E3%81%99%E3%82%8B%E3%80%8Cvim-surround%E3%80%8D/">【Vimプラグイン】囲う記述を楽にする「vim-surround」</a>
           </li>
         
@@ -856,10 +875,6 @@
         
           <li>
             <a href="/2021/02/25/%E3%80%90Git%E3%82%A8%E3%83%A9%E3%83%BC%E3%80%91%E3%80%8Cfatal-Out-of-memory-malloc-failed-tried-to-allocate-xxxxxxxxxxx-bytes-%E3%80%8D%E3%81%AE%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%B3%95/">【Gitエラー】「fatal: Out of memory, malloc failed (tried to allocate xxxxxxxxxxx bytes)」の解決方法</a>
-          </li>
-        
-          <li>
-            <a href="/2021/02/24/%E8%87%AA%E4%BD%9C%E3%82%BD%E3%83%BC%E3%83%88%E3%80%90Swift%E3%80%91/">自作ソート【Swift】</a>
           </li>
         
       </ul>
