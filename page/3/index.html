@@ -71,6 +71,190 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-formについて" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/02/10/form%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/" class="article-date">
+  <time class="dt-published" datetime="2021-02-09T23:59:29.000Z" itemprop="datePublished">2021-02-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/02/10/form%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/">formについて</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a target="_blank" rel="noopener" href="https://www.kanzaki.com/docs/html/htminfo31.html">基本的なフォーム</a></p>
+<h1 id="form-入力・送信フォーム-タグ"><a href="#form-入力・送信フォーム-タグ" class="headerlink" title="form(入力・送信フォーム)タグ"></a>form(入力・送信フォーム)タグ</h1><ul>
+<li>どこに、どうやって送信するかを記述するタグ</li>
+<li>このタグセクションの中には、何を送信するかを示す</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span>&gt;</span><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="input-入力-タグ"><a href="#input-入力-タグ" class="headerlink" title="input(入力)タグ"></a>input(入力)タグ</h2><ul>
+<li>formタグの「何を」送信するかを記述するためのタグ</li>
+<li>formタグで囲む必要があるのは、入力した値を送信したい場合<ul>
+<li>必ずformタグに記述する必要はない</li>
+</ul>
+</li>
+<li><code>type</code>属性を指定することで、入力インターフェイスを変更できる</li>
+</ul>
+<h3 id="type属性の種類"><a href="#type属性の種類" class="headerlink" title="type属性の種類"></a>type属性の種類</h3><p><a target="_blank" rel="noopener" href="http://www.htmq.com/html5/input.shtml">type属性の値</a></p>
+<ul>
+<li>type=”hidden”<ul>
+<li>画面上は表示されない隠しデータを指定する</li>
+</ul>
+</li>
+<li>type=”text”<ul>
+<li>一行テキストボックスを作成する（初期値）</li>
+</ul>
+</li>
+<li>type=”search”<ul>
+<li>検索テキストの入力欄を作成するHTML5から追加</li>
+</ul>
+</li>
+<li>type=”tel”<ul>
+<li>電話番号の入力欄を作成するHTML5から追加</li>
+</ul>
+</li>
+<li>type=”url”<ul>
+<li>URLの入力欄を作成するHTML5から追加</li>
+</ul>
+</li>
+<li>type=”email”<ul>
+<li>メールアドレスの入力欄を作成するHTML5から追加</li>
+</ul>
+</li>
+<li>type=”password”<ul>
+<li>パスワード入力欄を作成する</li>
+</ul>
+</li>
+<li>type=”datetime”<ul>
+<li>UTC（協定世界時）による日時の入力欄を作成するHTML5から追加</li>
+</ul>
+</li>
+<li>type=”date”<ul>
+<li>日付の入力欄を作成するHTML5から追加</li>
+</ul>
+</li>
+<li>type=”month”<ul>
+<li>月の入力欄を作成するHTML5から追加</li>
+</ul>
+</li>
+<li>type=”week”<ul>
+<li>週の入力欄を作成するHTML5から追加</li>
+</ul>
+</li>
+<li>type=”time”<ul>
+<li>時間の入力欄を作成するHTML5から追加</li>
+</ul>
+</li>
+<li>type=”datetime-local”<ul>
+<li>UTC（協定世界時）によらないローカル日時の入力欄を作成するHTML5から追加</li>
+</ul>
+</li>
+<li>type=”number”<ul>
+<li>数値の入力欄を作成するHTML5から追加</li>
+</ul>
+</li>
+<li>type=”range”<ul>
+<li>レンジの入力欄を作成するHTML5から追加</li>
+</ul>
+</li>
+<li>type=”color”<ul>
+<li>色の入力欄を作成するHTML5から追加</li>
+</ul>
+</li>
+<li>type=”checkbox”<ul>
+<li>チェックボックスを作成する</li>
+</ul>
+</li>
+<li>type=”radio”<ul>
+<li>ラジオボタンを作成する</li>
+</ul>
+</li>
+<li>type=”file”<ul>
+<li>サーバーへファイルを送信する</li>
+</ul>
+</li>
+<li>type=”submit”<ul>
+<li>送信ボタンを作成する</li>
+</ul>
+</li>
+<li>type=”image”<ul>
+<li>画像ボタンを作成する</li>
+</ul>
+</li>
+<li>type=”reset”<ul>
+<li>リセットボタンを作成する</li>
+</ul>
+</li>
+<li>type=”button”<ul>
+<li>汎用ボタンを作成する</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="ボタンにアクションを設定する"><a href="#ボタンにアクションを設定する" class="headerlink" title="ボタンにアクションを設定する"></a>ボタンにアクションを設定する</h3><ul>
+<li><code>action</code>属性を設定することで、ボタンを押した時の挙動を指定できる</li>
+</ul>
+<p>この例の場合、ボタンを押すと<code>action</code>で指定しているURLを開く</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;http://www.google.co.jp&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="テキストをデフォルトで設定しておく"><a href="#テキストをデフォルトで設定しておく" class="headerlink" title="テキストをデフォルトで設定しておく"></a>テキストをデフォルトで設定しておく</h3><ul>
+<li>入力された状態でデフォルト設定<ul>
+<li><code>value</code>タグを使用する<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">value</span>=<span class="string">&quot;デフォルト&quot;</span>&gt;</span> </span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>ガイドラインとして表示する<ul>
+<li><code>placeholder</code>タグを使用する<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">placeholder</span>=<span class="string">&quot;デフォルト&quot;</span>&gt;</span> </span><br></pre></td></tr></table></figure>
+<h3 id="チェックボックスをデフォルトでチェックした状態にする"><a href="#チェックボックスをデフォルトでチェックした状態にする" class="headerlink" title="チェックボックスをデフォルトでチェックした状態にする"></a>チェックボックスをデフォルトでチェックした状態にする</h3></li>
+</ul>
+</li>
+<li><code>checked</code>属性を使う<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> <span class="attr">checked</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="ボタンの表示名を変える"><a href="#ボタンの表示名を変える" class="headerlink" title="ボタンの表示名を変える"></a>ボタンの表示名を変える</h3></li>
+<li><code>value</code>属性を設定する</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type&#x3D;&quot;button&quot; value&#x3D;&quot;これはボタンです&quot;&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="複数のラジオボタンの連携"><a href="#複数のラジオボタンの連携" class="headerlink" title="複数のラジオボタンの連携"></a>複数のラジオボタンの連携</h3><ul>
+<li><code>name</code>属性をつけることで、グルーピングができる</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">name</span>=<span class="string">&quot;test&quot;</span>&gt;</span></span><br><span class="line">2<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">name</span>=<span class="string">&quot;test&quot;</span>&gt;</span></span><br><span class="line">3<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">name</span>=<span class="string">&quot;test&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="ラジオボタンをデフォルトでチェックした状態にする"><a href="#ラジオボタンをデフォルトでチェックした状態にする" class="headerlink" title="ラジオボタンをデフォルトでチェックした状態にする"></a>ラジオボタンをデフォルトでチェックした状態にする</h3><ul>
+<li><code>checked</code>属性を使う<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> <span class="attr">checked</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="ドロップダウンを生成する"><a href="#ドロップダウンを生成する" class="headerlink" title="ドロップダウンを生成する"></a>ドロップダウンを生成する</h2><ul>
+<li><code>&lt;select&gt;&lt;/select&gt;</code>タグを使用して、その中のセクションに<code>&lt;option&gt;&lt;/option&gt;</code>タグで項目を記述する<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">option</span>&gt;</span>塩ラーメン<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">option</span>&gt;</span>味噌ラーメン<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">option</span>&gt;</span>醤油ラーメン<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">option</span>&gt;</span>豚骨ラーメン<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="ドロップダウンのデフォルト選択項目を指定する"><a href="#ドロップダウンのデフォルト選択項目を指定する" class="headerlink" title="ドロップダウンのデフォルト選択項目を指定する"></a>ドロップダウンのデフォルト選択項目を指定する</h3></li>
+<li>デフォルトで選択させた状態にしたい<code>&lt;option&gt;</code>タグに、<code>selected</code>属性を付与する</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">option</span>&gt;</span>塩ラーメン<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">option</span>&gt;</span>味噌ラーメン<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">option</span> <span class="attr">selected</span>&gt;</span>醤油ラーメン<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">option</span>&gt;</span>豚骨ラーメン<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://daiki-iijima.github.io/2021/02/10/form%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/" data-id="ckkyo7qhg0000u8b656t06w4n" data-title="formについて" class="article-share-link">共有</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-テーブルについて" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2021/02/10/%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/" class="article-date">
@@ -605,67 +789,11 @@
 
 
   
-    <article id="post-XCodeでSwiftの練習" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/01/25/XCode%E3%81%A7Swift%E3%81%AE%E7%B7%B4%E7%BF%92/" class="article-date">
-  <time class="dt-published" datetime="2021-01-24T15:37:33.000Z" itemprop="datePublished">2021-01-25</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/01/25/XCode%E3%81%A7Swift%E3%81%AE%E7%B7%B4%E7%BF%92/">XCodeでSwiftの練習</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="1-AppStoreでXCodeをダウンロード"><a href="#1-AppStoreでXCodeをダウンロード" class="headerlink" title="1. AppStoreでXCodeをダウンロード"></a>1. AppStoreでXCodeをダウンロード</h2><ul>
-<li>AppStoreの検索欄に「XCode」と入力して検索</li>
-</ul>
-<h2 id="2-インストールしたXCodeを起動"><a href="#2-インストールしたXCodeを起動" class="headerlink" title="2. インストールしたXCodeを起動"></a>2. インストールしたXCodeを起動</h2><h2 id="3-Playgroundファイルを作成"><a href="#3-Playgroundファイルを作成" class="headerlink" title="3. Playgroundファイルを作成"></a>3. Playgroundファイルを作成</h2><ul>
-<li>File -&gt; New -&gt; Playground…<br><img src="/2021/01/25/XCode%E3%81%A7Swift%E3%81%AE%E7%B7%B4%E7%BF%92/1.png" alt="ファイル作成方法" title="ファイル作成方法"><ul>
-<li>以前のバージョンのXCodeではトップウィンドウにPlaygourndファイルの作成ボタンがあったが、今はなくなっている</li>
-</ul>
-</li>
-</ul>
-<h2 id="4-特別な理由が無い限りは、デフォルトの設定のまま作成"><a href="#4-特別な理由が無い限りは、デフォルトの設定のまま作成" class="headerlink" title="4. 特別な理由が無い限りは、デフォルトの設定のまま作成"></a>4. 特別な理由が無い限りは、デフォルトの設定のまま作成</h2><ul>
-<li>Mac -&gt; Blank    で作成</li>
-</ul>
-<h2 id="再生ボタンの意味"><a href="#再生ボタンの意味" class="headerlink" title="再生ボタンの意味"></a>再生ボタンの意味</h2><ul>
-<li>下の再生ボタンは記述してあるコード全てを再生する</li>
-<li>今青いカーソルがある部分まで再生される<br><img src="/2021/01/25/XCode%E3%81%A7Swift%E3%81%AE%E7%B7%B4%E7%BF%92/2.png" alt="再生ボタン解説" title="再生ボタン解説"></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://daiki-iijima.github.io/2021/01/25/XCode%E3%81%A7Swift%E3%81%AE%E7%B7%B4%E7%BF%92/" data-id="ckkbbchul00005jb67o49d9dq" data-title="XCodeでSwiftの練習" class="article-share-link">共有</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Xcode/" rel="tag">Xcode</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/2/">&laquo; 戻る</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+    <a class="extend prev" rel="prev" href="/page/2/">&laquo; 戻る</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">次へ &raquo;</a>
   </nav>
 
 </section>
@@ -718,6 +846,10 @@
       <ul>
         
           <li>
+            <a href="/2021/03/01/%E3%80%90Swift%E3%80%91Array%E5%86%85%E3%81%AE%E8%A6%81%E7%B4%A0%E3%82%92%E6%8C%87%E5%AE%9A%E3%81%97%E3%81%A6%E6%B6%88%E5%8E%BB%E3%81%99%E3%82%8B/">【Swift】Array内の要素を指定して消去する</a>
+          </li>
+        
+          <li>
             <a href="/2021/03/01/%E3%80%90Xcode%E3%80%91EntryPoint%E3%82%92%E5%A4%89%E6%9B%B4%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95/">【Xcode】EntryPointを変更する方法</a>
           </li>
         
@@ -731,10 +863,6 @@
         
           <li>
             <a href="/2021/02/27/%E3%80%90Vim%E3%83%97%E3%83%A9%E3%82%B0%E3%82%A4%E3%83%B3%E3%80%91%E5%9B%B2%E3%81%86%E8%A8%98%E8%BF%B0%E3%82%92%E6%A5%BD%E3%81%AB%E3%81%99%E3%82%8B%E3%80%8Cvim-surround%E3%80%8D/">【Vimプラグイン】囲う記述を楽にする「vim-surround」</a>
-          </li>
-        
-          <li>
-            <a href="/2021/02/26/Float%E3%83%AC%E3%82%A4%E3%82%A2%E3%82%A6%E3%83%88%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/">Floatレイアウトについて</a>
           </li>
         
       </ul>
