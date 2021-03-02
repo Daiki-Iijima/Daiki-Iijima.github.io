@@ -4,17 +4,17 @@
   <meta charset="utf-8">
   
   
-  <title>cssにつて | Inside the Black box .</title>
+  <title>インラインCSSと内部CSSいついて | Inside the Black box .</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="CSSとは何か 正式名称 : Cascading Syle Sheets(カスケーディングスタイルシート) ページレイアウトを形成するためのスタイルシート HTML &#x3D; マークアップ,CSS &#x3D; レイアウト  記述方法の種類 インラインCSS : body内の各種タグの中に記述する インラインスタイルシートと呼ぶ場合もある   内部CSS : headタグの中に記述 内部スタイルシートと呼ぶ場合も">
+  <meta name="description" content="1.インラインCSS : body内の各種タグの中に記述する 一つ一つのタグに設定する必要がある インラインCSSと呼ばれる書き方で、直接タグの中でstyle属性を指定する  1style&#x3D;属性:&quot;属性値&quot; color属性で色を変える例  1&lt;p style&#x3D;&quot;color:blue&quot;&gt;今回は、新しくリリースするプロダクトの紹介をします&lt;&#x2F;p">
 <meta property="og:type" content="article">
-<meta property="og:title" content="cssにつて">
-<meta property="og:url" content="https://daiki-iijima.github.io/2021/03/02/CSS%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/index.html">
+<meta property="og:title" content="インラインCSSと内部CSSいついて">
+<meta property="og:url" content="https://daiki-iijima.github.io/2021/03/03/%E3%82%A4%E3%83%B3%E3%83%A9%E3%82%A4%E3%83%B3CSS%E3%81%A8%E5%86%85%E9%83%A8CSS%E3%81%84%E3%81%A4%E3%81%84%E3%81%A6/index.html">
 <meta property="og:site_name" content="Inside the Black box .">
-<meta property="og:description" content="CSSとは何か 正式名称 : Cascading Syle Sheets(カスケーディングスタイルシート) ページレイアウトを形成するためのスタイルシート HTML &#x3D; マークアップ,CSS &#x3D; レイアウト  記述方法の種類 インラインCSS : body内の各種タグの中に記述する インラインスタイルシートと呼ぶ場合もある   内部CSS : headタグの中に記述 内部スタイルシートと呼ぶ場合も">
+<meta property="og:description" content="1.インラインCSS : body内の各種タグの中に記述する 一つ一つのタグに設定する必要がある インラインCSSと呼ばれる書き方で、直接タグの中でstyle属性を指定する  1style&#x3D;属性:&quot;属性値&quot; color属性で色を変える例  1&lt;p style&#x3D;&quot;color:blue&quot;&gt;今回は、新しくリリースするプロダクトの紹介をします&lt;&#x2F;p">
 <meta property="og:locale" content="ja_JP">
-<meta property="article:published_time" content="2021-03-02T12:40:42.000Z">
-<meta property="article:modified_time" content="2021-03-02T12:43:15.343Z">
+<meta property="article:published_time" content="2021-03-02T15:12:06.000Z">
+<meta property="article:modified_time" content="2021-03-02T15:12:19.351Z">
 <meta property="article:author" content="Daiki Iijima">
 <meta property="article:tag" content="CSS">
 <meta name="twitter:card" content="summary">
@@ -74,10 +74,10 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-CSSについて" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-インラインCSSと内部CSSいついて" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2021/03/02/CSS%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/" class="article-date">
-  <time class="dt-published" datetime="2021-03-02T12:40:42.000Z" itemprop="datePublished">2021-03-02</time>
+    <a href="/2021/03/03/%E3%82%A4%E3%83%B3%E3%83%A9%E3%82%A4%E3%83%B3CSS%E3%81%A8%E5%86%85%E9%83%A8CSS%E3%81%84%E3%81%A4%E3%81%84%E3%81%A6/" class="article-date">
+  <time class="dt-published" datetime="2021-03-02T15:12:06.000Z" itemprop="datePublished">2021-03-03</time>
 </a>
     
   </div>
@@ -88,7 +88,7 @@
         
   
     <h1 class="p-name article-title" itemprop="headline name">
-      cssにつて
+      インラインCSSと内部CSSいついて
     </h1>
   
 
@@ -96,27 +96,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="CSSとは何か"><a href="#CSSとは何か" class="headerlink" title="CSSとは何か"></a>CSSとは何か</h1><ul>
-<li>正式名称 : Cascading Syle Sheets(カスケーディングスタイルシート)</li>
-<li>ページレイアウトを形成するためのスタイルシート</li>
-<li>HTML = マークアップ,CSS = レイアウト</li>
-</ul>
-<h1 id="記述方法の種類"><a href="#記述方法の種類" class="headerlink" title="記述方法の種類"></a>記述方法の種類</h1><ol>
-<li>インラインCSS : body内の各種タグの中に記述する<ul>
-<li><code>インラインスタイルシート</code>と呼ぶ場合もある</li>
-</ul>
-</li>
-<li>内部CSS : headタグの中に記述<ul>
-<li><code>内部スタイルシート</code>と呼ぶ場合もある</li>
-</ul>
-</li>
-<li>外部ファイル(.css)<ul>
-<li><code>外部スタイルシート</code>と呼ぶ場合もある</li>
-<li>コンテンツとデザインの分離ができるので、外部ファイルに記述するのが基本</li>
-</ul>
-</li>
-</ol>
-<h1 id="1-インラインCSS-body内の各種タグの中に記述する"><a href="#1-インラインCSS-body内の各種タグの中に記述する" class="headerlink" title="1.インラインCSS : body内の各種タグの中に記述する"></a>1.インラインCSS : body内の各種タグの中に記述する</h1><ul>
+        <h1 id="1-インラインCSS-body内の各種タグの中に記述する"><a href="#1-インラインCSS-body内の各種タグの中に記述する" class="headerlink" title="1.インラインCSS : body内の各種タグの中に記述する"></a>1.インラインCSS : body内の各種タグの中に記述する</h1><ul>
 <li>一つ一つのタグに設定する必要がある</li>
 <li>インラインCSSと呼ばれる書き方で、直接タグの中で<code>style</code>属性を指定する  <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">style=属性:&quot;属性値&quot;</span><br></pre></td></tr></table></figure></li>
 <li><code>color属性</code>で色を変える例  <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">style</span>=<span class="string">&quot;color:blue&quot;</span>&gt;</span>今回は、新しくリリースするプロダクトの紹介をします<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
@@ -164,7 +144,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://daiki-iijima.github.io/2021/03/02/CSS%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/" data-id="ckls052k70000iub63ztuf6l3" data-title="cssにつて" class="article-share-link">共有</a>
+      <a data-url="https://daiki-iijima.github.io/2021/03/03/%E3%82%A4%E3%83%B3%E3%83%A9%E3%82%A4%E3%83%B3CSS%E3%81%A8%E5%86%85%E9%83%A8CSS%E3%81%84%E3%81%A4%E3%81%84%E3%81%A6/" data-id="ckls5h19400008eb61q3dgu0c" data-title="インラインCSSと内部CSSいついて" class="article-share-link">共有</a>
       
       
       
@@ -176,19 +156,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2021/03/03/%E3%82%A4%E3%83%B3%E3%83%A9%E3%82%A4%E3%83%B3CSS%E3%81%A8%E5%86%85%E9%83%A8CSS%E3%81%84%E3%81%A4%E3%81%84%E3%81%A6/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">次の記事</strong>
-      <div class="article-nav-title">
-        
-          インラインCSSと内部CSSいついて
-        
-      </div>
-    </a>
   
-  
-    <a href="/2021/03/01/%E3%80%90Swift%E3%80%91Array%E5%86%85%E3%81%AE%E8%A6%81%E7%B4%A0%E3%82%92%E6%8C%87%E5%AE%9A%E3%81%97%E3%81%A6%E6%B6%88%E5%8E%BB%E3%81%99%E3%82%8B/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2021/03/02/CSS%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">前の記事</strong>
-      <div class="article-nav-title">【Swift】Array内の要素を指定して消去する</div>
+      <div class="article-nav-title">cssにつて</div>
     </a>
   
 </nav>
