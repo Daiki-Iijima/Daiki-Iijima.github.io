@@ -71,6 +71,56 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-【Git】管理されているファイル情報をみる" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/03/07/%E3%80%90Git%E3%80%91%E7%AE%A1%E7%90%86%E3%81%95%E3%82%8C%E3%81%A6%E3%81%84%E3%82%8B%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E6%83%85%E5%A0%B1%E3%82%92%E3%81%BF%E3%82%8B/" class="article-date">
+  <time class="dt-published" datetime="2021-03-07T00:07:32.000Z" itemprop="datePublished">2021-03-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/03/07/%E3%80%90Git%E3%80%91%E7%AE%A1%E7%90%86%E3%81%95%E3%82%8C%E3%81%A6%E3%81%84%E3%82%8B%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E6%83%85%E5%A0%B1%E3%82%92%E3%81%BF%E3%82%8B/">【Git】管理されているファイル情報をみる</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="リポジトリで「管理されている」ファイルのリストを取得する"><a href="#リポジトリで「管理されている」ファイルのリストを取得する" class="headerlink" title="リポジトリで「管理されている」ファイルのリストを取得する"></a>リポジトリで「管理されている」ファイルのリストを取得する</h2><p><code>ls-files</code>コマンドの<code>-c</code>オプションを使用する</p>
+<p><code>ls-files</code>はデフォルトで<code>-c</code>オプションがついている</p>
+<blockquote>
+<p>-c, –cached<br><br>    Show cached files in the output (default)</p>
+</blockquote>
+<h3 id="実行結果例"><a href="#実行結果例" class="headerlink" title="実行結果例"></a>実行結果例</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">% git ls-files </span><br><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">aaa</span><br></pre></td></tr></table></figure>
+<h2 id="リポジトリで「管理されていない」ファイルのリストを取得する"><a href="#リポジトリで「管理されていない」ファイルのリストを取得する" class="headerlink" title="リポジトリで「管理されていない」ファイルのリストを取得する"></a>リポジトリで「管理されていない」ファイルのリストを取得する</h2><p><code>ls-files</code>コマンドの<code>-o</code>オプションを使用する</p>
+<blockquote>
+<p>-o, –others<br><br>    Show other (i.e. untracked) files in the output</p>
+</blockquote>
+<h3 id="実行結果例-1"><a href="#実行結果例-1" class="headerlink" title="実行結果例"></a>実行結果例</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">% git ls-files -o</span><br><span class="line">5</span><br><span class="line">bbb</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://daiki-iijima.github.io/2021/03/07/%E3%80%90Git%E3%80%91%E7%AE%A1%E7%90%86%E3%81%95%E3%82%8C%E3%81%A6%E3%81%84%E3%82%8B%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E6%83%85%E5%A0%B1%E3%82%92%E3%81%BF%E3%82%8B/" data-id="cklyfprhv0000g0b607am5qoz" data-title="【Git】管理されているファイル情報をみる" class="article-share-link">共有</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/" rel="tag">Git</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-【CSS】マージン・パディング・ボーダーについて" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2021/03/06/%E3%80%90CSS%E3%80%91%E3%83%9E%E3%83%BC%E3%82%B8%E3%83%B3%E3%83%BB%E3%83%91%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0%E3%83%BB%E3%83%9C%E3%83%BC%E3%83%80%E3%83%BC%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/" class="article-date">
@@ -793,83 +843,6 @@
 
 
   
-    <article id="post-【Vimプラグイン】囲う記述を楽にする「vim-surround」" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/02/27/%E3%80%90Vim%E3%83%97%E3%83%A9%E3%82%B0%E3%82%A4%E3%83%B3%E3%80%91%E5%9B%B2%E3%81%86%E8%A8%98%E8%BF%B0%E3%82%92%E6%A5%BD%E3%81%AB%E3%81%99%E3%82%8B%E3%80%8Cvim-surround%E3%80%8D/" class="article-date">
-  <time class="dt-published" datetime="2021-02-27T09:48:28.000Z" itemprop="datePublished">2021-02-27</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/02/27/%E3%80%90Vim%E3%83%97%E3%83%A9%E3%82%B0%E3%82%A4%E3%83%B3%E3%80%91%E5%9B%B2%E3%81%86%E8%A8%98%E8%BF%B0%E3%82%92%E6%A5%BD%E3%81%AB%E3%81%99%E3%82%8B%E3%80%8Cvim-surround%E3%80%8D/">【Vimプラグイン】囲う記述を楽にする「vim-surround」</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="環境"><a href="#環境" class="headerlink" title="環境"></a>環境</h2><ul>
-<li>MacBook Air M1</li>
-<li>Big Sur v11.2</li>
-<li>zsh</li>
-</ul>
-<h2 id="vim-surroundとは？"><a href="#vim-surroundとは？" class="headerlink" title="vim-surroundとは？"></a>vim-surroundとは？</h2><p>文字列を記述する時の<code>&quot;&quot;</code>や括弧<code>() []</code>などのさまざまな、<code>囲い（surround）</code>を編集する際に役立つプラグイン</p>
-<p>GitHubリポジトリ : <a target="_blank" rel="noopener" href="https://github.com/tpope/vim-surround">https://github.com/tpope/vim-surround</a></p>
-<h2 id="インストール方法-Vundle使用"><a href="#インストール方法-Vundle使用" class="headerlink" title="インストール方法(Vundle使用)"></a>インストール方法(Vundle使用)</h2><p>以下記述を<code>~/.vimrc</code>に追加</p>
-<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Plugin <span class="string">&#x27;tpope/vim-surround&#x27;</span></span><br></pre></td></tr></table></figure>
-<h2 id="使い方"><a href="#使い方" class="headerlink" title="使い方"></a>使い方</h2><h3 id="囲う"><a href="#囲う" class="headerlink" title="囲う"></a>囲う</h3><ol>
-<li>ノーマルモード<ul>
-<li>コマンド : <code>ysiw + 囲みたい文字</code></li>
-</ul>
-</li>
-<li>ヴィジュアルモード<ul>
-<li>コマンド : ヴィジュアルモードで選択 + <code>S + 囲みたい文字</code></li>
-</ul>
-</li>
-</ol>
-<h2 id="囲い解除-ノーマルモード"><a href="#囲い解除-ノーマルモード" class="headerlink" title="囲い解除(ノーマルモード)"></a>囲い解除(ノーマルモード)</h2><h3 id="囲いを解除"><a href="#囲いを解除" class="headerlink" title="囲いを解除"></a>囲いを解除</h3><ul>
-<li>コマンド : <code>ds + 解除したい囲み文字</code><ul>
-<li>タグが対象の場合 : <code>dst</code></li>
-</ul>
-</li>
-</ul>
-<h3 id="囲いの中身を消去"><a href="#囲いの中身を消去" class="headerlink" title="囲いの中身を消去"></a>囲いの中身を消去</h3><ul>
-<li>コマンド : <code>di + 中身を消去したい囲み文字</code><ul>
-<li>タグが対象の場合 : <code>dit</code></li>
-</ul>
-</li>
-</ul>
-<h2 id="囲いの変更-ノーマルモードi"><a href="#囲いの変更-ノーマルモードi" class="headerlink" title="囲いの変更(ノーマルモードi)"></a>囲いの変更(ノーマルモードi)</h2><h3 id="囲いを変更"><a href="#囲いを変更" class="headerlink" title="囲いを変更"></a>囲いを変更</h3><ul>
-<li>コマンド : <code>cs + 変更したい囲み文字 + 変更したい囲み文字</code></li>
-</ul>
-<h3 id="囲いの中身を変更"><a href="#囲いの中身を変更" class="headerlink" title="囲いの中身を変更"></a>囲いの中身を変更</h3><ul>
-<li>コマンド : <code>ci + 中身を変更したい囲み文字</code></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://daiki-iijima.github.io/2021/02/27/%E3%80%90Vim%E3%83%97%E3%83%A9%E3%82%B0%E3%82%A4%E3%83%B3%E3%80%91%E5%9B%B2%E3%81%86%E8%A8%98%E8%BF%B0%E3%82%92%E6%A5%BD%E3%81%AB%E3%81%99%E3%82%8B%E3%80%8Cvim-surround%E3%80%8D/" data-id="cklnjopr00001kzb6e91q01l5" data-title="【Vimプラグイン】囲う記述を楽にする「vim-surround」" class="article-share-link">共有</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vim/" rel="tag">Vim</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vim%E3%83%97%E3%83%A9%E3%82%B0%E3%82%A4%E3%83%B3/" rel="tag">Vimプラグイン</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
@@ -905,7 +878,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">タグクラウド</h3>
     <div class="widget tagcloud">
-      <a href="/tags/AppleScript/" style="font-size: 10px;">AppleScript</a> <a href="/tags/CSS/" style="font-size: 16px;">CSS</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/HTML/" style="font-size: 20px;">HTML</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Linux%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89/" style="font-size: 10px;">Linuxコマンド</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/Shell/" style="font-size: 10px;">Shell</a> <a href="/tags/Swift/" style="font-size: 14px;">Swift</a> <a href="/tags/Vim/" style="font-size: 18px;">Vim</a> <a href="/tags/VimPlugin/" style="font-size: 10px;">VimPlugin</a> <a href="/tags/Vim%E3%83%97%E3%83%A9%E3%82%B0%E3%82%A4%E3%83%B3/" style="font-size: 10px;">Vimプラグイン</a> <a href="/tags/XCode/" style="font-size: 10px;">XCode</a> <a href="/tags/Xcode/" style="font-size: 12px;">Xcode</a> <a href="/tags/alias/" style="font-size: 10px;">alias</a> <a href="/tags/zsh/" style="font-size: 10px;">zsh</a> <a href="/tags/%E8%87%AA%E5%8B%95%E5%8C%96/" style="font-size: 10px;">自動化</a>
+      <a href="/tags/AppleScript/" style="font-size: 10px;">AppleScript</a> <a href="/tags/CSS/" style="font-size: 16px;">CSS</a> <a href="/tags/Git/" style="font-size: 12px;">Git</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/HTML/" style="font-size: 20px;">HTML</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Linux%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89/" style="font-size: 10px;">Linuxコマンド</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/Shell/" style="font-size: 10px;">Shell</a> <a href="/tags/Swift/" style="font-size: 14px;">Swift</a> <a href="/tags/Vim/" style="font-size: 18px;">Vim</a> <a href="/tags/VimPlugin/" style="font-size: 10px;">VimPlugin</a> <a href="/tags/Vim%E3%83%97%E3%83%A9%E3%82%B0%E3%82%A4%E3%83%B3/" style="font-size: 10px;">Vimプラグイン</a> <a href="/tags/XCode/" style="font-size: 10px;">XCode</a> <a href="/tags/Xcode/" style="font-size: 12px;">Xcode</a> <a href="/tags/alias/" style="font-size: 10px;">alias</a> <a href="/tags/zsh/" style="font-size: 10px;">zsh</a> <a href="/tags/%E8%87%AA%E5%8B%95%E5%8C%96/" style="font-size: 10px;">自動化</a>
     </div>
   </div>
 
@@ -927,6 +900,10 @@
       <ul>
         
           <li>
+            <a href="/2021/03/07/%E3%80%90Git%E3%80%91%E7%AE%A1%E7%90%86%E3%81%95%E3%82%8C%E3%81%A6%E3%81%84%E3%82%8B%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E6%83%85%E5%A0%B1%E3%82%92%E3%81%BF%E3%82%8B/">【Git】管理されているファイル情報をみる</a>
+          </li>
+        
+          <li>
             <a href="/2021/03/06/%E3%80%90CSS%E3%80%91%E3%83%9E%E3%83%BC%E3%82%B8%E3%83%B3%E3%83%BB%E3%83%91%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0%E3%83%BB%E3%83%9C%E3%83%BC%E3%83%80%E3%83%BC%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/">【CSS】マージン・パディング・ボーダーについて</a>
           </li>
         
@@ -940,10 +917,6 @@
         
           <li>
             <a href="/2021/03/03/%E3%82%A4%E3%83%B3%E3%83%A9%E3%82%A4%E3%83%B3CSS%E3%81%A8%E5%86%85%E9%83%A8CSS%E3%81%84%E3%81%A4%E3%81%84%E3%81%A6/">インラインCSSと内部CSSいついて</a>
-          </li>
-        
-          <li>
-            <a href="/2021/03/02/CSS%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/">cssにつて</a>
           </li>
         
       </ul>
