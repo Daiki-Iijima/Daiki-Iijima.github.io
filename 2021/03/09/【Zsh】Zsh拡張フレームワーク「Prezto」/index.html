@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>【Zsh】Zsh拡張フレームワーク「Prezto」 | Inside the Black box .</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="参考 https:&#x2F;&#x2F;github.com&#x2F;sorin-ionescu&#x2F;prezto https:&#x2F;&#x2F;qiita.com&#x2F;s_of_p&#x2F;items&#x2F;33c9b18f0dc47ce29024 https:&#x2F;&#x2F;qiita.com&#x2F;yasudanaoya&#x2F;items&#x2F;8b928cfadbf702108ba3  インストール方法1. Zshを起動する1$ zsh 2. リポジトリをクローンする $&amp;#12">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【Zsh】Zsh拡張フレームワーク「Prezto」">
+<meta property="og:url" content="https://daiki-iijima.github.io/2021/03/09/%E3%80%90Zsh%E3%80%91Zsh%E6%8B%A1%E5%BC%B5%E3%83%95%E3%83%AC%E3%83%BC%E3%83%A0%E3%83%AF%E3%83%BC%E3%82%AF%E3%80%8CPrezto%E3%80%8D/index.html">
+<meta property="og:site_name" content="Inside the Black box .">
+<meta property="og:description" content="参考 https:&#x2F;&#x2F;github.com&#x2F;sorin-ionescu&#x2F;prezto https:&#x2F;&#x2F;qiita.com&#x2F;s_of_p&#x2F;items&#x2F;33c9b18f0dc47ce29024 https:&#x2F;&#x2F;qiita.com&#x2F;yasudanaoya&#x2F;items&#x2F;8b928cfadbf702108ba3  インストール方法1. Zshを起動する1$ zsh 2. リポジトリをクローンする $&amp;#12">
+<meta property="og:locale" content="ja_JP">
+<meta property="article:published_time" content="2021-03-09T13:16:00.000Z">
+<meta property="article:modified_time" content="2021-03-09T13:16:10.307Z">
+<meta property="article:author" content="Daiki Iijima">
+<meta property="article:tag" content="Zsh">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Inside the Black box ." type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Inside the Black box .</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSSフィード"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="検索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="検索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://Daiki-Iijima.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-【Zsh】Zsh拡張フレームワーク「Prezto」" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/03/09/%E3%80%90Zsh%E3%80%91Zsh%E6%8B%A1%E5%BC%B5%E3%83%95%E3%83%AC%E3%83%BC%E3%83%A0%E3%83%AF%E3%83%BC%E3%82%AF%E3%80%8CPrezto%E3%80%8D/" class="article-date">
+  <time class="dt-published" datetime="2021-03-09T13:16:00.000Z" itemprop="datePublished">2021-03-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      【Zsh】Zsh拡張フレームワーク「Prezto」
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/sorin-ionescu/prezto">https://github.com/sorin-ionescu/prezto</a></li>
+<li><a target="_blank" rel="noopener" href="https://qiita.com/s_of_p/items/33c9b18f0dc47ce29024">https://qiita.com/s_of_p/items/33c9b18f0dc47ce29024</a></li>
+<li><a target="_blank" rel="noopener" href="https://qiita.com/yasudanaoya/items/8b928cfadbf702108ba3">https://qiita.com/yasudanaoya/items/8b928cfadbf702108ba3</a></li>
+</ul>
+<h2 id="インストール方法"><a href="#インストール方法" class="headerlink" title="インストール方法"></a>インストール方法</h2><h3 id="1-Zshを起動する"><a href="#1-Zshを起動する" class="headerlink" title="1. Zshを起動する"></a>1. Zshを起動する</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ zsh</span><br></pre></td></tr></table></figure>
+<h3 id="2-リポジトリをクローンする"><a href="#2-リポジトリをクローンする" class="headerlink" title="2. リポジトリをクローンする"></a>2. リポジトリをクローンする</h3><ul>
+<li><code>$&#123;ZDOTDIR:-$HOME&#125;</code>とは？<ul>
+<li><code>$ZDOTDIR</code> : <code>.zshrc</code>の保存場所を設定する環境変数</li>
+<li><code>$HOME</code> : ホームディレクトリ</li>
+<li><code>:-</code> : 左辺の値が設定されていor空文字列であれば、右辺に設定されてる値が使用される<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git clone --recursive https:&#x2F;&#x2F;github.com&#x2F;sorin-ionescu&#x2F;prezto.git &quot;$&#123;ZDOTDIR:-$HOME&#125;&#x2F;.zprezto&quot;</span><br></pre></td></tr></table></figure>
+<h3 id="3-今まで使っていた設定ファイルを移動させる"><a href="#3-今まで使っていた設定ファイルを移動させる" class="headerlink" title="3. 今まで使っていた設定ファイルを移動させる"></a>3. 今まで使っていた設定ファイルを移動させる</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir zsh_orig &amp;&amp; mv zshmv .zlogin .zlogout .zprofile .zshenv .zshrc zsh_orig</span><br></pre></td></tr></table></figure>
+<h3 id="4-各コンフィグファイルへのシンボリックリンクを作成する"><a href="#4-各コンフィグファイルへのシンボリックリンクを作成する" class="headerlink" title="4. 各コンフィグファイルへのシンボリックリンクを作成する"></a>4. 各コンフィグファイルへのシンボリックリンクを作成する</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ setopt EXTENDED_GLOB</span><br><span class="line">for rcfile in &quot;$&#123;ZDOTDIR:-$HOME&#125;&quot;&#x2F;.zprezto&#x2F;runcoms&#x2F;^README.md(.N); do</span><br><span class="line">  ln -s &quot;$rcfile&quot; &quot;$&#123;ZDOTDIR:-$HOME&#125;&#x2F;.$&#123;rcfile:t&#125;&quot;</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+<h3 id="5-zshをデフォルトシェルに設定"><a href="#5-zshをデフォルトシェルに設定" class="headerlink" title="5. zshをデフォルトシェルに設定"></a>5. zshをデフォルトシェルに設定</h3></li>
+</ul>
+</li>
+<li>chsh : ログインシェルを変更する<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ chsh -s &#x2F;bin&#x2F;zsh</span><br></pre></td></tr></table></figure>
+<h2 id="テーマの設定"><a href="#テーマの設定" class="headerlink" title="テーマの設定"></a>テーマの設定</h2><h3 id="テーマ一覧を見てみる"><a href="#テーマ一覧を見てみる" class="headerlink" title="テーマ一覧を見てみる"></a>テーマ一覧を見てみる</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ prompt -s</span><br></pre></td></tr></table></figure>
+<h3 id="テーマを設定する"><a href="#テーマを設定する" class="headerlink" title="テーマを設定する"></a>テーマを設定する</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ prompt -s テーマ名</span><br></pre></td></tr></table></figure>
+<h4 id="Macの場合"><a href="#Macの場合" class="headerlink" title="Macの場合"></a>Macの場合</h4><code>prompt -s</code>だと、そのセッションではテーマが変更されるが、再起動ログインし直すとデフォルトのテーマになってしまうので、設定<code>~/.zshrc</code>に追記しておく必要がある<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ prompt -s powerline</span><br><span class="line">Set and save not yet implemented.  Please ensure your ~&#x2F;.zshrc</span><br><span class="line">contains something similar to the following:</span><br><span class="line"></span><br><span class="line">  autoload -Uz promptinit</span><br><span class="line">  promptinit</span><br><span class="line">  prompt powerline</span><br></pre></td></tr></table></figure>
+<h4 id="powerlineを使用する場合、特殊なフォントが必要"><a href="#powerlineを使用する場合、特殊なフォントが必要" class="headerlink" title="powerlineを使用する場合、特殊なフォントが必要"></a>powerlineを使用する場合、特殊なフォントが必要</h4></li>
+</ul>
+<ol>
+<li>以下GitHubのリポジトリをダウンロード<br><a target="_blank" rel="noopener" href="https://github.com/powerline/fonts">https://github.com/powerline/fonts</a></li>
+</ol>
+<ul>
+<li>適当なディレクトリに移動後  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;powerline&#x2F;fonts.git</span><br></pre></td></tr></table></figure></li>
+</ul>
+<ol start="2">
+<li><code>install.sh</code>を叩く <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cd fonts</span><br><span class="line">$ .&#x2F;install.sh</span><br></pre></td></tr></table></figure></li>
+<li>使用しているターミナルでフォントを設定</li>
+</ol>
+<ul>
+<li>文字列に<code>Powerline</code>が入っていれば使えるはず</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://daiki-iijima.github.io/2021/03/09/%E3%80%90Zsh%E3%80%91Zsh%E6%8B%A1%E5%BC%B5%E3%83%95%E3%83%AC%E3%83%BC%E3%83%A0%E3%83%AF%E3%83%BC%E3%82%AF%E3%80%8CPrezto%E3%80%8D/" data-id="ckm21enay00003ob63xmwego9" data-title="【Zsh】Zsh拡張フレームワーク「Prezto」" class="article-share-link">共有</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Zsh/" rel="tag">Zsh</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2021/03/08/%E3%80%90Git%E3%80%91%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%83%A9%E3%82%A4%E3%83%B3%E3%81%AE%E6%A7%8B%E6%96%87/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前の記事</strong>
+      <div class="article-nav-title">【Git】コマンドラインの構文</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">カテゴリ</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Blog/">Blog</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">タグ</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AppleScript/" rel="tag">AppleScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GitHub/" rel="tag">GitHub</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89/" rel="tag">Linuxコマンド</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/" rel="tag">Shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift/" rel="tag">Swift</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/" rel="tag">Vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VimPlugin/" rel="tag">VimPlugin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim%E3%83%97%E3%83%A9%E3%82%B0%E3%82%A4%E3%83%B3/" rel="tag">Vimプラグイン</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XCode/" rel="tag">XCode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Xcode/" rel="tag">Xcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Zsh/" rel="tag">Zsh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/alias/" rel="tag">alias</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zsh/" rel="tag">zsh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%87%AA%E5%8B%95%E5%8C%96/" rel="tag">自動化</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">タグクラウド</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/AppleScript/" style="font-size: 10px;">AppleScript</a> <a href="/tags/CSS/" style="font-size: 16.67px;">CSS</a> <a href="/tags/Git/" style="font-size: 13.33px;">Git</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/HTML/" style="font-size: 20px;">HTML</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Linux%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89/" style="font-size: 10px;">Linuxコマンド</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/Shell/" style="font-size: 10px;">Shell</a> <a href="/tags/Swift/" style="font-size: 15px;">Swift</a> <a href="/tags/Vim/" style="font-size: 18.33px;">Vim</a> <a href="/tags/VimPlugin/" style="font-size: 10px;">VimPlugin</a> <a href="/tags/Vim%E3%83%97%E3%83%A9%E3%82%B0%E3%82%A4%E3%83%B3/" style="font-size: 10px;">Vimプラグイン</a> <a href="/tags/XCode/" style="font-size: 10px;">XCode</a> <a href="/tags/Xcode/" style="font-size: 11.67px;">Xcode</a> <a href="/tags/Zsh/" style="font-size: 10px;">Zsh</a> <a href="/tags/alias/" style="font-size: 10px;">alias</a> <a href="/tags/zsh/" style="font-size: 10px;">zsh</a> <a href="/tags/%E8%87%AA%E5%8B%95%E5%8C%96/" style="font-size: 10px;">自動化</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">アーカイブ</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">3月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">2月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">1月 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最近の投稿</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/03/09/%E3%80%90Zsh%E3%80%91Zsh%E6%8B%A1%E5%BC%B5%E3%83%95%E3%83%AC%E3%83%BC%E3%83%A0%E3%83%AF%E3%83%BC%E3%82%AF%E3%80%8CPrezto%E3%80%8D/">【Zsh】Zsh拡張フレームワーク「Prezto」</a>
+          </li>
+        
+          <li>
+            <a href="/2021/03/08/%E3%80%90Git%E3%80%91%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%83%A9%E3%82%A4%E3%83%B3%E3%81%AE%E6%A7%8B%E6%96%87/">【Git】コマンドラインの構文</a>
+          </li>
+        
+          <li>
+            <a href="/2021/03/07/%E3%80%90Git%E3%80%91%E7%AE%A1%E7%90%86%E3%81%95%E3%82%8C%E3%81%A6%E3%81%84%E3%82%8B%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E6%83%85%E5%A0%B1%E3%82%92%E3%81%BF%E3%82%8B/">【Git】管理されているファイル情報をみる</a>
+          </li>
+        
+          <li>
+            <a href="/2021/03/06/%E3%80%90CSS%E3%80%91%E3%83%9E%E3%83%BC%E3%82%B8%E3%83%B3%E3%83%BB%E3%83%91%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0%E3%83%BB%E3%83%9C%E3%83%BC%E3%83%80%E3%83%BC%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/">【CSS】マージン・パディング・ボーダーについて</a>
+          </li>
+        
+          <li>
+            <a href="/2021/03/05/%E3%80%90CSS%E3%80%91position%E3%83%97%E3%83%AD%E3%83%91%E3%83%86%E3%82%A3%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/">【CSS】positionプロパティについて</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 Daiki Iijima<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

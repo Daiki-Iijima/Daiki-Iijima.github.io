@@ -71,6 +71,81 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-【Zsh】Zsh拡張フレームワーク「Prezto」" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/03/09/%E3%80%90Zsh%E3%80%91Zsh%E6%8B%A1%E5%BC%B5%E3%83%95%E3%83%AC%E3%83%BC%E3%83%A0%E3%83%AF%E3%83%BC%E3%82%AF%E3%80%8CPrezto%E3%80%8D/" class="article-date">
+  <time class="dt-published" datetime="2021-03-09T13:16:00.000Z" itemprop="datePublished">2021-03-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/03/09/%E3%80%90Zsh%E3%80%91Zsh%E6%8B%A1%E5%BC%B5%E3%83%95%E3%83%AC%E3%83%BC%E3%83%A0%E3%83%AF%E3%83%BC%E3%82%AF%E3%80%8CPrezto%E3%80%8D/">【Zsh】Zsh拡張フレームワーク「Prezto」</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/sorin-ionescu/prezto">https://github.com/sorin-ionescu/prezto</a></li>
+<li><a target="_blank" rel="noopener" href="https://qiita.com/s_of_p/items/33c9b18f0dc47ce29024">https://qiita.com/s_of_p/items/33c9b18f0dc47ce29024</a></li>
+<li><a target="_blank" rel="noopener" href="https://qiita.com/yasudanaoya/items/8b928cfadbf702108ba3">https://qiita.com/yasudanaoya/items/8b928cfadbf702108ba3</a></li>
+</ul>
+<h2 id="インストール方法"><a href="#インストール方法" class="headerlink" title="インストール方法"></a>インストール方法</h2><h3 id="1-Zshを起動する"><a href="#1-Zshを起動する" class="headerlink" title="1. Zshを起動する"></a>1. Zshを起動する</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ zsh</span><br></pre></td></tr></table></figure>
+<h3 id="2-リポジトリをクローンする"><a href="#2-リポジトリをクローンする" class="headerlink" title="2. リポジトリをクローンする"></a>2. リポジトリをクローンする</h3><ul>
+<li><code>$&#123;ZDOTDIR:-$HOME&#125;</code>とは？<ul>
+<li><code>$ZDOTDIR</code> : <code>.zshrc</code>の保存場所を設定する環境変数</li>
+<li><code>$HOME</code> : ホームディレクトリ</li>
+<li><code>:-</code> : 左辺の値が設定されていor空文字列であれば、右辺に設定されてる値が使用される<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git clone --recursive https:&#x2F;&#x2F;github.com&#x2F;sorin-ionescu&#x2F;prezto.git &quot;$&#123;ZDOTDIR:-$HOME&#125;&#x2F;.zprezto&quot;</span><br></pre></td></tr></table></figure>
+<h3 id="3-今まで使っていた設定ファイルを移動させる"><a href="#3-今まで使っていた設定ファイルを移動させる" class="headerlink" title="3. 今まで使っていた設定ファイルを移動させる"></a>3. 今まで使っていた設定ファイルを移動させる</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir zsh_orig &amp;&amp; mv zshmv .zlogin .zlogout .zprofile .zshenv .zshrc zsh_orig</span><br></pre></td></tr></table></figure>
+<h3 id="4-各コンフィグファイルへのシンボリックリンクを作成する"><a href="#4-各コンフィグファイルへのシンボリックリンクを作成する" class="headerlink" title="4. 各コンフィグファイルへのシンボリックリンクを作成する"></a>4. 各コンフィグファイルへのシンボリックリンクを作成する</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ setopt EXTENDED_GLOB</span><br><span class="line">for rcfile in &quot;$&#123;ZDOTDIR:-$HOME&#125;&quot;&#x2F;.zprezto&#x2F;runcoms&#x2F;^README.md(.N); do</span><br><span class="line">  ln -s &quot;$rcfile&quot; &quot;$&#123;ZDOTDIR:-$HOME&#125;&#x2F;.$&#123;rcfile:t&#125;&quot;</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+<h3 id="5-zshをデフォルトシェルに設定"><a href="#5-zshをデフォルトシェルに設定" class="headerlink" title="5. zshをデフォルトシェルに設定"></a>5. zshをデフォルトシェルに設定</h3></li>
+</ul>
+</li>
+<li>chsh : ログインシェルを変更する<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ chsh -s &#x2F;bin&#x2F;zsh</span><br></pre></td></tr></table></figure>
+<h2 id="テーマの設定"><a href="#テーマの設定" class="headerlink" title="テーマの設定"></a>テーマの設定</h2><h3 id="テーマ一覧を見てみる"><a href="#テーマ一覧を見てみる" class="headerlink" title="テーマ一覧を見てみる"></a>テーマ一覧を見てみる</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ prompt -s</span><br></pre></td></tr></table></figure>
+<h3 id="テーマを設定する"><a href="#テーマを設定する" class="headerlink" title="テーマを設定する"></a>テーマを設定する</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ prompt -s テーマ名</span><br></pre></td></tr></table></figure>
+<h4 id="Macの場合"><a href="#Macの場合" class="headerlink" title="Macの場合"></a>Macの場合</h4><code>prompt -s</code>だと、そのセッションではテーマが変更されるが、再起動ログインし直すとデフォルトのテーマになってしまうので、設定<code>~/.zshrc</code>に追記しておく必要がある<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ prompt -s powerline</span><br><span class="line">Set and save not yet implemented.  Please ensure your ~&#x2F;.zshrc</span><br><span class="line">contains something similar to the following:</span><br><span class="line"></span><br><span class="line">  autoload -Uz promptinit</span><br><span class="line">  promptinit</span><br><span class="line">  prompt powerline</span><br></pre></td></tr></table></figure>
+<h4 id="powerlineを使用する場合、特殊なフォントが必要"><a href="#powerlineを使用する場合、特殊なフォントが必要" class="headerlink" title="powerlineを使用する場合、特殊なフォントが必要"></a>powerlineを使用する場合、特殊なフォントが必要</h4></li>
+</ul>
+<ol>
+<li>以下GitHubのリポジトリをダウンロード<br><a target="_blank" rel="noopener" href="https://github.com/powerline/fonts">https://github.com/powerline/fonts</a></li>
+</ol>
+<ul>
+<li>適当なディレクトリに移動後  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;powerline&#x2F;fonts.git</span><br></pre></td></tr></table></figure></li>
+</ul>
+<ol start="2">
+<li><code>install.sh</code>を叩く <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cd fonts</span><br><span class="line">$ .&#x2F;install.sh</span><br></pre></td></tr></table></figure></li>
+<li>使用しているターミナルでフォントを設定</li>
+</ol>
+<ul>
+<li>文字列に<code>Powerline</code>が入っていれば使えるはず</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://daiki-iijima.github.io/2021/03/09/%E3%80%90Zsh%E3%80%91Zsh%E6%8B%A1%E5%BC%B5%E3%83%95%E3%83%AC%E3%83%BC%E3%83%A0%E3%83%AF%E3%83%BC%E3%82%AF%E3%80%8CPrezto%E3%80%8D/" data-id="ckm21enay00003ob63xmwego9" data-title="【Zsh】Zsh拡張フレームワーク「Prezto」" class="article-share-link">共有</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Zsh/" rel="tag">Zsh</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-【Git】コマンドラインの構文" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2021/03/08/%E3%80%90Git%E3%80%91%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%83%A9%E3%82%A4%E3%83%B3%E3%81%AE%E6%A7%8B%E6%96%87/" class="article-date">
@@ -813,114 +888,6 @@
 
 
   
-    <article id="post-XcodeでVimキーバインドを使う「XVim2」" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/02/28/Xcode%E3%81%A7Vim%E3%82%AD%E3%83%BC%E3%83%90%E3%82%A4%E3%83%B3%E3%83%89%E3%82%92%E4%BD%BF%E3%81%86%E3%80%8CXVim2%E3%80%8D/" class="article-date">
-  <time class="dt-published" datetime="2021-02-28T03:07:33.000Z" itemprop="datePublished">2021-02-28</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/02/28/Xcode%E3%81%A7Vim%E3%82%AD%E3%83%BC%E3%83%90%E3%82%A4%E3%83%B3%E3%83%89%E3%82%92%E4%BD%BF%E3%81%86%E3%80%8CXVim2%E3%80%8D/">XcodeでVimキーバインドを使う「XVim2」</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><ol>
-<li>証明書の発行</li>
-<li>XVim2のインストール</li>
-<li>XcodeにXVim2を読み込ませる</li>
-<li>.xvimrcでカスタマイズ　</li>
-<li>参考</li>
-</ol>
-<h2 id="1-証明書の発行"><a href="#1-証明書の発行" class="headerlink" title="1. 証明書の発行"></a>1. 証明書の発行</h2><ol>
-<li><p>アプリケーションの<code>Keychain Access(キーチェーンアクセス)</code>を起動</p>
-</li>
-<li><p><code>Keychain Access</code>ウィンドウの左側のデフォルトチェーン内の<code>ログイン</code>を選択</p>
-</li>
-<li><p>画面上部のメニューバーから、<code>キーチェーンアクセス-&gt;証明書アシスタント-&gt;証明書を作成</code>を選択</p>
-<p> <img src="/2021/02/28/Xcode%E3%81%A7Vim%E3%82%AD%E3%83%BC%E3%83%90%E3%82%A4%E3%83%B3%E3%83%89%E3%82%92%E4%BD%BF%E3%81%86%E3%80%8CXVim2%E3%80%8D/%E3%82%AD%E3%83%BC%E3%83%81%E3%82%A7%E3%83%BC%E3%83%B3%E8%A8%BC%E6%98%8E%E6%9B%B8%E4%BD%9C%E6%88%90.png" alt="キーチェーン証明書作成" title="キーチェーン証明書作成"></p>
-</li>
-<li><p>以下と<code>同じ情報</code>を設定して、<code>作成</code>ボタンを押下</p>
-<ul>
-<li><p>名前 : XcodeSigner</p>
-</li>
-<li><p>固有名のタイプ : 自己署名ルート</p>
-</li>
-<li><p>証明書のタイプ : コード署名</p>
-<p><img src="/2021/02/28/Xcode%E3%81%A7Vim%E3%82%AD%E3%83%BC%E3%83%90%E3%82%A4%E3%83%B3%E3%83%89%E3%82%92%E4%BD%BF%E3%81%86%E3%80%8CXVim2%E3%80%8D/%E8%A8%BC%E6%98%8E%E6%9B%B8%E4%BD%9C%E6%88%90%E6%99%82%E3%81%AE%E5%85%A5%E5%8A%9B%E5%86%85%E5%AE%B9.png" alt="証明書作成時の入力内容" title="証明書作成時の入力内容"></p>
-</li>
-</ul>
-</li>
-<li><p>作成時の警告が出るが、<code>続ける</code>を選択</p>
-<p> <img src="/2021/02/28/Xcode%E3%81%A7Vim%E3%82%AD%E3%83%BC%E3%83%90%E3%82%A4%E3%83%B3%E3%83%89%E3%82%92%E4%BD%BF%E3%81%86%E3%80%8CXVim2%E3%80%8D/%E8%A8%BC%E6%98%8E%E6%9B%B8%E4%BD%9C%E6%88%90%E6%99%82%E3%81%AE%E8%AD%A6%E5%91%8A.png" alt="証明書作成時の警告" title="証明書作成時の警告"></p>
-</li>
-<li><p>以下の画像のような画面が表示されれば証明書の発行は成功</p>
-<p> <img src="/2021/02/28/Xcode%E3%81%A7Vim%E3%82%AD%E3%83%BC%E3%83%90%E3%82%A4%E3%83%B3%E3%83%89%E3%82%92%E4%BD%BF%E3%81%86%E3%80%8CXVim2%E3%80%8D/%E8%A8%BC%E6%98%8E%E6%9B%B8%E5%AE%8C%E6%88%90.png" alt="証明書完成" title="証明書完成"></p>
-</li>
-</ol>
-<h2 id="2-XVim2のインストール"><a href="#2-XVim2のインストール" class="headerlink" title="2. XVim2のインストール"></a>2. XVim2のインストール</h2><p>この作業では、任意の場所にリポジトリをクローンして作業を行ますが、今回は<code>Desktop</code>で作業することとして解説します。</p>
-<h3 id="Xcodeのパスの確認"><a href="#Xcodeのパスの確認" class="headerlink" title="Xcodeのパスの確認"></a>Xcodeのパスの確認</h3><p>インストール作業を行う前に、Xcodeが配置されているファイルパスの確認をします。</p>
-<p>以下のコマンドで、<code>/Applications/Xcode.app/Contents/Developer</code>というパスが表示されればOKです。それ以外のパスが表示されてしまった場合は、以下コマンドで、パスを設定してください。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xcode-select -p</span><br></pre></td></tr></table></figure>
-<p>それ以外のパスが表示されてしまった場合は、以下コマンドで、パスを設定してください。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xcode-select -s &#x2F;Applications&#x2F;Xcode.app&#x2F;Contents&#x2F;Developer</span><br></pre></td></tr></table></figure>
-<h3 id="インストール"><a href="#インストール" class="headerlink" title="インストール"></a>インストール</h3><p>注意 : この作業を行うときは、Xcodeを完全に落として(タスクキル)から行ってください</p>
-<ol>
-<li><p>ディレクトリを移動</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd ~&#x2F;Desktop</span><br></pre></td></tr></table></figure></li>
-<li><p>リポジトリをクローン</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;XVimProject&#x2F;XVim2.git </span><br></pre></td></tr></table></figure>
-</li>
-<li><p>クローンしてきたリポジトリのディレクトリに移動</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd XVim2&#x2F;</span><br></pre></td></tr></table></figure></li>
-<li><p><code>makeコマンド</code>でプラグインをビルド</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make</span><br></pre></td></tr></table></figure></li>
-<li><p>出力がたくさん流れたあと、に以下のような文字が表示されれば成功</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">** BUILD SUCCEEDED **</span><br></pre></td></tr></table></figure>
-<h2 id="3-XcodeにXVim2を読み込ませる"><a href="#3-XcodeにXVim2を読み込ませる" class="headerlink" title="3. XcodeにXVim2を読み込ませる"></a>3. XcodeにXVim2を読み込ませる</h2></li>
-<li><p>Xcodeを起動すると、以下の画像のようなウィンドウが表示されるので、<code>Load Bundle</code>を選択する<br> <img src="/2021/02/28/Xcode%E3%81%A7Vim%E3%82%AD%E3%83%BC%E3%83%90%E3%82%A4%E3%83%B3%E3%83%89%E3%82%92%E4%BD%BF%E3%81%86%E3%80%8CXVim2%E3%80%8D/Xcode%E8%B5%B7%E5%8B%95%E6%99%82%E3%81%AE%E7%A2%BA%E8%AA%8D%E7%94%BB%E9%9D%A2.png" alt="Xcode起動時の確認画面" title="確認画面"></p>
-</li>
-<li><p>上部メニューバーの<code>Edit</code>メニューの一番下に<code>XVim</code>が表示されて入れば導入成功</p>
-</li>
-</ol>
-<h3 id="間違えて、Skip-Bundleを選択してしまった場合"><a href="#間違えて、Skip-Bundleを選択してしまった場合" class="headerlink" title="間違えて、Skip Bundleを選択してしまった場合"></a>間違えて、<code>Skip Bundle</code>を選択してしまった場合</h3><p>一度XCodeを閉じて(タスクキル)して、以下コマンドをターミナルで実行してから再度XCodeを実行するとまた確認ウィンドウが表示さる</p>
-<p>X.X = 自分が使っているXcodeのバージョン </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults delete com.apple.dt.Xcode DVTPlugInManagerNonApplePlugIns-Xcod-X.X</span><br></pre></td></tr></table></figure>
-<h2 id="4-xvimrcでカスタマイズ"><a href="#4-xvimrcでカスタマイズ" class="headerlink" title="4. .xvimrcでカスタマイズ"></a>4. .xvimrcでカスタマイズ</h2><p>ホームディレクトリ直下に<code>.xvimrc</code>ファイルを作成して、<code>.vimrc</code>と同じように記述していく</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ~&#x2F;.xvimrc</span><br></pre></td></tr></table></figure>
-<h2 id="5-参考"><a href="#5-参考" class="headerlink" title="5. 参考"></a>5. 参考</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://github.com/XVimProject/XVim2">https://github.com/XVimProject/XVim2</a></li>
-<li><a target="_blank" rel="noopener" href="https://zenn.dev/ryo_kawamata/articles/intoroduce-xvim2">https://zenn.dev/ryo_kawamata/articles/intoroduce-xvim2</a></li>
-<li><a target="_blank" rel="noopener" href="https://qiita.com/ks-cap/items/91fb8578bbb930141a60">https://qiita.com/ks-cap/items/91fb8578bbb930141a60</a></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://daiki-iijima.github.io/2021/02/28/Xcode%E3%81%A7Vim%E3%82%AD%E3%83%BC%E3%83%90%E3%82%A4%E3%83%B3%E3%83%89%E3%82%92%E4%BD%BF%E3%81%86%E3%80%8CXVim2%E3%80%8D/" data-id="cklovs8820000kqb6802w38rd" data-title="XcodeでVimキーバインドを使う「XVim2」" class="article-share-link">共有</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vim/" rel="tag">Vim</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/XCode/" rel="tag">XCode</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
@@ -946,7 +913,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">タグ</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AppleScript/" rel="tag">AppleScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GitHub/" rel="tag">GitHub</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89/" rel="tag">Linuxコマンド</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/" rel="tag">Shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift/" rel="tag">Swift</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/" rel="tag">Vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VimPlugin/" rel="tag">VimPlugin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim%E3%83%97%E3%83%A9%E3%82%B0%E3%82%A4%E3%83%B3/" rel="tag">Vimプラグイン</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XCode/" rel="tag">XCode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Xcode/" rel="tag">Xcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/alias/" rel="tag">alias</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zsh/" rel="tag">zsh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%87%AA%E5%8B%95%E5%8C%96/" rel="tag">自動化</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AppleScript/" rel="tag">AppleScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GitHub/" rel="tag">GitHub</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89/" rel="tag">Linuxコマンド</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/" rel="tag">Shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift/" rel="tag">Swift</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/" rel="tag">Vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VimPlugin/" rel="tag">VimPlugin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim%E3%83%97%E3%83%A9%E3%82%B0%E3%82%A4%E3%83%B3/" rel="tag">Vimプラグイン</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XCode/" rel="tag">XCode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Xcode/" rel="tag">Xcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Zsh/" rel="tag">Zsh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/alias/" rel="tag">alias</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zsh/" rel="tag">zsh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%87%AA%E5%8B%95%E5%8C%96/" rel="tag">自動化</a></li></ul>
     </div>
   </div>
 
@@ -956,7 +923,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">タグクラウド</h3>
     <div class="widget tagcloud">
-      <a href="/tags/AppleScript/" style="font-size: 10px;">AppleScript</a> <a href="/tags/CSS/" style="font-size: 16.67px;">CSS</a> <a href="/tags/Git/" style="font-size: 13.33px;">Git</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/HTML/" style="font-size: 20px;">HTML</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Linux%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89/" style="font-size: 10px;">Linuxコマンド</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/Shell/" style="font-size: 10px;">Shell</a> <a href="/tags/Swift/" style="font-size: 15px;">Swift</a> <a href="/tags/Vim/" style="font-size: 18.33px;">Vim</a> <a href="/tags/VimPlugin/" style="font-size: 10px;">VimPlugin</a> <a href="/tags/Vim%E3%83%97%E3%83%A9%E3%82%B0%E3%82%A4%E3%83%B3/" style="font-size: 10px;">Vimプラグイン</a> <a href="/tags/XCode/" style="font-size: 10px;">XCode</a> <a href="/tags/Xcode/" style="font-size: 11.67px;">Xcode</a> <a href="/tags/alias/" style="font-size: 10px;">alias</a> <a href="/tags/zsh/" style="font-size: 10px;">zsh</a> <a href="/tags/%E8%87%AA%E5%8B%95%E5%8C%96/" style="font-size: 10px;">自動化</a>
+      <a href="/tags/AppleScript/" style="font-size: 10px;">AppleScript</a> <a href="/tags/CSS/" style="font-size: 16.67px;">CSS</a> <a href="/tags/Git/" style="font-size: 13.33px;">Git</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/HTML/" style="font-size: 20px;">HTML</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Linux%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89/" style="font-size: 10px;">Linuxコマンド</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/Shell/" style="font-size: 10px;">Shell</a> <a href="/tags/Swift/" style="font-size: 15px;">Swift</a> <a href="/tags/Vim/" style="font-size: 18.33px;">Vim</a> <a href="/tags/VimPlugin/" style="font-size: 10px;">VimPlugin</a> <a href="/tags/Vim%E3%83%97%E3%83%A9%E3%82%B0%E3%82%A4%E3%83%B3/" style="font-size: 10px;">Vimプラグイン</a> <a href="/tags/XCode/" style="font-size: 10px;">XCode</a> <a href="/tags/Xcode/" style="font-size: 11.67px;">Xcode</a> <a href="/tags/Zsh/" style="font-size: 10px;">Zsh</a> <a href="/tags/alias/" style="font-size: 10px;">alias</a> <a href="/tags/zsh/" style="font-size: 10px;">zsh</a> <a href="/tags/%E8%87%AA%E5%8B%95%E5%8C%96/" style="font-size: 10px;">自動化</a>
     </div>
   </div>
 
@@ -978,6 +945,10 @@
       <ul>
         
           <li>
+            <a href="/2021/03/09/%E3%80%90Zsh%E3%80%91Zsh%E6%8B%A1%E5%BC%B5%E3%83%95%E3%83%AC%E3%83%BC%E3%83%A0%E3%83%AF%E3%83%BC%E3%82%AF%E3%80%8CPrezto%E3%80%8D/">【Zsh】Zsh拡張フレームワーク「Prezto」</a>
+          </li>
+        
+          <li>
             <a href="/2021/03/08/%E3%80%90Git%E3%80%91%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%83%A9%E3%82%A4%E3%83%B3%E3%81%AE%E6%A7%8B%E6%96%87/">【Git】コマンドラインの構文</a>
           </li>
         
@@ -991,10 +962,6 @@
         
           <li>
             <a href="/2021/03/05/%E3%80%90CSS%E3%80%91position%E3%83%97%E3%83%AD%E3%83%91%E3%83%86%E3%82%A3%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/">【CSS】positionプロパティについて</a>
-          </li>
-        
-          <li>
-            <a href="/2021/03/04/%E3%80%90Shell%E3%80%91%E5%87%BA%E5%8A%9B%E3%82%92%E3%81%9D%E3%81%AE%E3%81%BE%E3%81%BE%E3%82%AF%E3%83%AA%E3%83%83%E3%83%97%E3%83%9C%E3%83%BC%E3%83%89%E3%81%AB%E3%82%B3%E3%83%94%E3%83%BC%E3%81%99%E3%82%8B/">【Shell】出力をそのままクリップボードにコピーする</a>
           </li>
         
       </ul>
