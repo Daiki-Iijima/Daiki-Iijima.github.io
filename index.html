@@ -71,6 +71,117 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-【Shell】コマンドラインのカーソル移動" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/03/10/%E3%80%90Shell%E3%80%91%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%83%A9%E3%82%A4%E3%83%B3%E3%81%AE%E3%82%AB%E3%83%BC%E3%82%BD%E3%83%AB%E7%A7%BB%E5%8B%95/" class="article-date">
+  <time class="dt-published" datetime="2021-03-10T13:59:26.000Z" itemprop="datePublished">2021-03-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/03/10/%E3%80%90Shell%E3%80%91%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%83%A9%E3%82%A4%E3%83%B3%E3%81%AE%E3%82%AB%E3%83%BC%E3%82%BD%E3%83%AB%E7%A7%BB%E5%8B%95/">【Shell】コマンドラインのカーソル移動</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="矢印キーを使用しないカーソルの移動"><a href="#矢印キーを使用しないカーソルの移動" class="headerlink" title="矢印キーを使用しないカーソルの移動"></a>矢印キーを使用しないカーソルの移動</h2><ul>
+<li><code>□</code>が現在カーソルのある位置</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>コマンド</th>
+<th>動作解説</th>
+<th>動作前</th>
+<th>動作後</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Ctrl + a</td>
+<td>行の先頭にカーソルを移動</td>
+<td>cd ~/Deskctop□/test/</td>
+<td>□cd ~/Deskctop/test/</td>
+</tr>
+<tr>
+<td>Ctrl + e</td>
+<td>行の末にカーソルを移動</td>
+<td>cd ~/Deskctop□/test/</td>
+<td>cd ~/Deskctop/test/□</td>
+</tr>
+<tr>
+<td>Ctrl + k</td>
+<td>カーソルの右側を全て消去</td>
+<td>cd ~/Deskctop□/test/</td>
+<td>cd ~/Deskctop□</td>
+</tr>
+<tr>
+<td>Ctrl + h</td>
+<td>カーソルの左側にある文字を消去</td>
+<td>cd ~/Deskctop□/test/</td>
+<td>cd ~/Deskcto□/test/</td>
+</tr>
+<tr>
+<td>Ctrl + d</td>
+<td>カーソルの右側にある文字を消去</td>
+<td>cd ~/Deskctop□/test/</td>
+<td>cd ~/Deskctop□test/</td>
+</tr>
+<tr>
+<td>Ctrl + u</td>
+<td>コマンドラインの文字を全て消去</td>
+<td>cd ~/Deskctop□/test/</td>
+<td></td>
+</tr>
+<tr>
+<td>Ctrl + y</td>
+<td>Ctrl + kで消去した文字列を貼り付け</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="コマンドの履歴を使用する"><a href="#コマンドの履歴を使用する" class="headerlink" title="コマンドの履歴を使用する"></a>コマンドの履歴を使用する</h2><ul>
+<li><p>矢印キーの上下(↑,↓)で一つ前のコマンド、一つ後のコマンドを呼び出せる。</p>
+</li>
+<li><p>履歴を見たい場合は、<code>history</code>コマンドでみることのできる</p>
+<ul>
+<li>履歴番号　コマンド<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ history</span><br><span class="line">  679  ls</span><br><span class="line">  680  vim ~&#x2F;.zshrc</span><br><span class="line">  681  source ~&#x2F;.zshrc</span><br><span class="line">  682  ZDOTDIR</span><br><span class="line">  683  $ZDOTDIR</span><br><span class="line">  684  echo $ZDOTDIR</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>行番号を指定して実行する</p>
+<ul>
+<li><code>!履歴番号</code></li>
+<li>行番号のコマンドがコマンドラインに入力される<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ !679</span><br><span class="line"></span><br><span class="line">$ ls</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://daiki-iijima.github.io/2021/03/10/%E3%80%90Shell%E3%80%91%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%83%A9%E3%82%A4%E3%83%B3%E3%81%AE%E3%82%AB%E3%83%BC%E3%82%BD%E3%83%AB%E7%A7%BB%E5%8B%95/" data-id="ckm3ihvyz0000nfb6eru67ynr" data-title="【Shell】コマンドラインのカーソル移動" class="article-share-link">共有</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Shell/" rel="tag">Shell</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-【Zsh】Zsh拡張フレームワーク「Prezto」" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2021/03/09/%E3%80%90Zsh%E3%80%91Zsh%E6%8B%A1%E5%BC%B5%E3%83%95%E3%83%AC%E3%83%BC%E3%83%A0%E3%83%AF%E3%83%BC%E3%82%AF%E3%80%8CPrezto%E3%80%8D/" class="article-date">
@@ -802,92 +913,6 @@
 
 
   
-    <article id="post-【Xcode】EntryPointを変更する方法" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/03/01/%E3%80%90Xcode%E3%80%91EntryPoint%E3%82%92%E5%A4%89%E6%9B%B4%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95/" class="article-date">
-  <time class="dt-published" datetime="2021-03-01T13:59:11.000Z" itemprop="datePublished">2021-03-01</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/03/01/%E3%80%90Xcode%E3%80%91EntryPoint%E3%82%92%E5%A4%89%E6%9B%B4%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95/">【Xcode】EntryPointを変更する方法</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="もくじ"><a href="#もくじ" class="headerlink" title="もくじ"></a>もくじ</h2><ol start="0">
-<li>環境</li>
-<li>Entry Pointとは</li>
-<li>StoryBordから変更する</li>
-<li>コードから変更する</li>
-<li>[おまけ]初回起動時のみ特定の画面を表示させる</li>
-</ol>
-<h2 id="0-環境"><a href="#0-環境" class="headerlink" title="0. 環境"></a>0. 環境</h2><ul>
-<li>MacBook Air M1</li>
-<li>Xcode 12.4</li>
-</ul>
-<h2 id="1-Entry-Pointとは"><a href="#1-Entry-Pointとは" class="headerlink" title="1. Entry Pointとは"></a>1. Entry Pointとは</h2><ul>
-<li>プログラムの開始される位置</li>
-<li>この記事では開始される画面の位置も含まれる<h3 id="画面上で見ると以下の画像の矢印部分がEntry-Pointを表している"><a href="#画面上で見ると以下の画像の矢印部分がEntry-Pointを表している" class="headerlink" title="画面上で見ると以下の画像の矢印部分がEntry Pointを表している"></a>画面上で見ると以下の画像の矢印部分がEntry Pointを表している</h3><img src="/2021/03/01/%E3%80%90Xcode%E3%80%91EntryPoint%E3%82%92%E5%A4%89%E6%9B%B4%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95/EntryPoint%E3%81%AE%E7%9F%A2%E5%8D%B0.png" alt="EntryPointの矢印" title="EntryPointの矢印"></li>
-</ul>
-<h3 id="アシスタントエディタで確認すると以下赤枠部分"><a href="#アシスタントエディタで確認すると以下赤枠部分" class="headerlink" title="アシスタントエディタで確認すると以下赤枠部分"></a>アシスタントエディタで確認すると以下赤枠部分</h3><p><img src="/2021/03/01/%E3%80%90Xcode%E3%80%91EntryPoint%E3%82%92%E5%A4%89%E6%9B%B4%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95/EntryPoint%E3%81%AE%E3%82%A2%E3%82%B7%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%88%E3%82%A8%E3%83%AA%E3%82%A2%E3%81%A7%E3%81%AE%E8%A1%A8%E7%A4%BA.png" alt="EntryPointのアシスタントエリアでの表示" title="EntryPointのアシスタントエリアでの表示"></p>
-<h2 id="2-StoryBordから変更する"><a href="#2-StoryBordから変更する" class="headerlink" title="2. StoryBordから変更する"></a>2. StoryBordから変更する</h2><h3 id="ドラックアンドドロップで矢印を移動させる"><a href="#ドラックアンドドロップで矢印を移動させる" class="headerlink" title="ドラックアンドドロップで矢印を移動させる"></a>ドラックアンドドロップで矢印を移動させる</h3><p><img src="/2021/03/01/%E3%80%90Xcode%E3%80%91EntryPoint%E3%82%92%E5%A4%89%E6%9B%B4%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95/EntryPoint%E5%A4%89%E6%9B%B4(%E3%83%9E%E3%82%A6%E3%82%B9).gif" alt="EntryPoint変更(マウス).gif" title="EntryPoint変更(マウス)"></p>
-<h3 id="Utilites-areaから移動させる"><a href="#Utilites-areaから移動させる" class="headerlink" title="Utilites areaから移動させる"></a>Utilites areaから移動させる</h3><p><code>Attributes inspector内</code>の<code>Is Initial View Controller</code>にチェクを入れる<br><img src="/2021/03/01/%E3%80%90Xcode%E3%80%91EntryPoint%E3%82%92%E5%A4%89%E6%9B%B4%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95/EntryPoint%E5%A4%89%E6%9B%B4(Inspector).gif" alt="EntryPoint変更(Inspector)" title="EntryPoint変更(Inspector)"></p>
-<h2 id="3-コードから変更する"><a href="#3-コードから変更する" class="headerlink" title="3. コードから変更する"></a>3. コードから変更する</h2><h3 id="1-Main-storybordの遷移させたいViewControllerにStoryboad-IDを設定する"><a href="#1-Main-storybordの遷移させたいViewControllerにStoryboad-IDを設定する" class="headerlink" title="1. Main.storybordの遷移させたいViewControllerにStoryboad IDを設定する"></a>1. Main.storybordの遷移させたいViewControllerに<code>Storyboad ID</code>を設定する</h3><ul>
-<li><code>Identity Inspector</code> 内の<code>Sotryboard ID</code>を設定</li>
-</ul>
-<p><img src="/2021/03/01/%E3%80%90Xcode%E3%80%91EntryPoint%E3%82%92%E5%A4%89%E6%9B%B4%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95/Inspector.png" alt="Inspector.png" title="Inspector.png"></p>
-<ul>
-<li>今回はこのように設定<ul>
-<li>1画面目 : FirstView</li>
-<li>2画面目 : SecondView</li>
-</ul>
-</li>
-</ul>
-<h3 id="2-SceneDelegate-swift"><a href="#2-SceneDelegate-swift" class="headerlink" title="2. SceneDelegate.swift"></a>2. SceneDelegate.swift</h3><ol>
-<li><p>何も変更していないデフォルトの状態だとこのようなコードになっていると思います</p>
- <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> UIKit</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SceneDelegate</span>: <span class="title">UIResponder</span>, <span class="title">UIWindowSceneDelegate</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> window: <span class="type">UIWindow</span>?</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">scene</span><span class="params">(<span class="keyword">_</span> scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions)</span></span> &#123;</span><br><span class="line">        <span class="comment">// Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.</span></span><br><span class="line">        <span class="comment">// If using a storyboard, the `window` property will automatically be initialized and attached to the scene.</span></span><br><span class="line">        <span class="comment">// This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).</span></span><br><span class="line">        <span class="keyword">guard</span> <span class="keyword">let</span> <span class="keyword">_</span> <span class="operator">=</span> (scene <span class="keyword">as?</span> <span class="type">UIWindowScene</span>) <span class="keyword">else</span> &#123; <span class="keyword">return</span> &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">sceneDidDisconnect</span><span class="params">(<span class="keyword">_</span> scene: UIScene)</span></span> &#123;</span><br><span class="line">        <span class="comment">// Called as the scene is being released by the system.</span></span><br><span class="line">        <span class="comment">// This occurs shortly after the scene enters the background, or when its session is discarded.</span></span><br><span class="line">        <span class="comment">// Release any resources associated with this scene that can be re-created the next time the scene connects.</span></span><br><span class="line">        <span class="comment">// The scene may re-connect later, as its session was not necessarily discarded (see `application:didDiscardSceneSessions` instead).</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">sceneDidBecomeActive</span><span class="params">(<span class="keyword">_</span> scene: UIScene)</span></span> &#123;</span><br><span class="line">        <span class="comment">// Called when the scene has moved from an inactive state to an active state.</span></span><br><span class="line">        <span class="comment">// Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">sceneWillResignActive</span><span class="params">(<span class="keyword">_</span> scene: UIScene)</span></span> &#123;</span><br><span class="line">        <span class="comment">// Called when the scene will move from an active state to an inactive state.</span></span><br><span class="line">        <span class="comment">// This may occur due to temporary interruptions (ex. an incoming phone call).</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">sceneWillEnterForeground</span><span class="params">(<span class="keyword">_</span> scene: UIScene)</span></span> &#123;</span><br><span class="line">        <span class="comment">// Called as the scene transitions from the background to the foreground.</span></span><br><span class="line">        <span class="comment">// Use this method to undo the changes made on entering the background.</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">sceneDidEnterBackground</span><span class="params">(<span class="keyword">_</span> scene: UIScene)</span></span> &#123;</span><br><span class="line">        <span class="comment">// Called as the scene transitions from the foreground to the background.</span></span><br><span class="line">        <span class="comment">// Use this method to save data, release shared resources, and store enough scene-specific state information</span></span><br><span class="line">        <span class="comment">// to restore the scene back to its current state.</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p><code>scene</code>メソッド内に以下のコードのコードを追記します</p>
-<ul>
-<li><p>この時、<code>guard let _ =</code>の<code>_</code>の部分を<code>window</code>に変更しています。</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">scene</span><span class="params">(<span class="keyword">_</span> scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions)</span></span> &#123;</span><br><span class="line">	<span class="comment">// Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.</span></span><br><span class="line">	<span class="comment">// If using a storyboard, the `window` property will automatically be initialized and attached to the scene.</span></span><br><span class="line">	<span class="comment">// This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).</span></span><br><span class="line">	<span class="keyword">guard</span> <span class="keyword">let</span> windowScene <span class="operator">=</span> (scene <span class="keyword">as?</span> <span class="type">UIWindowScene</span>) <span class="keyword">else</span> &#123; <span class="keyword">return</span> &#125;</span><br><span class="line"></span><br><span class="line">	window <span class="operator">=</span> <span class="type">UIWindow</span>(windowScene: windowScene)</span><br><span class="line">	<span class="keyword">let</span> storybard <span class="operator">=</span> <span class="type">UIStoryboard</span>(name: <span class="string">&quot;Main&quot;</span>,bundle: <span class="literal">nil</span>)</span><br><span class="line"> 	</span><br><span class="line">	<span class="comment">//  初めて起動しているか</span></span><br><span class="line">	<span class="keyword">if</span>(lanchIsFIrstTme())&#123;</span><br><span class="line">	    window<span class="operator">?</span>.rootViewController <span class="operator">=</span> storybard.instantiateViewController(identifier: <span class="string">&quot;FirstView&quot;</span>)</span><br><span class="line">	    firstLanch()</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">	    window<span class="operator">?</span>.rootViewController <span class="operator">=</span> storybard.instantiateViewController(identifier: <span class="string">&quot;SecondView&quot;</span>)</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	window<span class="operator">?</span>.makeKeyAndVisible()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="4-おまけ-初回起動時のみ特定の画面を表示させる"><a href="#4-おまけ-初回起動時のみ特定の画面を表示させる" class="headerlink" title="4. [おまけ]初回起動時のみ特定の画面を表示させる"></a>4. [おまけ]初回起動時のみ特定の画面を表示させる</h2><p>一つ前で実装した切り替え処理とユーザーデフォルト機能を組み合わせて、初回起動かどうかを判定する</p>
-</li>
-</ul>
-</li>
-</ol>
-<ul>
-<li>確認用メソッドと登録用メソッドを作成  <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">let</span> <span class="type">STORED_KEY</span> <span class="operator">=</span> <span class="string">&quot;lanched&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">firstLanch</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="type">UserDefaults</span>.standard.set(<span class="literal">true</span>,forKey: <span class="type">STORED_KEY</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">lanchIsFIrstTme</span><span class="params">()</span></span> -&gt; <span class="type">Bool</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="operator">!</span><span class="type">UserDefaults</span>.standard.bool(forKey: <span class="type">STORED_KEY</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li>一つ前で実装したコードを改変  <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">scene</span><span class="params">(<span class="keyword">_</span> scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions)</span></span> &#123;</span><br><span class="line">    <span class="comment">// Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.</span></span><br><span class="line">    <span class="comment">// If using a storyboard, the `window` property will automatically be initialized and attached to the scene.</span></span><br><span class="line">    <span class="comment">// This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).</span></span><br><span class="line">    <span class="keyword">guard</span> <span class="keyword">let</span> windowScene <span class="operator">=</span> (scene <span class="keyword">as?</span> <span class="type">UIWindowScene</span>) <span class="keyword">else</span> &#123; <span class="keyword">return</span> &#125;</span><br><span class="line"></span><br><span class="line">    window <span class="operator">=</span> <span class="type">UIWindow</span>(windowScene: windowScene)</span><br><span class="line">    <span class="keyword">let</span> storybard <span class="operator">=</span> <span class="type">UIStoryboard</span>(name: <span class="string">&quot;Main&quot;</span>,bundle: <span class="literal">nil</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//  初めて起動しているか</span></span><br><span class="line">    <span class="keyword">if</span>(lanchIsFIrstTme())&#123;</span><br><span class="line">        window<span class="operator">?</span>.rootViewController <span class="operator">=</span> storybard.instantiateViewController(identifier: <span class="string">&quot;FirstView&quot;</span>)</span><br><span class="line">        firstLanch()</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        window<span class="operator">?</span>.rootViewController <span class="operator">=</span> storybard.instantiateViewController(identifier: <span class="string">&quot;SecondView&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    window<span class="operator">?</span>.makeKeyAndVisible()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="こんな感じになればOK"><a href="#こんな感じになればOK" class="headerlink" title="こんな感じになればOK"></a>こんな感じになればOK</h3><img src="/2021/03/01/%E3%80%90Xcode%E3%80%91EntryPoint%E3%82%92%E5%A4%89%E6%9B%B4%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95/%E6%9C%80%E7%B5%82%E7%A2%BA%E8%AA%8D.gif" alt="最終確認" title="最終確認"><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/10428629/programmatically-set-the-initial-view-controller-using-storyboards/47691073">https://stackoverflow.com/questions/10428629/programmatically-set-the-initial-view-controller-using-storyboards/47691073</a></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://daiki-iijima.github.io/2021/03/01/%E3%80%90Xcode%E3%80%91EntryPoint%E3%82%92%E5%A4%89%E6%9B%B4%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95/" data-id="cklqnpe5y00000pb6ez1w2r91" data-title="【Xcode】EntryPointを変更する方法" class="article-share-link">共有</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Swift/" rel="tag">Swift</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Xcode/" rel="tag">Xcode</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
@@ -923,7 +948,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">タグクラウド</h3>
     <div class="widget tagcloud">
-      <a href="/tags/AppleScript/" style="font-size: 10px;">AppleScript</a> <a href="/tags/CSS/" style="font-size: 16.67px;">CSS</a> <a href="/tags/Git/" style="font-size: 13.33px;">Git</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/HTML/" style="font-size: 20px;">HTML</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Linux%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89/" style="font-size: 10px;">Linuxコマンド</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/Shell/" style="font-size: 10px;">Shell</a> <a href="/tags/Swift/" style="font-size: 15px;">Swift</a> <a href="/tags/Vim/" style="font-size: 18.33px;">Vim</a> <a href="/tags/VimPlugin/" style="font-size: 10px;">VimPlugin</a> <a href="/tags/Vim%E3%83%97%E3%83%A9%E3%82%B0%E3%82%A4%E3%83%B3/" style="font-size: 10px;">Vimプラグイン</a> <a href="/tags/XCode/" style="font-size: 10px;">XCode</a> <a href="/tags/Xcode/" style="font-size: 11.67px;">Xcode</a> <a href="/tags/Zsh/" style="font-size: 10px;">Zsh</a> <a href="/tags/alias/" style="font-size: 10px;">alias</a> <a href="/tags/zsh/" style="font-size: 10px;">zsh</a> <a href="/tags/%E8%87%AA%E5%8B%95%E5%8C%96/" style="font-size: 10px;">自動化</a>
+      <a href="/tags/AppleScript/" style="font-size: 10px;">AppleScript</a> <a href="/tags/CSS/" style="font-size: 16.67px;">CSS</a> <a href="/tags/Git/" style="font-size: 13.33px;">Git</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/HTML/" style="font-size: 20px;">HTML</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Linux%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89/" style="font-size: 10px;">Linuxコマンド</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/Shell/" style="font-size: 11.67px;">Shell</a> <a href="/tags/Swift/" style="font-size: 15px;">Swift</a> <a href="/tags/Vim/" style="font-size: 18.33px;">Vim</a> <a href="/tags/VimPlugin/" style="font-size: 10px;">VimPlugin</a> <a href="/tags/Vim%E3%83%97%E3%83%A9%E3%82%B0%E3%82%A4%E3%83%B3/" style="font-size: 10px;">Vimプラグイン</a> <a href="/tags/XCode/" style="font-size: 10px;">XCode</a> <a href="/tags/Xcode/" style="font-size: 11.67px;">Xcode</a> <a href="/tags/Zsh/" style="font-size: 10px;">Zsh</a> <a href="/tags/alias/" style="font-size: 10px;">alias</a> <a href="/tags/zsh/" style="font-size: 10px;">zsh</a> <a href="/tags/%E8%87%AA%E5%8B%95%E5%8C%96/" style="font-size: 10px;">自動化</a>
     </div>
   </div>
 
@@ -945,6 +970,10 @@
       <ul>
         
           <li>
+            <a href="/2021/03/10/%E3%80%90Shell%E3%80%91%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%83%A9%E3%82%A4%E3%83%B3%E3%81%AE%E3%82%AB%E3%83%BC%E3%82%BD%E3%83%AB%E7%A7%BB%E5%8B%95/">【Shell】コマンドラインのカーソル移動</a>
+          </li>
+        
+          <li>
             <a href="/2021/03/09/%E3%80%90Zsh%E3%80%91Zsh%E6%8B%A1%E5%BC%B5%E3%83%95%E3%83%AC%E3%83%BC%E3%83%A0%E3%83%AF%E3%83%BC%E3%82%AF%E3%80%8CPrezto%E3%80%8D/">【Zsh】Zsh拡張フレームワーク「Prezto」</a>
           </li>
         
@@ -958,10 +987,6 @@
         
           <li>
             <a href="/2021/03/06/%E3%80%90CSS%E3%80%91%E3%83%9E%E3%83%BC%E3%82%B8%E3%83%B3%E3%83%BB%E3%83%91%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0%E3%83%BB%E3%83%9C%E3%83%BC%E3%83%80%E3%83%BC%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/">【CSS】マージン・パディング・ボーダーについて</a>
-          </li>
-        
-          <li>
-            <a href="/2021/03/05/%E3%80%90CSS%E3%80%91position%E3%83%97%E3%83%AD%E3%83%91%E3%83%86%E3%82%A3%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/">【CSS】positionプロパティについて</a>
           </li>
         
       </ul>
