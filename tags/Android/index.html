@@ -4,20 +4,14 @@
   <meta charset="utf-8">
   
   
-  <title>【Linuxコマンド】よく使うlsコマンドオプション | Inside the Black box .</title>
+  <title>タグ: Android | Inside the Black box .</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="目次 隠しファイル.ファイルまで表示させる ファイル詳細を表示させる １列１ファイルで表示させる カンマ区切りで表示させる   普通にlsを使った場合12% lsMemo_App           Memo_App.xcodeproj README.md 1. 隠しファイル.ファイルまで表示させるオプション-aをつける 1ls -a 実行例123%ls -a.">
-<meta property="og:type" content="article">
-<meta property="og:title" content="【Linuxコマンド】よく使うlsコマンドオプション">
-<meta property="og:url" content="https://daiki-iijima.github.io/2021/02/28/%E3%80%90Linux%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%80%91%E3%82%88%E3%81%8F%E4%BD%BF%E3%81%86ls%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%82%AA%E3%83%97%E3%82%B7%E3%83%A7%E3%83%B3/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Inside the Black box .">
+<meta property="og:url" content="https://daiki-iijima.github.io/tags/Android/index.html">
 <meta property="og:site_name" content="Inside the Black box .">
-<meta property="og:description" content="目次 隠しファイル.ファイルまで表示させる ファイル詳細を表示させる １列１ファイルで表示させる カンマ区切りで表示させる   普通にlsを使った場合12% lsMemo_App           Memo_App.xcodeproj README.md 1. 隠しファイル.ファイルまで表示させるオプション-aをつける 1ls -a 実行例123%ls -a.">
 <meta property="og:locale" content="ja_JP">
-<meta property="article:published_time" content="2021-02-28T02:22:41.000Z">
-<meta property="article:modified_time" content="2021-02-28T02:32:32.785Z">
 <meta property="article:author" content="Daiki Iijima">
-<meta property="article:tag" content="Linux">
-<meta property="article:tag" content="Linuxコマンド">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="Inside the Black box ." type="application/atom+xml">
@@ -75,81 +69,39 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-【Linuxコマンド】よく使うlsコマンドオプション" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/02/28/%E3%80%90Linux%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%80%91%E3%82%88%E3%81%8F%E4%BD%BF%E3%81%86ls%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%82%AA%E3%83%97%E3%82%B7%E3%83%A7%E3%83%B3/" class="article-date">
-  <time class="dt-published" datetime="2021-02-28T02:22:41.000Z" itemprop="datePublished">2021-02-28</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+        <section id="main">
   
-    <h1 class="p-name article-title" itemprop="headline name">
-      【Linuxコマンド】よく使うlsコマンドオプション
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2021" class="archive-year">2021</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/2021/03/12/%E3%80%90Kotlin%E3%80%91View%E5%86%85%E3%81%AE%E3%82%B3%E3%83%B3%E3%83%9D%E3%83%BC%E3%83%8D%E3%83%B3%E3%83%88%E3%81%AE%E5%8F%96%E5%BE%97%E6%96%B9%E6%B3%95/" class="archive-article-date">
+  <time class="dt-published" datetime="2021-03-11T17:07:04.000Z" itemprop="datePublished">3月 12</time>
+</a>
+      
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2021/03/12/%E3%80%90Kotlin%E3%80%91View%E5%86%85%E3%81%AE%E3%82%B3%E3%83%B3%E3%83%9D%E3%83%BC%E3%83%8D%E3%83%B3%E3%83%88%E3%81%AE%E5%8F%96%E5%BE%97%E6%96%B9%E6%B3%95/">【Kotlin】View内のコンポーネントの取得方法</a>
     </h1>
   
 
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><ol>
-<li>隠しファイル<code>.ファイル</code>まで表示させる</li>
-<li>ファイル詳細を表示させる</li>
-<li>１列１ファイルで表示させる</li>
-<li>カンマ区切りで表示させる </li>
-</ol>
-<h2 id="普通にlsを使った場合"><a href="#普通にlsを使った場合" class="headerlink" title="普通にlsを使った場合"></a>普通に<code>ls</code>を使った場合</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">% ls</span><br><span class="line">Memo_App           Memo_App.xcodeproj README.md</span><br></pre></td></tr></table></figure>
-<h2 id="1-隠しファイル-ファイルまで表示させる"><a href="#1-隠しファイル-ファイルまで表示させる" class="headerlink" title="1. 隠しファイル.ファイルまで表示させる"></a>1. 隠しファイル<code>.ファイル</code>まで表示させる</h2><p>オプション<code>-a</code>をつける</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -a</span><br></pre></td></tr></table></figure>
-<h3 id="実行例"><a href="#実行例" class="headerlink" title="実行例"></a>実行例</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">%ls -a</span><br><span class="line">.                  .DS_Store          .gitignore         Memo_App.xcodeproj</span><br><span class="line">..                 .git               Memo_App           README.md</span><br></pre></td></tr></table></figure>
-<h2 id="2-ファイル詳細を表示させる"><a href="#2-ファイル詳細を表示させる" class="headerlink" title="2. ファイル詳細を表示させる"></a>2. ファイル詳細を表示させる</h2><p>lsコマンドのオプションに<code>-l</code>をつける</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -l</span><br></pre></td></tr></table></figure>
-<h3 id="実行例-1"><a href="#実行例-1" class="headerlink" title="実行例"></a>実行例</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">% ls -l</span><br><span class="line">total 8</span><br><span class="line">drwxr-xr-x  12 daiki  staff  384  2 28 01:39 Memo_App</span><br><span class="line">drwxr-xr-x@  5 daiki  staff  160  2 28 02:03 Memo_App.xcodeproj</span><br><span class="line">-rw-r--r--   1 daiki  staff   10  2 27 22:39 README.md</span><br></pre></td></tr></table></figure>
-<h2 id="3-１列１ファイルで表示させる"><a href="#3-１列１ファイルで表示させる" class="headerlink" title="3. １列１ファイルで表示させる"></a>3. １列１ファイルで表示させる</h2><p>lsコマンドのオプションに<code>-1</code>をつける</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -1</span><br></pre></td></tr></table></figure>
-<h3 id="実行例-2"><a href="#実行例-2" class="headerlink" title="実行例"></a>実行例</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">% ls -1</span><br><span class="line">Memo_App</span><br><span class="line">Memo_App.xcodeproj</span><br><span class="line">README.md</span><br></pre></td></tr></table></figure>
-<h2 id="4-カンマ区切りで表示させる"><a href="#4-カンマ区切りで表示させる" class="headerlink" title="4. カンマ区切りで表示させる"></a>4. カンマ区切りで表示させる</h2><p>lsコマンドのオプションに<code>-m</code>をつける</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -m</span><br></pre></td></tr></table></figure>
-<h3 id="実行例-3"><a href="#実行例-3" class="headerlink" title="実行例"></a>実行例</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">% ls -m</span><br><span class="line">Memo_App, Memo_App.xcodeproj, README.md</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://daiki-iijima.github.io/2021/02/28/%E3%80%90Linux%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%80%91%E3%82%88%E3%81%8F%E4%BD%BF%E3%81%86ls%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%82%AA%E3%83%97%E3%82%B7%E3%83%A7%E3%83%B3/" data-id="cklojfzrq00007tb69xvsalk0" data-title="【Linuxコマンド】よく使うlsコマンドオプション" class="article-share-link">共有</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89/" rel="tag">Linuxコマンド</a></li></ul>
-
-    </footer>
+    </header>
   </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2021/02/28/Xcode%E3%81%A7Vim%E3%82%AD%E3%83%BC%E3%83%90%E3%82%A4%E3%83%B3%E3%83%89%E3%82%92%E4%BD%BF%E3%81%86%E3%80%8CXVim2%E3%80%8D/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">次の記事</strong>
-      <div class="article-nav-title">
-        
-          XcodeでVimキーバインドを使う「XVim2」
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2021/02/27/%E3%80%90Vim%E3%83%97%E3%83%A9%E3%82%B0%E3%82%A4%E3%83%B3%E3%80%91%E5%9B%B2%E3%81%86%E8%A8%98%E8%BF%B0%E3%82%92%E6%A5%BD%E3%81%AB%E3%81%99%E3%82%8B%E3%80%8Cvim-surround%E3%80%8D/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">前の記事</strong>
-      <div class="article-nav-title">【Vimプラグイン】囲う記述を楽にする「vim-surround」</div>
-    </a>
-  
-</nav>
-
-  
 </article>
+  
+  
+    </div></section>
+  
 
 
 </section>
