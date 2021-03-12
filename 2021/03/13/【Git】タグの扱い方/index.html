@@ -4,18 +4,19 @@
   <meta charset="utf-8">
   
   
-  <title>Inside the Black box .</title>
+  <title>【Git】タグの扱い方 | Inside the Black box .</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="google-site-verification: google54e17a966e7cdc95.html">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Inside the Black box .">
-<meta property="og:url" content="https://daiki-iijima.github.io/google54e17a966e7cdc95.html">
+  <meta name="description" content="タグはなんのためにあるのかコミットを指定するためにSHA 1IDを使用するが、毎回選択するのは面倒くさいし間違える可能性があるので、よく使う可能性のあるコミットに命名することで、いちいちSHA 1IDを指定しなくてよくできる コミットにタグを追加するタグをつける1git tag タグ名 タグをつけたいSHA1 タグをつけるときは、-mスイッチを使用すればメッセージをつけることもできる1git ta">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【Git】タグの扱い方">
+<meta property="og:url" content="https://daiki-iijima.github.io/2021/03/13/%E3%80%90Git%E3%80%91%E3%82%BF%E3%82%B0%E3%81%AE%E6%89%B1%E3%81%84%E6%96%B9/index.html">
 <meta property="og:site_name" content="Inside the Black box .">
-<meta property="og:description" content="google-site-verification: google54e17a966e7cdc95.html">
+<meta property="og:description" content="タグはなんのためにあるのかコミットを指定するためにSHA 1IDを使用するが、毎回選択するのは面倒くさいし間違える可能性があるので、よく使う可能性のあるコミットに命名することで、いちいちSHA 1IDを指定しなくてよくできる コミットにタグを追加するタグをつける1git tag タグ名 タグをつけたいSHA1 タグをつけるときは、-mスイッチを使用すればメッセージをつけることもできる1git ta">
 <meta property="og:locale" content="ja_JP">
-<meta property="article:published_time" content="2021-03-02T12:31:09.858Z">
-<meta property="article:modified_time" content="2021-03-02T12:31:03.074Z">
+<meta property="article:published_time" content="2021-03-12T19:03:54.000Z">
+<meta property="article:modified_time" content="2021-03-12T19:05:01.025Z">
 <meta property="article:author" content="Daiki Iijima">
+<meta property="article:tag" content="Git">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="Inside the Black box ." type="application/atom+xml">
@@ -73,30 +74,58 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="page-" class="h-entry article article-type-page" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-【Git】タグの扱い方" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/google54e17a966e7cdc95.html" class="article-date">
-  <time class="dt-published" datetime="2021-03-02T12:31:09.858Z" itemprop="datePublished">2021-03-02</time>
+    <a href="/2021/03/13/%E3%80%90Git%E3%80%91%E3%82%BF%E3%82%B0%E3%81%AE%E6%89%B1%E3%81%84%E6%96%B9/" class="article-date">
+  <time class="dt-published" datetime="2021-03-12T19:03:54.000Z" itemprop="datePublished">2021-03-13</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      【Git】タグの扱い方
+    </h1>
+  
+
+      </header>
+    
     <div class="e-content article-entry" itemprop="articleBody">
       
-        google-site-verification: google54e17a966e7cdc95.html
+        <h2 id="タグはなんのためにあるのか"><a href="#タグはなんのためにあるのか" class="headerlink" title="タグはなんのためにあるのか"></a>タグはなんのためにあるのか</h2><p>コミットを指定するために<code>SHA 1ID</code>を使用するが、毎回選択するのは面倒くさいし間違える可能性があるので、よく使う可能性のあるコミットに命名することで、いちいち<code>SHA 1ID</code>を指定しなくてよくできる</p>
+<h2 id="コミットにタグを追加する"><a href="#コミットにタグを追加する" class="headerlink" title="コミットにタグを追加する"></a>コミットにタグを追加する</h2><h3 id="タグをつける"><a href="#タグをつける" class="headerlink" title="タグをつける"></a>タグをつける</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag タグ名 タグをつけたいSHA1</span><br></pre></td></tr></table></figure>
+<h3 id="タグをつけるときは、-mスイッチを使用すればメッセージをつけることもできる"><a href="#タグをつけるときは、-mスイッチを使用すればメッセージをつけることもできる" class="headerlink" title="タグをつけるときは、-mスイッチを使用すればメッセージをつけることもできる"></a>タグをつけるときは、<code>-m</code>スイッチを使用すればメッセージをつけることもできる</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag タグ名 -m &quot;コメント&quot; タグをつけたいSHA1</span><br></pre></td></tr></table></figure>
+<h2 id="タグを消去する"><a href="#タグを消去する" class="headerlink" title="タグを消去する"></a>タグを消去する</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag -d タグ名</span><br></pre></td></tr></table></figure>
+<p>これが表示されれば成功</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Deleted tag &#39;タグ名&#39; (was SHA1)</span><br></pre></td></tr></table></figure>
+<h2 id="タグの一覧を表示する"><a href="#タグの一覧を表示する" class="headerlink" title="タグの一覧を表示する"></a>タグの一覧を表示する</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://daiki-iijima.github.io/google54e17a966e7cdc95.html" data-id="cklrzpj5w0000ahb6ac0t5xic" data-title="" class="article-share-link">共有</a>
+      <a data-url="https://daiki-iijima.github.io/2021/03/13/%E3%80%90Git%E3%80%91%E3%82%BF%E3%82%B0%E3%81%AE%E6%89%B1%E3%81%84%E6%96%B9/" data-id="ckm6o6kyp00003fb64gop9pfe" data-title="【Git】タグの扱い方" class="article-share-link">共有</a>
       
       
       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/" rel="tag">Git</a></li></ul>
+
     </footer>
   </div>
   
     
+<nav id="article-nav">
+  
+  
+    <a href="/2021/03/11/%E3%80%90Ubuntu%E3%80%91%E3%82%AD%E3%83%BC%E3%83%9C%E3%83%BC%E3%83%89%E3%81%AE%E5%88%9D%E6%9C%9F%E8%A8%AD%E5%AE%9A/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前の記事</strong>
+      <div class="article-nav-title">【Ubuntu】キーボードの初期設定</div>
+    </a>
+  
+</nav>
+
   
 </article>
 
