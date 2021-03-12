@@ -71,6 +71,84 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-【Ubuntu】キーボードの初期設定" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/03/11/%E3%80%90Ubuntu%E3%80%91%E3%82%AD%E3%83%BC%E3%83%9C%E3%83%BC%E3%83%89%E3%81%AE%E5%88%9D%E6%9C%9F%E8%A8%AD%E5%AE%9A/" class="article-date">
+  <time class="dt-published" datetime="2021-03-11T09:55:00.000Z" itemprop="datePublished">2021-03-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/03/11/%E3%80%90Ubuntu%E3%80%91%E3%82%AD%E3%83%BC%E3%83%9C%E3%83%BC%E3%83%89%E3%81%AE%E5%88%9D%E6%9C%9F%E8%A8%AD%E5%AE%9A/">【Ubuntu】キーボードの初期設定</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="Ubuntu-Serverで使用するキーボードレイアウトを日本語配列に変更する"><a href="#Ubuntu-Serverで使用するキーボードレイアウトを日本語配列に変更する" class="headerlink" title="Ubuntu Serverで使用するキーボードレイアウトを日本語配列に変更する"></a>Ubuntu Serverで使用するキーボードレイアウトを日本語配列に変更する</h2><ol>
+<li><code>sudo dpkg-reconfigure keyboard-configuration</code>を入力 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo dpkg-reconfigure keyboard-configuration</span><br></pre></td></tr></table></figure></li>
+</ol>
+<ul>
+<li>dpkg-reconfigure : 指定した<code>Debian</code>パッケージが<code>debconf</code>を採用している場合に、パッケージの再設定をすることができるコマンド<ul>
+<li><code>debconf</code>に対応しているリストは<code>ls /var/lib/dpkg/info/*.config</code>でみることができる</li>
+</ul>
+</li>
+<li>keyboard-configuration : キーボードのレイアウト設定ファイル</li>
+</ul>
+<h3 id="ここからは矢印キーとEnterキーで操作する-GUI風になる"><a href="#ここからは矢印キーとEnterキーで操作する-GUI風になる" class="headerlink" title="ここからは矢印キーとEnterキーで操作する(GUI風になる)"></a>ここからは矢印キーとEnterキーで操作する(GUI風になる)</h3><ol start="2">
+<li><p>Generic 105-key (Intl)PCを選択<br><img src="/2021/03/11/%E3%80%90Ubuntu%E3%80%91%E3%82%AD%E3%83%BC%E3%83%9C%E3%83%BC%E3%83%89%E3%81%AE%E5%88%9D%E6%9C%9F%E8%A8%AD%E5%AE%9A/2.png" alt="2" title="2"></p>
+</li>
+<li><p>Japaneseを選択<br><img src="/2021/03/11/%E3%80%90Ubuntu%E3%80%91%E3%82%AD%E3%83%BC%E3%83%9C%E3%83%BC%E3%83%89%E3%81%AE%E5%88%9D%E6%9C%9F%E8%A8%AD%E5%AE%9A/2.png" alt="3" title="3"></p>
+</li>
+<li><p>Japaneseを選択<br><img src="/2021/03/11/%E3%80%90Ubuntu%E3%80%91%E3%82%AD%E3%83%BC%E3%83%9C%E3%83%BC%E3%83%89%E3%81%AE%E5%88%9D%E6%9C%9F%E8%A8%AD%E5%AE%9A/2.png" alt="4" title="4"></p>
+</li>
+<li><p><code>/etc/default/keyboard</code>の設定を書き換えている場合表示される</p>
+</li>
+</ol>
+<ul>
+<li>キーボードオプションを維持する場合は<code>Yes</code>を選択、初期化していい場合は<code>No</code>を選択<br><img src="/2021/03/11/%E3%80%90Ubuntu%E3%80%91%E3%82%AD%E3%83%BC%E3%83%9C%E3%83%BC%E3%83%89%E3%81%AE%E5%88%9D%E6%9C%9F%E8%A8%AD%E5%AE%9A/5.png" alt="5" title="5"></li>
+</ul>
+<ol start="6">
+<li><p>「The default for the keyboard layout」を選択<br><img src="/2021/03/11/%E3%80%90Ubuntu%E3%80%91%E3%82%AD%E3%83%BC%E3%83%9C%E3%83%BC%E3%83%89%E3%81%AE%E5%88%9D%E6%9C%9F%E8%A8%AD%E5%AE%9A/6.png" alt="6" title="6"></p>
+</li>
+<li><p>「No compose key」を選択するとコンソール画面に戻る<br><img src="/2021/03/11/%E3%80%90Ubuntu%E3%80%91%E3%82%AD%E3%83%BC%E3%83%9C%E3%83%BC%E3%83%89%E3%81%AE%E5%88%9D%E6%9C%9F%E8%A8%AD%E5%AE%9A/7.png" alt="7" title="7"></p>
+</li>
+<li><p>コンソール画面が表示され必要んな情報を生成してくれるので少し待つ(ネットワークが必要?)</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Your console font configuration will be updated the next time your system</span><br><span class="line">boots. If you want to update it now, run &#39;setupcon&#39; from a virtual console.</span><br><span class="line">update-initramfs: deferring update (trigger activated)</span><br><span class="line">Processing triggers for initramfs-tools (0.137ubuntu12) ...</span><br><span class="line">update-initramfs: Generating &#x2F;boot&#x2F;initrd.img-5.8.0-1006-raspi</span><br><span class="line">....</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<li><p>入力待機画面に戻れば成功</p>
+</li>
+</ol>
+<h2 id="「Caps-Lock」を「Ctrl」に変更する"><a href="#「Caps-Lock」を「Ctrl」に変更する" class="headerlink" title="「Caps Lock」を「Ctrl」に変更する"></a>「Caps Lock」を「Ctrl」に変更する</h2><p><code>/etc/default/keyboard</code>の<code>XKBOPTIONS</code>に以下を書き加える</p>
+<ul>
+<li>デフォルト<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">XKBOPTIONS&#x3D;&quot;&quot;</span><br></pre></td></tr></table></figure></li>
+<li>書き換え後<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">XKBOPTIONS&#x3D;&quot;ctrl:nocaps&quot;</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://daiki-iijima.github.io/2021/03/11/%E3%80%90Ubuntu%E3%80%91%E3%82%AD%E3%83%BC%E3%83%9C%E3%83%BC%E3%83%89%E3%81%AE%E5%88%9D%E6%9C%9F%E8%A8%AD%E5%AE%9A/" data-id="ckm6o142v0000plb67hf47c7s" data-title="【Ubuntu】キーボードの初期設定" class="article-share-link">共有</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ubuntu/" rel="tag">Ubuntu</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-【Shell】コマンドラインのカーソル移動" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2021/03/10/%E3%80%90Shell%E3%80%91%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%83%A9%E3%82%A4%E3%83%B3%E3%81%AE%E3%82%AB%E3%83%BC%E3%82%BD%E3%83%AB%E7%A7%BB%E5%8B%95/" class="article-date">
@@ -795,110 +873,6 @@
 
 
   
-    <article id="post-CSSについて" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/03/02/CSS%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/" class="article-date">
-  <time class="dt-published" datetime="2021-03-02T12:40:42.000Z" itemprop="datePublished">2021-03-02</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/03/02/CSS%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/">cssにつて</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="CSSとは何か"><a href="#CSSとは何か" class="headerlink" title="CSSとは何か"></a>CSSとは何か</h1><ul>
-<li>正式名称 : Cascading Syle Sheets(カスケーディングスタイルシート)</li>
-<li>ページレイアウトを形成するためのスタイルシート</li>
-<li>HTML = マークアップ,CSS = レイアウト</li>
-</ul>
-<h1 id="記述方法の種類"><a href="#記述方法の種類" class="headerlink" title="記述方法の種類"></a>記述方法の種類</h1><ol>
-<li>インラインCSS : body内の各種タグの中に記述する<ul>
-<li><code>インラインスタイルシート</code>と呼ぶ場合もある</li>
-</ul>
-</li>
-<li>内部CSS : headタグの中に記述<ul>
-<li><code>内部スタイルシート</code>と呼ぶ場合もある</li>
-</ul>
-</li>
-<li>外部ファイル(.css)<ul>
-<li><code>外部スタイルシート</code>と呼ぶ場合もある</li>
-<li>コンテンツとデザインの分離ができるので、外部ファイルに記述するのが基本</li>
-</ul>
-</li>
-</ol>
-<h1 id="1-インラインCSS-body内の各種タグの中に記述する"><a href="#1-インラインCSS-body内の各種タグの中に記述する" class="headerlink" title="1.インラインCSS : body内の各種タグの中に記述する"></a>1.インラインCSS : body内の各種タグの中に記述する</h1><ul>
-<li>一つ一つのタグに設定する必要がある</li>
-<li>インラインCSSと呼ばれる書き方で、直接タグの中で<code>style</code>属性を指定する  <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">style=属性:&quot;属性値&quot;</span><br></pre></td></tr></table></figure></li>
-<li><code>color属性</code>で色を変える例  <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">style</span>=<span class="string">&quot;color:blue&quot;</span>&gt;</span>今回は、新しくリリースするプロダクトの紹介をします<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
-<li><code>複数の属性指定</code>したい場合、<code>;</code>を入力することで指定できる  <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">style</span>=<span class="string">&quot;color:blue;font-size:300%&quot;</span>&gt;</span>今回は、新しくリリースするプロダクトの紹介をします<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h1 id="2-内部CSS-headタグ内に記述する"><a href="#2-内部CSS-headタグ内に記述する" class="headerlink" title="2.内部CSS : headタグ内に記述する"></a>2.内部CSS : headタグ内に記述する</h1></li>
-<li><code>head</code>タグの内部に記述するCSS</li>
-<li>具体的には<code>head</code>ブロック内に<code>style</code>ブロックを作成し、そこにスタイルを記述する<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="xml">   <span class="comment">&lt;!--ここにスタイルを記述する--&gt;</span></span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">style</span>&gt;</span>	</span><br><span class="line"> <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"> <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="スタイルの記述には２通りの方法がある"><a href="#スタイルの記述には２通りの方法がある" class="headerlink" title="スタイルの記述には２通りの方法がある"></a>スタイルの記述には２通りの方法がある</h2></li>
-</ul>
-<ol>
-<li>タグ全体に適応する</li>
-<li>指定した領域のみに適応する</li>
-</ol>
-<h2 id="1-タグ全体に適応する"><a href="#1-タグ全体に適応する" class="headerlink" title="1. タグ全体に適応する"></a>1. タグ全体に適応する</h2><ul>
-<li><code>style</code>ブロック内に<code>タグ名</code>のブロックを作り、そこにスタイルを記述する</li>
-<li>複数のスタイルを記述する場合、<code>;</code>で区切る<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="xml"><span class="comment">&lt;!--pタグ内の全てのテキストにここに記述したレイアウトが適応される--&gt;</span></span></span><br><span class="line"> p&#123;	</span><br><span class="line"><span class="css">  <span class="selector-tag">color</span><span class="selector-pseudo">:blue</span>;</span></span><br><span class="line"><span class="css">  <span class="selector-tag">font-size</span><span class="selector-pseudo">:150</span>%;</span></span><br><span class="line"> &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="2-指定した領域のみに適応する"><a href="#2-指定した領域のみに適応する" class="headerlink" title="2. 指定した領域のみに適応する"></a>2. 指定した領域のみに適応する</h2></li>
-</ul>
-<ol>
-<li><code>class</code>属性を使用する<ul>
-<li>複数のタグに適応できる</li>
-</ul>
-</li>
-<li><code>id</code>属性を使用する<ul>
-<li>１つのタグのみに適応できる</li>
-</ul>
-</li>
-<li><code>span</code>属性を使用する<ul>
-<li>特定の文字列適応する</li>
-</ul>
-</li>
-</ol>
-<h3 id="1-class属性を使用する"><a href="#1-class属性を使用する" class="headerlink" title="1. class属性を使用する"></a>1. <code>class</code>属性を使用する</h3><ul>
-<li><code>class</code>属性にクラス名を指定し、<code>style</code>ブロックに<code>.クラス名</code>でスタイルを記述する    </li>
-<li>同一のクラス名を他のタグにも割り当てることができる<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">   <span class="selector-class">.A</span>&#123;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">color</span><span class="selector-pseudo">:blue</span>;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">font-size</span><span class="selector-pseudo">:150</span>%;</span></span><br><span class="line">    &#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">style</span>&gt;</span>	</span><br><span class="line"> <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h1</span> <span class="attr">class</span>=<span class="string">&quot;A&quot;</span>&gt;</span>クラスでスタイルを指定しています<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;A&quot;</span>&gt;</span>クラスでスタイルを指定しています<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span> クラス名を指定していません<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="2-id属性を使用する"><a href="#2-id属性を使用する" class="headerlink" title="2. id属性を使用する"></a>2. <code>id</code>属性を使用する</h3></li>
-<li><code>id</code>属性を定義してid名を指定して、<code>style</code>ブロックに<code>#id名</code>でスタイルを記述する    </li>
-<li>1つのタグにしか適応できない<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">   <span class="selector-id">#B</span>&#123;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">color</span><span class="selector-pseudo">:blue</span>;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">font-size</span><span class="selector-pseudo">:150</span>%;</span></span><br><span class="line">    &#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">style</span>&gt;</span>	</span><br><span class="line"> <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h1</span> <span class="attr">id</span>=<span class="string">&quot;B&quot;</span>&gt;</span>クラスでスタイルを指定しています<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>&lt;クラス名を指定していません/p&gt;</span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span> クラス名を指定していません<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="3-span属性を使用する"><a href="#3-span属性を使用する" class="headerlink" title="3. span属性を使用する"></a>3. <code>span</code>属性を使用する</h3></li>
-<li><code>span</code>タグ(&lt;span&gt;&lt;/span&gt;)を定義して<code>class</code>属性にクラス名を指定して、<code>style</code>ブロックに<code>.クラス名</code>でスタイルを記述する</li>
-<li><code>class</code> <code>id</code>との違いは、タグに対するレイアウトではなく、文字列に対するレイアウトである点<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">   <span class="selector-class">.C</span>&#123;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">color</span><span class="selector-pseudo">:blue</span>;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">font-size</span><span class="selector-pseudo">:150</span>%;</span></span><br><span class="line">    &#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">style</span>&gt;</span>	</span><br><span class="line"> <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h1</span>&gt;</span>クラスでスタイルを指定しています<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>クラス名を<span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;C&quot;</span>&gt;</span>指定<span class="tag">&lt;/<span class="name">span</span>&gt;</span>していません<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>クラス名を指定していません<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://daiki-iijima.github.io/2021/03/02/CSS%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/" data-id="ckls052k70000iub63ztuf6l3" data-title="cssにつて" class="article-share-link">共有</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
@@ -924,7 +898,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">タグ</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AppleScript/" rel="tag">AppleScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GitHub/" rel="tag">GitHub</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89/" rel="tag">Linuxコマンド</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/" rel="tag">Shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift/" rel="tag">Swift</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VSCode/" rel="tag">VSCode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/" rel="tag">Vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VimPlugin/" rel="tag">VimPlugin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim%E3%83%97%E3%83%A9%E3%82%B0%E3%82%A4%E3%83%B3/" rel="tag">Vimプラグイン</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XCode/" rel="tag">XCode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Xcode/" rel="tag">Xcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Zsh/" rel="tag">Zsh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/alias/" rel="tag">alias</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zsh/" rel="tag">zsh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%87%AA%E5%8B%95%E5%8C%96/" rel="tag">自動化</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AppleScript/" rel="tag">AppleScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GitHub/" rel="tag">GitHub</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89/" rel="tag">Linuxコマンド</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/" rel="tag">Shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift/" rel="tag">Swift</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/" rel="tag">Ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VSCode/" rel="tag">VSCode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/" rel="tag">Vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VimPlugin/" rel="tag">VimPlugin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim%E3%83%97%E3%83%A9%E3%82%B0%E3%82%A4%E3%83%B3/" rel="tag">Vimプラグイン</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XCode/" rel="tag">XCode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Xcode/" rel="tag">Xcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Zsh/" rel="tag">Zsh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/alias/" rel="tag">alias</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zsh/" rel="tag">zsh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%87%AA%E5%8B%95%E5%8C%96/" rel="tag">自動化</a></li></ul>
     </div>
   </div>
 
@@ -934,7 +908,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">タグクラウド</h3>
     <div class="widget tagcloud">
-      <a href="/tags/AppleScript/" style="font-size: 10px;">AppleScript</a> <a href="/tags/CSS/" style="font-size: 16.67px;">CSS</a> <a href="/tags/Git/" style="font-size: 13.33px;">Git</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/HTML/" style="font-size: 20px;">HTML</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Linux%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89/" style="font-size: 10px;">Linuxコマンド</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/Shell/" style="font-size: 11.67px;">Shell</a> <a href="/tags/Swift/" style="font-size: 15px;">Swift</a> <a href="/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/tags/Vim/" style="font-size: 18.33px;">Vim</a> <a href="/tags/VimPlugin/" style="font-size: 10px;">VimPlugin</a> <a href="/tags/Vim%E3%83%97%E3%83%A9%E3%82%B0%E3%82%A4%E3%83%B3/" style="font-size: 10px;">Vimプラグイン</a> <a href="/tags/XCode/" style="font-size: 10px;">XCode</a> <a href="/tags/Xcode/" style="font-size: 11.67px;">Xcode</a> <a href="/tags/Zsh/" style="font-size: 10px;">Zsh</a> <a href="/tags/alias/" style="font-size: 10px;">alias</a> <a href="/tags/zsh/" style="font-size: 10px;">zsh</a> <a href="/tags/%E8%87%AA%E5%8B%95%E5%8C%96/" style="font-size: 10px;">自動化</a>
+      <a href="/tags/AppleScript/" style="font-size: 10px;">AppleScript</a> <a href="/tags/CSS/" style="font-size: 16.67px;">CSS</a> <a href="/tags/Git/" style="font-size: 13.33px;">Git</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/HTML/" style="font-size: 20px;">HTML</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Linux/" style="font-size: 11.67px;">Linux</a> <a href="/tags/Linux%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89/" style="font-size: 10px;">Linuxコマンド</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/Shell/" style="font-size: 11.67px;">Shell</a> <a href="/tags/Swift/" style="font-size: 15px;">Swift</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/tags/Vim/" style="font-size: 18.33px;">Vim</a> <a href="/tags/VimPlugin/" style="font-size: 10px;">VimPlugin</a> <a href="/tags/Vim%E3%83%97%E3%83%A9%E3%82%B0%E3%82%A4%E3%83%B3/" style="font-size: 10px;">Vimプラグイン</a> <a href="/tags/XCode/" style="font-size: 10px;">XCode</a> <a href="/tags/Xcode/" style="font-size: 11.67px;">Xcode</a> <a href="/tags/Zsh/" style="font-size: 10px;">Zsh</a> <a href="/tags/alias/" style="font-size: 10px;">alias</a> <a href="/tags/zsh/" style="font-size: 10px;">zsh</a> <a href="/tags/%E8%87%AA%E5%8B%95%E5%8C%96/" style="font-size: 10px;">自動化</a>
     </div>
   </div>
 
@@ -956,6 +930,10 @@
       <ul>
         
           <li>
+            <a href="/2021/03/11/%E3%80%90Ubuntu%E3%80%91%E3%82%AD%E3%83%BC%E3%83%9C%E3%83%BC%E3%83%89%E3%81%AE%E5%88%9D%E6%9C%9F%E8%A8%AD%E5%AE%9A/">【Ubuntu】キーボードの初期設定</a>
+          </li>
+        
+          <li>
             <a href="/2021/03/10/%E3%80%90Shell%E3%80%91%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%83%A9%E3%82%A4%E3%83%B3%E3%81%AE%E3%82%AB%E3%83%BC%E3%82%BD%E3%83%AB%E7%A7%BB%E5%8B%95/">【Shell】コマンドラインのカーソル移動</a>
           </li>
         
@@ -969,10 +947,6 @@
         
           <li>
             <a href="/2021/03/08/%E3%80%90Git%E3%80%91%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%83%A9%E3%82%A4%E3%83%B3%E3%81%AE%E6%A7%8B%E6%96%87/">【Git】コマンドラインの構文</a>
-          </li>
-        
-          <li>
-            <a href="/2021/03/07/%E3%80%90Git%E3%80%91%E7%AE%A1%E7%90%86%E3%81%95%E3%82%8C%E3%81%A6%E3%81%84%E3%82%8B%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E6%83%85%E5%A0%B1%E3%82%92%E3%81%BF%E3%82%8B/">【Git】管理されているファイル情報をみる</a>
           </li>
         
       </ul>
