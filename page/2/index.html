@@ -71,6 +71,72 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-【CSS】positionプロパティについて" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/03/05/%E3%80%90CSS%E3%80%91position%E3%83%97%E3%83%AD%E3%83%91%E3%83%86%E3%82%A3%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/" class="article-date">
+  <time class="dt-published" datetime="2021-03-04T15:50:20.000Z" itemprop="datePublished">2021-03-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/03/05/%E3%80%90CSS%E3%80%91position%E3%83%97%E3%83%AD%E3%83%91%E3%83%86%E3%82%A3%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/">【CSS】positionプロパティについて</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="postion属性とは"><a href="#postion属性とは" class="headerlink" title="postion属性とは"></a>postion属性とは</h1><ul>
+<li>要素の位置を指定するための属性</li>
+</ul>
+<h2 id="指定する方法の種類"><a href="#指定する方法の種類" class="headerlink" title="指定する方法の種類"></a>指定する方法の種類</h2><ol>
+<li>relative : 相対位置への配置<ul>
+<li>その要素が本来配置される位置からの相対位置</li>
+</ul>
+</li>
+<li>absolute : 絶対位置への配置<ul>
+<li>画面上の座標</li>
+</ul>
+</li>
+<li>fixed : 絶対位置への配置 + スクロールされても位置が固定</li>
+</ol>
+<h2 id="指定方法"><a href="#指定方法" class="headerlink" title="指定方法"></a>指定方法</h2><ol>
+<li>まずは位置の指定方法を記述する<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">position: relative;</span><br></pre></td></tr></table></figure></li>
+<li>どちらの方向にどれだけ動かすかを指定する<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">top: 200px;</span><br></pre></td></tr></table></figure>
+まとめると<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.test&#123;</span><br><span class="line">	position: relative;</span><br><span class="line">	top: 200px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="relativeとabsoluteの違い"><a href="#relativeとabsoluteの違い" class="headerlink" title="relativeとabsoluteの違い"></a>relativeとabsoluteの違い</h2><h3 id="イメージ"><a href="#イメージ" class="headerlink" title="イメージ"></a>イメージ</h3>コード<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">title</span>&gt;</span>position<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="css">				<span class="selector-class">.first-section</span>&#123;</span></span><br><span class="line">					background: lightgreen;</span><br><span class="line">					width: 100px;</span><br><span class="line">					height: 100px;</span><br><span class="line"><span class="css">					<span class="selector-tag">position</span><span class="selector-pseudo">:relative</span>;</span></span><br><span class="line"><span class="css">					<span class="selector-tag">left</span><span class="selector-pseudo">:200px</span>;</span></span><br><span class="line"><span class="css">					<span class="selector-tag">top</span><span class="selector-pseudo">:200px</span>;</span></span><br><span class="line">				&#125;</span><br><span class="line"><span class="css">				<span class="selector-class">.second-section</span>&#123;</span></span><br><span class="line">					background: pink;</span><br><span class="line">					width: 100px;</span><br><span class="line">					height: 100px;</span><br><span class="line"><span class="css">					<span class="selector-tag">position</span><span class="selector-pseudo">:absolute</span>;</span></span><br><span class="line"><span class="css">					<span class="selector-tag">left</span><span class="selector-pseudo">:200px</span>;</span></span><br><span class="line"><span class="css">					<span class="selector-tag">top</span><span class="selector-pseudo">:200px</span>;</span></span><br><span class="line">				&#125;</span><br><span class="line"><span class="css">				<span class="selector-class">.third-section</span>&#123;</span></span><br><span class="line">					background: red;</span><br><span class="line">					width: 100px;</span><br><span class="line">					height: 100px;</span><br><span class="line"><span class="css">					<span class="selector-tag">position</span><span class="selector-pseudo">:fixed</span>;</span></span><br><span class="line"><span class="css">					<span class="selector-tag">left</span><span class="selector-pseudo">:400px</span>;</span></span><br><span class="line"><span class="css">					<span class="selector-tag">top</span><span class="selector-pseudo">:400px</span>;</span></span><br><span class="line">				&#125;</span><br><span class="line">		<span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">p</span>&gt;</span>a<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">p</span>&gt;</span>a<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">p</span>&gt;</span>a<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">p</span>&gt;</span>a<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">p</span>&gt;</span>a<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;first-section&quot;</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">p</span>&gt;</span>1<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;second-section&quot;</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">p</span>&gt;</span>2<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;third-section&quot;</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">p</span>&gt;</span>3<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<img src="/2021/03/05/%E3%80%90CSS%E3%80%91position%E3%83%97%E3%83%AD%E3%83%91%E3%83%86%E3%82%A3%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/position.png" alt="参考" title="参考"></li>
+</ol>
+<h1 id="便利な属性"><a href="#便利な属性" class="headerlink" title="便利な属性"></a>便利な属性</h1><h2 id="奥行きの指定"><a href="#奥行きの指定" class="headerlink" title="奥行きの指定"></a>奥行きの指定</h2><p><code>z-index</code>属性を使って指定する<br>    - 大きい値を設定したスタイルを適応した要素が上に描画される</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">.test&#123;</span><br><span class="line">	position: relative;</span><br><span class="line">	top: 200px;</span><br><span class="line">	z-index: 1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.test2&#123; <span class="comment">&lt;!--こっちが上に表示させる--&gt;</span></span><br><span class="line">	position: relative;</span><br><span class="line">	top: 200px;</span><br><span class="line">	z-index: 2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="透明度の指定"><a href="#透明度の指定" class="headerlink" title="透明度の指定"></a>透明度の指定</h2><ul>
+<li><code>opacity</code>属性を使って<code>0~1</code>までの間で指定する<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.test&#123;</span><br><span class="line">	position: relative;</span><br><span class="line">	top: 200px;</span><br><span class="line">	opasity: 0.5; <span class="comment">&lt;!--透明度を指定--&gt;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://daiki-iijima.github.io/2021/03/05/%E3%80%90CSS%E3%80%91position%E3%83%97%E3%83%AD%E3%83%91%E3%83%86%E3%82%A3%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/" data-id="cklwlmcub0000d0b6fatbc2eq" data-title="【CSS】positionプロパティについて" class="article-share-link">共有</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-【Shell】出力をそのままクリップボードにコピーする" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2021/03/04/%E3%80%90Shell%E3%80%91%E5%87%BA%E5%8A%9B%E3%82%92%E3%81%9D%E3%81%AE%E3%81%BE%E3%81%BE%E3%82%AF%E3%83%AA%E3%83%83%E3%83%97%E3%83%9C%E3%83%BC%E3%83%89%E3%81%AB%E3%82%B3%E3%83%94%E3%83%BC%E3%81%99%E3%82%8B/" class="article-date">
@@ -737,48 +803,6 @@
 
 
   
-    <article id="post-【Vim】バックスペースが効かなくなった場合の対処法" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/02/26/%E3%80%90Vim%E3%80%91%E3%83%90%E3%83%83%E3%82%AF%E3%82%B9%E3%83%9A%E3%83%BC%E3%82%B9%E3%81%8C%E5%8A%B9%E3%81%8B%E3%81%AA%E3%81%8F%E3%81%AA%E3%81%A3%E3%81%9F%E5%A0%B4%E5%90%88%E3%81%AE%E5%AF%BE%E5%87%A6%E6%B3%95/" class="article-date">
-  <time class="dt-published" datetime="2021-02-26T12:20:36.000Z" itemprop="datePublished">2021-02-26</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/02/26/%E3%80%90Vim%E3%80%91%E3%83%90%E3%83%83%E3%82%AF%E3%82%B9%E3%83%9A%E3%83%BC%E3%82%B9%E3%81%8C%E5%8A%B9%E3%81%8B%E3%81%AA%E3%81%8F%E3%81%AA%E3%81%A3%E3%81%9F%E5%A0%B4%E5%90%88%E3%81%AE%E5%AF%BE%E5%87%A6%E6%B3%95/">【Vim】バックスペースが効かなくなった場合の対処方</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a target="_blank" rel="noopener" href="https://qiita.com/omega999/items/23aec6a7f6d6735d033f">https://qiita.com/omega999/items/23aec6a7f6d6735d033f</a></p>
-<h1 id="対処方法"><a href="#対処方法" class="headerlink" title="対処方法"></a>対処方法</h1><ul>
-<li><code>.vimrc</code>に以下を記述する<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set backspace&#x3D;indent,eol,start</span><br></pre></td></tr></table></figure></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://daiki-iijima.github.io/2021/02/26/%E3%80%90Vim%E3%80%91%E3%83%90%E3%83%83%E3%82%AF%E3%82%B9%E3%83%9A%E3%83%BC%E3%82%B9%E3%81%8C%E5%8A%B9%E3%81%8B%E3%81%AA%E3%81%8F%E3%81%AA%E3%81%A3%E3%81%9F%E5%A0%B4%E5%90%88%E3%81%AE%E5%AF%BE%E5%87%A6%E6%B3%95/" data-id="cklm9pojs0000fzb6bsqpcgt6" data-title="【Vim】バックスペースが効かなくなった場合の対処方" class="article-share-link">共有</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
@@ -814,7 +838,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">タグクラウド</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Android-Studio/" style="font-size: 10px;">Android Studio</a> <a href="/tags/AppleScript/" style="font-size: 10px;">AppleScript</a> <a href="/tags/CSS/" style="font-size: 16px;">CSS</a> <a href="/tags/Git/" style="font-size: 14px;">Git</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/HTML/" style="font-size: 20px;">HTML</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Linux/" style="font-size: 12px;">Linux</a> <a href="/tags/Linux%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89/" style="font-size: 10px;">Linuxコマンド</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/Shell/" style="font-size: 12px;">Shell</a> <a href="/tags/Swift/" style="font-size: 14px;">Swift</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/tags/Vim/" style="font-size: 18px;">Vim</a> <a href="/tags/VimPlugin/" style="font-size: 10px;">VimPlugin</a> <a href="/tags/Vim%E3%83%97%E3%83%A9%E3%82%B0%E3%82%A4%E3%83%B3/" style="font-size: 10px;">Vimプラグイン</a> <a href="/tags/XCode/" style="font-size: 10px;">XCode</a> <a href="/tags/Xcode/" style="font-size: 12px;">Xcode</a> <a href="/tags/Zsh/" style="font-size: 10px;">Zsh</a> <a href="/tags/alias/" style="font-size: 10px;">alias</a> <a href="/tags/zsh/" style="font-size: 10px;">zsh</a> <a href="/tags/%E8%87%AA%E5%8B%95%E5%8C%96/" style="font-size: 10px;">自動化</a>
+      <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Android-Studio/" style="font-size: 10px;">Android Studio</a> <a href="/tags/AppleScript/" style="font-size: 10px;">AppleScript</a> <a href="/tags/CSS/" style="font-size: 16px;">CSS</a> <a href="/tags/Git/" style="font-size: 14px;">Git</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/HTML/" style="font-size: 20px;">HTML</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Linux/" style="font-size: 12px;">Linux</a> <a href="/tags/Linux%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89/" style="font-size: 10px;">Linuxコマンド</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/Shell/" style="font-size: 12px;">Shell</a> <a href="/tags/Swift/" style="font-size: 16px;">Swift</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/tags/Vim/" style="font-size: 18px;">Vim</a> <a href="/tags/VimPlugin/" style="font-size: 10px;">VimPlugin</a> <a href="/tags/Vim%E3%83%97%E3%83%A9%E3%82%B0%E3%82%A4%E3%83%B3/" style="font-size: 10px;">Vimプラグイン</a> <a href="/tags/XCode/" style="font-size: 12px;">XCode</a> <a href="/tags/Xcode/" style="font-size: 12px;">Xcode</a> <a href="/tags/Zsh/" style="font-size: 10px;">Zsh</a> <a href="/tags/alias/" style="font-size: 10px;">alias</a> <a href="/tags/zsh/" style="font-size: 10px;">zsh</a> <a href="/tags/%E8%87%AA%E5%8B%95%E5%8C%96/" style="font-size: 10px;">自動化</a>
     </div>
   </div>
 
@@ -836,6 +860,10 @@
       <ul>
         
           <li>
+            <a href="/2021/03/14/%E3%80%90XCode%E3%80%91TableView%E3%81%AECell%E3%82%92%E3%82%AB%E3%82%B9%E3%82%BF%E3%83%9E%E3%82%A4%E3%82%BA%E3%81%99%E3%82%8B/">【XCode】TableViewのCellをカスタマイズする</a>
+          </li>
+        
+          <li>
             <a href="/2021/03/13/%E3%80%90Git%E3%80%91%E3%82%BF%E3%82%B0%E3%81%AE%E6%89%B1%E3%81%84%E6%96%B9/">【Git】タグの扱い方</a>
           </li>
         
@@ -849,10 +877,6 @@
         
           <li>
             <a href="/2021/03/10/%E3%80%90Shell%E3%80%91%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%83%A9%E3%82%A4%E3%83%B3%E3%81%AE%E3%82%AB%E3%83%BC%E3%82%BD%E3%83%AB%E7%A7%BB%E5%8B%95/">【Shell】コマンドラインのカーソル移動</a>
-          </li>
-        
-          <li>
-            <a href="/2021/03/10/%E3%80%90VSCode%E3%80%91%E9%96%8B%E3%81%84%E3%81%9F%E3%83%86%E3%82%AD%E3%82%B9%E3%83%88%E3%81%8C%E6%96%87%E5%AD%97%E5%8C%96%E3%81%91%E3%81%99%E3%82%8B%E3%81%A8%E3%81%8D%E3%81%AE%E5%AF%BE%E5%87%A6%E6%B3%95%E6%96%B9/">【VSCode】開いたテキストが文字化けするときの対処法方</a>
           </li>
         
       </ul>
