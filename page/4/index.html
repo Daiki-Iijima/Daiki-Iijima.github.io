@@ -71,6 +71,54 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-VimにPluginマネージャー「Vundle」を入れる" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/02/17/Vim%E3%81%ABPlugin%E3%83%9E%E3%83%8D%E3%83%BC%E3%82%B8%E3%83%A3%E3%83%BC%E3%80%8CVundle%E3%80%8D%E3%82%92%E5%85%A5%E3%82%8C%E3%82%8B/" class="article-date">
+  <time class="dt-published" datetime="2021-02-17T13:33:59.000Z" itemprop="datePublished">2021-02-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/02/17/Vim%E3%81%ABPlugin%E3%83%9E%E3%83%8D%E3%83%BC%E3%82%B8%E3%83%A3%E3%83%BC%E3%80%8CVundle%E3%80%8D%E3%82%92%E5%85%A5%E3%82%8C%E3%82%8B/">VimにPluginマネージャー「Vundle」を入れる</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="環境"><a href="#環境" class="headerlink" title="環境"></a>環境</h1><ul>
+<li>Mac MacBook Air (M1, 2020) </li>
+<li>OS Big Sur v11.0.1</li>
+<li>VIM - Vi IMproved 8.2 (2019 Dec 12, compiled Oct 29 2020 23:33:57)</li>
+</ul>
+<h1 id="手順"><a href="#手順" class="headerlink" title="手順"></a>手順</h1><h2 id="1-ホームディレクトリにフォルダを作る"><a href="#1-ホームディレクトリにフォルダを作る" class="headerlink" title="1. ホームディレクトリにフォルダを作る"></a>1. ホームディレクトリにフォルダを作る</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p ~&#x2F;.vim&#x2F;bundle&#x2F;Vundle.vim</span><br></pre></td></tr></table></figure>
+<h2 id="2-GitHubからダウンロード"><a href="#2-GitHubからダウンロード" class="headerlink" title="2. GitHubからダウンロード"></a>2. GitHubからダウンロード</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;VundleVim&#x2F;Vundle.vim.git ~&#x2F;.vim&#x2F;bundle&#x2F;Vundle.vim</span><br></pre></td></tr></table></figure>
+<h2 id="3-vimrcにの先頭に設定を記述"><a href="#3-vimrcにの先頭に設定を記述" class="headerlink" title="3. .vimrcにの先頭に設定を記述"></a>3. .vimrcにの先頭に設定を記述</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">set nocompatible</span><br><span class="line">filetype off</span><br><span class="line">set rtp+&#x3D;~&#x2F;.vim&#x2F;bundle&#x2F;Vundle.vim</span><br><span class="line">call vundle#begin()</span><br><span class="line"></span><br><span class="line">Plugin &#39;VundleVim&#x2F;Vundle.vim&#39;</span><br><span class="line"></span><br><span class="line">&quot; 導入したいプラグインを以下に列挙</span><br><span class="line">&quot; Plugin &#39;[Github Author]&#x2F;[Github repo]&#39; の形式で記入</span><br><span class="line">Plugin &#39;airblade&#x2F;vim-gitgutter&#39;</span><br><span class="line"></span><br><span class="line">call vundle#end()</span><br><span class="line">filetype plugin indent on</span><br><span class="line"></span><br><span class="line">&quot;　その他のカスタム設定を以下に書く</span><br></pre></td></tr></table></figure>
+<h2 id="4-vimを開いた状態でコマンドを打ってインストール"><a href="#4-vimを開いた状態でコマンドを打ってインストール" class="headerlink" title="4. vimを開いた状態でコマンドを打ってインストール"></a>4. vimを開いた状態でコマンドを打ってインストール</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:PluginInstall</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://daiki-iijima.github.io/2021/02/17/Vim%E3%81%ABPlugin%E3%83%9E%E3%83%8D%E3%83%BC%E3%82%B8%E3%83%A3%E3%83%BC%E3%80%8CVundle%E3%80%8D%E3%82%92%E5%85%A5%E3%82%8C%E3%82%8B/" data-id="ckl9hgr9j0000jyb66i0lea5x" data-title="VimにPluginマネージャー「Vundle」を入れる" class="article-share-link">共有</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vim/" rel="tag">Vim</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-zshとaliasについて" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2021/02/16/zsh%E3%81%A8alias%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/" class="article-date">
@@ -738,52 +786,6 @@
 
 
   
-    <article id="post-段落と改行について" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/02/07/%E6%AE%B5%E8%90%BD%E3%81%A8%E6%94%B9%E8%A1%8C%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/" class="article-date">
-  <time class="dt-published" datetime="2021-02-07T14:06:16.000Z" itemprop="datePublished">2021-02-07</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/02/07/%E6%AE%B5%E8%90%BD%E3%81%A8%E6%94%B9%E8%A1%8C%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/">段落と改行について</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="p-Paragraf-タグ"><a href="#p-Paragraf-タグ" class="headerlink" title="p(Paragraf)タグ"></a>p(Paragraf)タグ</h1><p>段落を表現するためのタグ</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>これは１つ目の段落です<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>これは２つ目の段落です<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h1 id="br-Line-Break-タグ"><a href="#br-Line-Break-タグ" class="headerlink" title="br(Line Break)タグ"></a>br(Line Break)タグ</h1><p>改行を表現するためのタグ</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">改行したい場合<span class="tag">&lt;<span class="name">br</span>&gt;</span>を入れる</span><br></pre></td></tr></table></figure>
-<h1 id="使用例"><a href="#使用例" class="headerlink" title="使用例"></a>使用例</h1><h2 id="コード"><a href="#コード" class="headerlink" title="コード"></a>コード</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">title</span>&gt;</span>タイトル<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">p</span>&gt;</span>これは１つ目の段落です。好きな食べ物はラーメンです。<span class="tag">&lt;<span class="name">br</span>&gt;</span>ここには改行が入ることが望ましいです<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">p</span>&gt;</span>これは2つ目の段落です。嫌いな食べ物はカマキリです。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">		何も指定指定ない１</span><br><span class="line">		何も指定指定ない2</span><br><span class="line">		何も指定指定ない3</span><br><span class="line">		何も指定指定ない4</span><br><span class="line">		<span class="tag">&lt;<span class="name">p</span>&gt;</span>あ<span class="tag">&lt;<span class="name">br</span>&gt;</span>い<span class="tag">&lt;<span class="name">br</span>&gt;</span>う<span class="tag">&lt;<span class="name">br</span>&gt;</span>え<span class="tag">&lt;<span class="name">br</span>&gt;</span>お<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="結果"><a href="#結果" class="headerlink" title="結果"></a>結果</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">これは１つ目の段落です。好きな食べ物はラーメンです。</span><br><span class="line">ここには改行が入ることが望ましいです</span><br><span class="line"></span><br><span class="line">これは2つ目の段落です。嫌いな食べ物はカマキリです。</span><br><span class="line"></span><br><span class="line">何も指定指定ない１ 何も指定指定ない2 何も指定指定ない3 何も指定指定ない4</span><br><span class="line"></span><br><span class="line">あ</span><br><span class="line">い</span><br><span class="line">う</span><br><span class="line">え</span><br><span class="line">お</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://daiki-iijima.github.io/2021/02/07/%E6%AE%B5%E8%90%BD%E3%81%A8%E6%94%B9%E8%A1%8C%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/" data-id="ckkv7zta90000eob6doxr1b53" data-title="段落と改行について" class="article-share-link">共有</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
@@ -819,7 +821,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">タグクラウド</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Android-Studio/" style="font-size: 10px;">Android Studio</a> <a href="/tags/AppleScript/" style="font-size: 10px;">AppleScript</a> <a href="/tags/CSS/" style="font-size: 16px;">CSS</a> <a href="/tags/Git/" style="font-size: 14px;">Git</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/HTML/" style="font-size: 20px;">HTML</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Linux/" style="font-size: 12px;">Linux</a> <a href="/tags/Linux%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89/" style="font-size: 10px;">Linuxコマンド</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/Shell/" style="font-size: 12px;">Shell</a> <a href="/tags/Swift/" style="font-size: 16px;">Swift</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/tags/Vim/" style="font-size: 18px;">Vim</a> <a href="/tags/VimPlugin/" style="font-size: 10px;">VimPlugin</a> <a href="/tags/Vim%E3%83%97%E3%83%A9%E3%82%B0%E3%82%A4%E3%83%B3/" style="font-size: 10px;">Vimプラグイン</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/Windows-API/" style="font-size: 10px;">Windows API</a> <a href="/tags/XCode/" style="font-size: 12px;">XCode</a> <a href="/tags/Xcode/" style="font-size: 12px;">Xcode</a> <a href="/tags/Zsh/" style="font-size: 10px;">Zsh</a> <a href="/tags/alias/" style="font-size: 10px;">alias</a> <a href="/tags/zsh/" style="font-size: 10px;">zsh</a> <a href="/tags/%E8%87%AA%E5%8B%95%E5%8C%96/" style="font-size: 10px;">自動化</a>
+      <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Android-Studio/" style="font-size: 12px;">Android Studio</a> <a href="/tags/AppleScript/" style="font-size: 10px;">AppleScript</a> <a href="/tags/CSS/" style="font-size: 16px;">CSS</a> <a href="/tags/Git/" style="font-size: 14px;">Git</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/HTML/" style="font-size: 20px;">HTML</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Kotlin/" style="font-size: 12px;">Kotlin</a> <a href="/tags/Linux/" style="font-size: 12px;">Linux</a> <a href="/tags/Linux%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89/" style="font-size: 10px;">Linuxコマンド</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/Shell/" style="font-size: 12px;">Shell</a> <a href="/tags/Swift/" style="font-size: 16px;">Swift</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/tags/Vim/" style="font-size: 18px;">Vim</a> <a href="/tags/VimPlugin/" style="font-size: 10px;">VimPlugin</a> <a href="/tags/Vim%E3%83%97%E3%83%A9%E3%82%B0%E3%82%A4%E3%83%B3/" style="font-size: 10px;">Vimプラグイン</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/Windows-API/" style="font-size: 10px;">Windows API</a> <a href="/tags/XCode/" style="font-size: 12px;">XCode</a> <a href="/tags/Xcode/" style="font-size: 12px;">Xcode</a> <a href="/tags/Zsh/" style="font-size: 10px;">Zsh</a> <a href="/tags/alias/" style="font-size: 10px;">alias</a> <a href="/tags/zsh/" style="font-size: 10px;">zsh</a> <a href="/tags/%E8%87%AA%E5%8B%95%E5%8C%96/" style="font-size: 10px;">自動化</a>
     </div>
   </div>
 
@@ -845,6 +847,10 @@
           </li>
         
           <li>
+            <a href="/2021/03/16/%E3%80%90Android-Studio%E3%80%91Materila-Design%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%97%E3%81%A6%E8%A6%8B%E3%81%9F%E7%9B%AE%E3%82%92%E3%83%AA%E3%83%83%E3%83%81%E3%81%AB%E3%81%99%E3%82%8B/">【Android Studio】Materila Designを使用して見た目をリッチにする</a>
+          </li>
+        
+          <li>
             <a href="/2021/03/14/%E3%80%90XCode%E3%80%91TableView%E3%81%AECell%E3%82%92%E3%82%AB%E3%82%B9%E3%82%BF%E3%83%9E%E3%82%A4%E3%82%BA%E3%81%99%E3%82%8B/">【XCode】TableViewのCellをカスタマイズする</a>
           </li>
         
@@ -854,10 +860,6 @@
         
           <li>
             <a href="/2021/03/12/%E3%80%90Kotlin%E3%80%91View%E5%86%85%E3%81%AE%E3%82%B3%E3%83%B3%E3%83%9D%E3%83%BC%E3%83%8D%E3%83%B3%E3%83%88%E3%81%AE%E5%8F%96%E5%BE%97%E6%96%B9%E6%B3%95/">【Kotlin】View内のコンポーネントの取得方法</a>
-          </li>
-        
-          <li>
-            <a href="/2021/03/11/%E3%80%90Ubuntu%E3%80%91%E3%82%AD%E3%83%BC%E3%83%9C%E3%83%BC%E3%83%89%E3%81%AE%E5%88%9D%E6%9C%9F%E8%A8%AD%E5%AE%9A/">【Ubuntu】キーボードの初期設定</a>
           </li>
         
       </ul>
