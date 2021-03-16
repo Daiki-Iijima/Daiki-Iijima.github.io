@@ -238,6 +238,51 @@
 
 
   
+    <article id="post-【Android-Studio】build-Gradleが２つあるのはなぜなのか" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/03/15/%E3%80%90Android-Studio%E3%80%91build-Gradle%E3%81%8C%EF%BC%92%E3%81%A4%E3%81%82%E3%82%8B%E3%81%AE%E3%81%AF%E3%81%AA%E3%81%9C%E3%81%AA%E3%81%AE%E3%81%8B/" class="article-date">
+  <time class="dt-published" datetime="2021-03-14T16:04:43.000Z" itemprop="datePublished">2021-03-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/03/15/%E3%80%90Android-Studio%E3%80%91build-Gradle%E3%81%8C%EF%BC%92%E3%81%A4%E3%81%82%E3%82%8B%E3%81%AE%E3%81%AF%E3%81%AA%E3%81%9C%E3%81%AA%E3%81%AE%E3%81%8B/">【Android Studio】build.Gradleが２つあるのはなぜなのか</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>AndroidStudioでプロジェクトを生成すると、「build.Gradle」というファイルが2つ生成される</p>
+<h3 id="ルート直下の「build-gradle」-Project-プロジェクト名"><a href="#ルート直下の「build-gradle」-Project-プロジェクト名" class="headerlink" title="ルート直下の「build.gradle」(Project:プロジェクト名)"></a>ルート直下の「build.gradle」(Project:プロジェクト名)</h3><p>このファイルは、すべてのサブプロジェクトとモジュールに共通する設定項目を追加することができる最上位のビルドファイル</p>
+<p>【例】 : サブプロジェクトにインストールしたいライブラリが含まれているリポジトリ</p>
+<h3 id="appファイル直下の「build-gradle」-Module-app"><a href="#appファイル直下の「build-gradle」-Module-app" class="headerlink" title="appファイル直下の「build.gradle」(Module : app)"></a>appファイル直下の「build.gradle」(Module : app)</h3><p>サブプロジェクトごとに必要な依存関係やビルド設定を記述する</p>
+<p>【例】 : 使用したいライブラリのURI</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://daiki-iijima.github.io/2021/03/15/%E3%80%90Android-Studio%E3%80%91build-Gradle%E3%81%8C%EF%BC%92%E3%81%A4%E3%81%82%E3%82%8B%E3%81%AE%E3%81%AF%E3%81%AA%E3%81%9C%E3%81%AA%E3%81%AE%E3%81%8B/" data-id="ckmcg43lv000068b64jnc2k3n" data-title="【Android Studio】build.Gradleが２つあるのはなぜなのか" class="article-share-link">共有</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android-Studio/" rel="tag">Android Studio</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-【XCode】TableViewのCellをカスタマイズする" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2021/03/14/%E3%80%90XCode%E3%80%91TableView%E3%81%AECell%E3%82%92%E3%82%AB%E3%82%B9%E3%82%BF%E3%83%9E%E3%82%A4%E3%82%BA%E3%81%99%E3%82%8B/" class="article-date">
@@ -726,142 +771,6 @@
 
 
   
-    <article id="post-【Git】コマンドラインの構文" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/03/08/%E3%80%90Git%E3%80%91%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%83%A9%E3%82%A4%E3%83%B3%E3%81%AE%E6%A7%8B%E6%96%87/" class="article-date">
-  <time class="dt-published" datetime="2021-03-07T17:33:53.000Z" itemprop="datePublished">2021-03-08</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/03/08/%E3%80%90Git%E3%80%91%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%83%A9%E3%82%A4%E3%83%B3%E3%81%AE%E6%A7%8B%E6%96%87/">【Git】コマンドラインの構文</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="コマンドラインの構文の概要"><a href="#コマンドラインの構文の概要" class="headerlink" title="コマンドラインの構文の概要"></a>コマンドラインの構文の概要</h2><ul>
-<li>git : 必須</li>
-<li>[スイッチ] : オプション</li>
-<li>&lt;コマンド&gt; : オプション</li>
-<li>&lt;引数&gt;: オプション<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git [スイッチ]&lt;コマンド&gt;&lt;引数&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="ヘルプにも同じような構文の記述がされている"><a href="#ヘルプにも同じような構文の記述がされている" class="headerlink" title="ヘルプにも同じような構文の記述がされている"></a>ヘルプにも同じような構文の記述がされている</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">usage: git [--version] [--help] [-C &lt;path&gt;] [-c &lt;name&gt;&#x3D;&lt;value&gt;]</span><br><span class="line">           [--exec-path[&#x3D;&lt;path&gt;]] [--html-path] [--man-path] [--info-path]</span><br><span class="line">           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]</span><br><span class="line">           [--git-dir&#x3D;&lt;path&gt;] [--work-tree&#x3D;&lt;path&gt;] [--namespace&#x3D;&lt;name&gt;]</span><br><span class="line">           &lt;command&gt; [&lt;args&gt;]</span><br></pre></td></tr></table></figure>
-<table>
-<thead>
-<tr>
-<th>コマンド</th>
-<th>説明</th>
-<th>参考</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>–version</td>
-<td>バージョン確認</td>
-<td></td>
-</tr>
-<tr>
-<td>–help</td>
-<td>概要と最も一般的に使用されるコマンドのリストを出力</td>
-<td></td>
-</tr>
-<tr>
-<td>-C <path></td>
-<td>カレントディレクトリではなく<path>に指定したディレクトリで<code>Git</code>実行する</td>
-<td></td>
-</tr>
-<tr>
-<td>-c <name>=<value></td>
-<td>設定ファイルの<name>に指定した項目の値を<value>で設定した値を上書きする</td>
-<td></td>
-</tr>
-<tr>
-<td>–exec-path[=<path>]</td>
-<td>Gitのコアファイルのパスを出力する。パスを設定することもできる。</td>
-<td></td>
-</tr>
-<tr>
-<td>–html-path</td>
-<td>ドキュメントファイルの補完されているパスを出力する</td>
-<td></td>
-</tr>
-<tr>
-<td>–man-path</td>
-<td>Gitのmanファイルが格納されているパスを出力する</td>
-<td></td>
-</tr>
-<tr>
-<td>–info-path</td>
-<td>Gitのドキュメントを文書かしたファイルがあるパスを出力する(私の環境ではパスは表示されたが、パスが存在しなかった)</td>
-<td></td>
-</tr>
-<tr>
-<td>-P | –paginate</td>
-<td>ページャーに出力をパイプする</td>
-<td></td>
-</tr>
-<tr>
-<td>-p | –no-paginate</td>
-<td>ページャーに出力をパイプしないようにする</td>
-<td></td>
-</tr>
-<tr>
-<td>–no-replace-objects</td>
-<td>Gitオブジェクトを置換しない</td>
-<td><a target="_blank" rel="noopener" href="https://git-scm.com/docs/git-replace">https://git-scm.com/docs/git-replace</a></td>
-</tr>
-<tr>
-<td>–bare</td>
-<td>ベアリポジトリとして扱う</td>
-<td><a target="_blank" rel="noopener" href="https://qiita.com/devzooiiooz/items/56a02342d9d65d79f6c3">https://qiita.com/devzooiiooz/items/56a02342d9d65d79f6c3</a><br><a target="_blank" rel="noopener" href="https://cpplover.blogspot.com/2015/04/git10linus-torvals.html">https://cpplover.blogspot.com/2015/04/git10linus-torvals.html</a></td>
-</tr>
-<tr>
-<td>–git-dir=<path></td>
-<td>リポジトリへのパスを設定する(環境変数 GIT_DIR を設定するのと同じ)</td>
-<td></td>
-</tr>
-<tr>
-<td>–work-tree=<path></td>
-<td>作業ツリーへのパスを設定する(環境変数 GIT_WORK_TREE や設定変数 core.worktree を設定するのと同じ)</td>
-<td></td>
-</tr>
-<tr>
-<td>–namespace=<path></td>
-<td>Gitの名前空間を設定する(環境変数 git_namespace を設定するのと同じ)</td>
-<td></td>
-</tr>
-</tbody></table>
-</li>
-</ul>
-<h2 id="ダッシュ-1個とダッシュ-–-の使い分け"><a href="#ダッシュ-1個とダッシュ-–-の使い分け" class="headerlink" title="ダッシュ(-)1個とダッシュ(–)の使い分け"></a>ダッシュ(-)1個とダッシュ(–)の使い分け</h2><ul>
-<li>1つ(-) : １文字のスイッチ(省略型)</li>
-<li>2つ(–) : 略さずに完全に記述する長いスイッチ</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://daiki-iijima.github.io/2021/03/08/%E3%80%90Git%E3%80%91%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%83%A9%E3%82%A4%E3%83%B3%E3%81%AE%E6%A7%8B%E6%96%87/" data-id="ckm0c5yi60000tib66p886i6p" data-title="【Git】コマンドラインの構文" class="article-share-link">共有</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/" rel="tag">Git</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
@@ -897,7 +806,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">タグクラウド</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Android-Studio/" style="font-size: 12px;">Android Studio</a> <a href="/tags/AppleScript/" style="font-size: 10px;">AppleScript</a> <a href="/tags/CSS/" style="font-size: 16px;">CSS</a> <a href="/tags/Git/" style="font-size: 14px;">Git</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/HTML/" style="font-size: 20px;">HTML</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Kotlin/" style="font-size: 12px;">Kotlin</a> <a href="/tags/Linux/" style="font-size: 12px;">Linux</a> <a href="/tags/Linux%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89/" style="font-size: 10px;">Linuxコマンド</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/Shell/" style="font-size: 12px;">Shell</a> <a href="/tags/Swift/" style="font-size: 16px;">Swift</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/tags/Vim/" style="font-size: 18px;">Vim</a> <a href="/tags/VimPlugin/" style="font-size: 10px;">VimPlugin</a> <a href="/tags/Vim%E3%83%97%E3%83%A9%E3%82%B0%E3%82%A4%E3%83%B3/" style="font-size: 10px;">Vimプラグイン</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/Windows-API/" style="font-size: 10px;">Windows API</a> <a href="/tags/XCode/" style="font-size: 12px;">XCode</a> <a href="/tags/Xcode/" style="font-size: 12px;">Xcode</a> <a href="/tags/Zsh/" style="font-size: 10px;">Zsh</a> <a href="/tags/alias/" style="font-size: 10px;">alias</a> <a href="/tags/zsh/" style="font-size: 10px;">zsh</a> <a href="/tags/%E8%87%AA%E5%8B%95%E5%8C%96/" style="font-size: 10px;">自動化</a>
+      <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Android-Studio/" style="font-size: 13.33px;">Android Studio</a> <a href="/tags/AppleScript/" style="font-size: 10px;">AppleScript</a> <a href="/tags/CSS/" style="font-size: 16.67px;">CSS</a> <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/HTML/" style="font-size: 20px;">HTML</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Kotlin/" style="font-size: 11.67px;">Kotlin</a> <a href="/tags/Linux/" style="font-size: 11.67px;">Linux</a> <a href="/tags/Linux%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89/" style="font-size: 10px;">Linuxコマンド</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/Shell/" style="font-size: 11.67px;">Shell</a> <a href="/tags/Swift/" style="font-size: 16.67px;">Swift</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/tags/Vim/" style="font-size: 18.33px;">Vim</a> <a href="/tags/VimPlugin/" style="font-size: 10px;">VimPlugin</a> <a href="/tags/Vim%E3%83%97%E3%83%A9%E3%82%B0%E3%82%A4%E3%83%B3/" style="font-size: 10px;">Vimプラグイン</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/Windows-API/" style="font-size: 10px;">Windows API</a> <a href="/tags/XCode/" style="font-size: 11.67px;">XCode</a> <a href="/tags/Xcode/" style="font-size: 11.67px;">Xcode</a> <a href="/tags/Zsh/" style="font-size: 10px;">Zsh</a> <a href="/tags/alias/" style="font-size: 10px;">alias</a> <a href="/tags/zsh/" style="font-size: 10px;">zsh</a> <a href="/tags/%E8%87%AA%E5%8B%95%E5%8C%96/" style="font-size: 10px;">自動化</a>
     </div>
   </div>
 
@@ -927,15 +836,15 @@
           </li>
         
           <li>
+            <a href="/2021/03/15/%E3%80%90Android-Studio%E3%80%91build-Gradle%E3%81%8C%EF%BC%92%E3%81%A4%E3%81%82%E3%82%8B%E3%81%AE%E3%81%AF%E3%81%AA%E3%81%9C%E3%81%AA%E3%81%AE%E3%81%8B/">【Android Studio】build.Gradleが２つあるのはなぜなのか</a>
+          </li>
+        
+          <li>
             <a href="/2021/03/14/%E3%80%90XCode%E3%80%91TableView%E3%81%AECell%E3%82%92%E3%82%AB%E3%82%B9%E3%82%BF%E3%83%9E%E3%82%A4%E3%82%BA%E3%81%99%E3%82%8B/">【XCode】TableViewのCellをカスタマイズする</a>
           </li>
         
           <li>
             <a href="/2021/03/13/%E3%80%90Git%E3%80%91%E3%82%BF%E3%82%B0%E3%81%AE%E6%89%B1%E3%81%84%E6%96%B9/">【Git】タグの扱い方</a>
-          </li>
-        
-          <li>
-            <a href="/2021/03/12/%E3%80%90Kotlin%E3%80%91View%E5%86%85%E3%81%AE%E3%82%B3%E3%83%B3%E3%83%9D%E3%83%BC%E3%83%8D%E3%83%B3%E3%83%88%E3%81%AE%E5%8F%96%E5%BE%97%E6%96%B9%E6%B3%95/">【Kotlin】View内のコンポーネントの取得方法</a>
           </li>
         
       </ul>
