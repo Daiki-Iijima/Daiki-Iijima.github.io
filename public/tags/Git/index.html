@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>タグ: Git - Inside the Black box .</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Inside the Black box ."><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Inside the Black box ."><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta property="og:type" content="blog"><meta property="og:title" content="Inside the Black box ."><meta property="og:url" content="https://daiki-iijima.github.io/"><meta property="og:site_name" content="Inside the Black box ."><meta property="og:locale" content="ja_JP"><meta property="og:image" content="https://daiki-iijima.github.io/img/og_image.png"><meta property="article:author" content="Daiki Iijima"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://Daiki-Iijima.github.io"},"headline":"Inside the Black box .","image":["https://daiki-iijima.github.io/img/og_image.png"],"author":{"@type":"Person","name":"Daiki Iijima"},"description":""}</script><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 5.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Inside the Black box ." height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="検索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="/tags">タグ</a></li><li class="is-active"><a href="#" aria-current="page">Git</a></li></ul></nav></div></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2021-03-12T19:03:54.000Z" title="2021-3-13 4:03:54 AM">2021-03-13</time>に投稿</span><span class="level-item"><time dateTime="2021-03-12T19:05:01.025Z" title="2021-3-13 4:05:01 AM">2021-03-13</time>に更新</span><span class="level-item">2分で読む (約240語)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2021/03/13/%E3%80%90Git%E3%80%91%E3%82%BF%E3%82%B0%E3%81%AE%E6%89%B1%E3%81%84%E6%96%B9/">【Git】タグの扱い方</a></h1><div class="content"><h2 id="タグはなんのためにあるのか"><a href="#タグはなんのためにあるのか" class="headerlink" title="タグはなんのためにあるのか"></a>タグはなんのためにあるのか</h2><p>コミットを指定するために<code>SHA 1ID</code>を使用するが、毎回選択するのは面倒くさいし間違える可能性があるので、よく使う可能性のあるコミットに命名することで、いちいち<code>SHA 1ID</code>を指定しなくてよくできる</p>
+<h2 id="コミットにタグを追加する"><a href="#コミットにタグを追加する" class="headerlink" title="コミットにタグを追加する"></a>コミットにタグを追加する</h2><h3 id="タグをつける"><a href="#タグをつける" class="headerlink" title="タグをつける"></a>タグをつける</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag タグ名 タグをつけたいSHA1</span><br></pre></td></tr></table></figure>
+<h3 id="タグをつけるときは、-mスイッチを使用すればメッセージをつけることもできる"><a href="#タグをつけるときは、-mスイッチを使用すればメッセージをつけることもできる" class="headerlink" title="タグをつけるときは、-mスイッチを使用すればメッセージをつけることもできる"></a>タグをつけるときは、<code>-m</code>スイッチを使用すればメッセージをつけることもできる</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag タグ名 -m &quot;コメント&quot; タグをつけたいSHA1</span><br></pre></td></tr></table></figure>
+<h2 id="タグを消去する"><a href="#タグを消去する" class="headerlink" title="タグを消去する"></a>タグを消去する</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag -d タグ名</span><br></pre></td></tr></table></figure>
+<p>これが表示されれば成功</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Deleted tag &#39;タグ名&#39; (was SHA1)</span><br></pre></td></tr></table></figure>
+<h2 id="タグの一覧を表示する"><a href="#タグの一覧を表示する" class="headerlink" title="タグの一覧を表示する"></a>タグの一覧を表示する</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag</span><br></pre></td></tr></table></figure></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2021-03-07T17:33:53.000Z" title="2021-3-8 2:33:53 AM">2021-03-08</time>に投稿</span><span class="level-item"><time dateTime="2021-03-08T08:43:54.470Z" title="2021-3-8 5:43:54 PM">2021-03-08</time>に更新</span><span class="level-item">4分で読む (約581語)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2021/03/08/%E3%80%90Git%E3%80%91%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%83%A9%E3%82%A4%E3%83%B3%E3%81%AE%E6%A7%8B%E6%96%87/">【Git】コマンドラインの構文</a></h1><div class="content"><h2 id="コマンドラインの構文の概要"><a href="#コマンドラインの構文の概要" class="headerlink" title="コマンドラインの構文の概要"></a>コマンドラインの構文の概要</h2><ul>
+<li>git : 必須</li>
+<li>[スイッチ] : オプション</li>
+<li>&lt;コマンド&gt; : オプション</li>
+<li>&lt;引数&gt;: オプション<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git [スイッチ]&lt;コマンド&gt;&lt;引数&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="ヘルプにも同じような構文の記述がされている"><a href="#ヘルプにも同じような構文の記述がされている" class="headerlink" title="ヘルプにも同じような構文の記述がされている"></a>ヘルプにも同じような構文の記述がされている</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">usage: git [--version] [--help] [-C &lt;path&gt;] [-c &lt;name&gt;&#x3D;&lt;value&gt;]</span><br><span class="line">           [--exec-path[&#x3D;&lt;path&gt;]] [--html-path] [--man-path] [--info-path]</span><br><span class="line">           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]</span><br><span class="line">           [--git-dir&#x3D;&lt;path&gt;] [--work-tree&#x3D;&lt;path&gt;] [--namespace&#x3D;&lt;name&gt;]</span><br><span class="line">           &lt;command&gt; [&lt;args&gt;]</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>コマンド</th>
+<th>説明</th>
+<th>参考</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>–version</td>
+<td>バージョン確認</td>
+<td></td>
+</tr>
+<tr>
+<td>–help</td>
+<td>概要と最も一般的に使用されるコマンドのリストを出力</td>
+<td></td>
+</tr>
+<tr>
+<td>-C <path></td>
+<td>カレントディレクトリではなく<path>に指定したディレクトリで<code>Git</code>実行する</td>
+<td></td>
+</tr>
+<tr>
+<td>-c <name>=<value></td>
+<td>設定ファイルの<name>に指定した項目の値を<value>で設定した値を上書きする</td>
+<td></td>
+</tr>
+<tr>
+<td>–exec-path[=<path>]</td>
+<td>Gitのコアファイルのパスを出力する。パスを設定することもできる。</td>
+<td></td>
+</tr>
+<tr>
+<td>–html-path</td>
+<td>ドキュメントファイルの補完されているパスを出力する</td>
+<td></td>
+</tr>
+<tr>
+<td>–man-path</td>
+<td>Gitのmanファイルが格納されているパスを出力する</td>
+<td></td>
+</tr>
+<tr>
+<td>–info-path</td>
+<td>Gitのドキュメントを文書かしたファイルがあるパスを出力する(私の環境ではパスは表示されたが、パスが存在しなかった)</td>
+<td></td>
+</tr>
+<tr>
+<td>-P | –paginate</td>
+<td>ページャーに出力をパイプする</td>
+<td></td>
+</tr>
+<tr>
+<td>-p | –no-paginate</td>
+<td>ページャーに出力をパイプしないようにする</td>
+<td></td>
+</tr>
+<tr>
+<td>–no-replace-objects</td>
+<td>Gitオブジェクトを置換しない</td>
+<td><a target="_blank" rel="noopener" href="https://git-scm.com/docs/git-replace">https://git-scm.com/docs/git-replace</a></td>
+</tr>
+<tr>
+<td>–bare</td>
+<td>ベアリポジトリとして扱う</td>
+<td><a target="_blank" rel="noopener" href="https://qiita.com/devzooiiooz/items/56a02342d9d65d79f6c3">https://qiita.com/devzooiiooz/items/56a02342d9d65d79f6c3</a><br><a target="_blank" rel="noopener" href="https://cpplover.blogspot.com/2015/04/git10linus-torvals.html">https://cpplover.blogspot.com/2015/04/git10linus-torvals.html</a></td>
+</tr>
+<tr>
+<td>–git-dir=<path></td>
+<td>リポジトリへのパスを設定する(環境変数 GIT_DIR を設定するのと同じ)</td>
+<td></td>
+</tr>
+<tr>
+<td>–work-tree=<path></td>
+<td>作業ツリーへのパスを設定する(環境変数 GIT_WORK_TREE や設定変数 core.worktree を設定するのと同じ)</td>
+<td></td>
+</tr>
+<tr>
+<td>–namespace=<path></td>
+<td>Gitの名前空間を設定する(環境変数 git_namespace を設定するのと同じ)</td>
+<td></td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<h2 id="ダッシュ-1個とダッシュ-–-の使い分け"><a href="#ダッシュ-1個とダッシュ-–-の使い分け" class="headerlink" title="ダッシュ(-)1個とダッシュ(–)の使い分け"></a>ダッシュ(-)1個とダッシュ(–)の使い分け</h2><ul>
+<li>1つ(-) : １文字のスイッチ(省略型)</li>
+<li>2つ(–) : 略さずに完全に記述する長いスイッチ</li>
+</ul>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2021-03-07T00:07:32.000Z" title="2021-3-7 9:07:32 AM">2021-03-07</time>に投稿</span><span class="level-item"><time dateTime="2021-03-07T00:45:40.651Z" title="2021-3-7 9:45:40 AM">2021-03-07</time>に更新</span><span class="level-item">1分で読む (約157語)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2021/03/07/%E3%80%90Git%E3%80%91%E7%AE%A1%E7%90%86%E3%81%95%E3%82%8C%E3%81%A6%E3%81%84%E3%82%8B%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E6%83%85%E5%A0%B1%E3%82%92%E3%81%BF%E3%82%8B/">【Git】管理されているファイル情報をみる</a></h1><div class="content"><h2 id="リポジトリで「管理されている」ファイルのリストを取得する"><a href="#リポジトリで「管理されている」ファイルのリストを取得する" class="headerlink" title="リポジトリで「管理されている」ファイルのリストを取得する"></a>リポジトリで「管理されている」ファイルのリストを取得する</h2><p><code>ls-files</code>コマンドの<code>-c</code>オプションを使用する</p>
+<p><code>ls-files</code>はデフォルトで<code>-c</code>オプションがついている</p>
+<blockquote>
+<p>-c, –cached<br><br>    Show cached files in the output (default)</p>
+</blockquote>
+<h3 id="実行結果例"><a href="#実行結果例" class="headerlink" title="実行結果例"></a>実行結果例</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">% git ls-files </span><br><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">aaa</span><br></pre></td></tr></table></figure>
+<h2 id="リポジトリで「管理されていない」ファイルのリストを取得する"><a href="#リポジトリで「管理されていない」ファイルのリストを取得する" class="headerlink" title="リポジトリで「管理されていない」ファイルのリストを取得する"></a>リポジトリで「管理されていない」ファイルのリストを取得する</h2><p><code>ls-files</code>コマンドの<code>-o</code>オプションを使用する</p>
+<blockquote>
+<p>-o, –others<br><br>    Show other (i.e. untracked) files in the output</p>
+</blockquote>
+<h3 id="実行結果例-1"><a href="#実行結果例-1" class="headerlink" title="実行結果例"></a>実行結果例</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">% git ls-files -o</span><br><span class="line">5</span><br><span class="line">bbb</span><br></pre></td></tr></table></figure></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2021-02-25T13:48:44.000Z" title="2021-2-25 10:48:44 PM">2021-02-25</time>に投稿</span><span class="level-item"><time dateTime="2021-02-25T13:58:10.095Z" title="2021-2-25 10:58:10 PM">2021-02-25</time>に更新</span><span class="level-item">数秒で読む (約102語)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2021/02/25/%E3%80%90Git%E3%82%A8%E3%83%A9%E3%83%BC%E3%80%91%E3%80%8Cfatal-Out-of-memory-malloc-failed-tried-to-allocate-xxxxxxxxxxx-bytes-%E3%80%8D%E3%81%AE%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%B3%95/">【Gitエラー】「fatal: Out of memory, malloc failed (tried to allocate xxxxxxxxxxx bytes)」の解決方法</a></h1><div class="content"><h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>ファイル容量の大きいGitリポジトリをチェックアウトしようとしたら起きたので、Gitの解凍処理でメモリが食い尽くされているのが原因らいしい</p>
+<h2 id="解決策"><a href="#解決策" class="headerlink" title="解決策"></a>解決策</h2><p>解凍処理を小分けにする</p>
+<p><code>~/.gitconfig</code>に以下を追記する</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[core]</span><br><span class="line">packedGitLimit &#x3D; 128m</span><br><span class="line">packedGitWindowSize &#x3D; 128m</span><br><span class="line"></span><br><span class="line">[pack]</span><br><span class="line">deltaCacheSize &#x3D; 128m</span><br><span class="line">packSizeLimit &#x3D; 128m</span><br><span class="line">windowMemory &#x3D; 128m</span><br></pre></td></tr></table></figure></div></article></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/img/avatar.png" alt="Your name"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Your name</p><p class="is-size-6 is-block">Your title</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Your location</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">投稿</p><a href="/archives"><p class="title">48</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">カテゴリ</p><a href="/categories"><p class="title">1</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">タグ</p><a href="/tags"><p class="title">27</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/ppoffice" target="_blank" rel="noopener">フォローする</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/ppoffice"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Facebook" href="https://facebook.com"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Twitter" href="https://twitter.com"><i class="fab fa-twitter"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Dribbble" href="https://dribbble.com"><i class="fab fa-dribbble"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">リンク</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile" href="https://bulma.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bulma</span></span><span class="level-right"><span class="level-item tag">bulma.io</span></span></a></li></ul></div></div></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">カテゴリ</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/Blog/"><span class="level-start"><span class="level-item">Blog</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">最近の記事</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-03-16T19:33:29.000Z">2021-03-17</time></p><p class="title"><a href="/2021/03/17/%E3%80%90Winodws%E3%80%91%E3%82%B3%E3%83%B3%E3%82%BD%E3%83%BC%E3%83%AB%E3%81%AE%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%83%90%E3%83%83%E3%83%95%E3%82%A1%E3%82%92%E8%A4%87%E6%95%B0%E6%9E%9A%E4%BD%9C%E3%82%8B/">【Winodws】コンソールのスクリーンバッファを複数枚作る</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-03-16T13:56:54.000Z">2021-03-16</time></p><p class="title"><a href="/2021/03/16/%E3%80%90Android-Studio%E3%80%91Materila-Design%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%97%E3%81%A6%E8%A6%8B%E3%81%9F%E7%9B%AE%E3%82%92%E3%83%AA%E3%83%83%E3%83%81%E3%81%AB%E3%81%99%E3%82%8B/">【Android Studio】Materila Designを使用して見た目をリッチにする</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-03-14T16:04:43.000Z">2021-03-15</time></p><p class="title"><a href="/2021/03/15/%E3%80%90Android-Studio%E3%80%91build-Gradle%E3%81%8C%EF%BC%92%E3%81%A4%E3%81%82%E3%82%8B%E3%81%AE%E3%81%AF%E3%81%AA%E3%81%9C%E3%81%AA%E3%81%AE%E3%81%8B/">【Android Studio】build.Gradleが２つあるのはなぜなのか</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-03-14T14:28:07.000Z">2021-03-14</time></p><p class="title"><a href="/2021/03/14/%E3%80%90XCode%E3%80%91TableView%E3%81%AECell%E3%82%92%E3%82%AB%E3%82%B9%E3%82%BF%E3%83%9E%E3%82%A4%E3%82%BA%E3%81%99%E3%82%8B/">【XCode】TableViewのCellをカスタマイズする</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-03-12T19:03:54.000Z">2021-03-13</time></p><p class="title"><a href="/2021/03/13/%E3%80%90Git%E3%80%91%E3%82%BF%E3%82%B0%E3%81%AE%E6%89%B1%E3%81%84%E6%96%B9/">【Git】タグの扱い方</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">アーカイブ</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2021/03/"><span class="level-start"><span class="level-item">3月 2021</span></span><span class="level-end"><span class="level-item tag">19</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/02/"><span class="level-start"><span class="level-item">2月 2021</span></span><span class="level-end"><span class="level-item tag">26</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/01/"><span class="level-start"><span class="level-item">1月 2021</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">タグ</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/Android/"><span class="tag">Android</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Android-Studio/"><span class="tag">Android Studio</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/AppleScript/"><span class="tag">AppleScript</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/CSS/"><span class="tag">CSS</span><span class="tag">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Git/"><span class="tag">Git</span><span class="tag">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/GitHub/"><span class="tag">GitHub</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/HTML/"><span class="tag">HTML</span><span class="tag">12</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Hexo/"><span class="tag">Hexo</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Kotlin/"><span class="tag">Kotlin</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Linux/"><span class="tag">Linux</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Linux%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89/"><span class="tag">Linuxコマンド</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Markdown/"><span class="tag">Markdown</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Shell/"><span class="tag">Shell</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Swift/"><span class="tag">Swift</span><span class="tag">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Ubuntu/"><span class="tag">Ubuntu</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/VSCode/"><span class="tag">VSCode</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Vim/"><span class="tag">Vim</span><span class="tag">7</span></a></div><div class="control"><a class="tags has-addons" href="/tags/VimPlugin/"><span class="tag">VimPlugin</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Vim%E3%83%97%E3%83%A9%E3%82%B0%E3%82%A4%E3%83%B3/"><span class="tag">Vimプラグイン</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Windows/"><span class="tag">Windows</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Windows-API/"><span class="tag">Windows API</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/XCode/"><span class="tag">XCode</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Xcode/"><span class="tag">Xcode</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Zsh/"><span class="tag">Zsh</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/alias/"><span class="tag">alias</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/zsh/"><span class="tag">zsh</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%87%AA%E5%8B%95%E5%8C%96/"><span class="tag">自動化</span><span class="tag">1</span></a></div></div></div></div></div><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">更新を購読する</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="購読する"></div></div></form></div></div></div><div class="card widget"><div class="card-content"><div class="notification is-danger">You need to set <code>client_id</code> and <code>slot_id</code> to show this AD unit. Please set it in <code>_config.yml</code>.</div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="Inside the Black box ." height="28"></a><p class="is-size-7"><span>&copy; 2021 Daiki Iijima</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("ja");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="トップに戻る" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "このウェブサイトはあなたの経験を改善するためにCookieを使用しています。",
+          dismiss: "了解しました",
+          allow: "Cookiesを許可する",
+          deny: "拒否する",
+          link: "もっと詳しく知る",
+          policy: "Cookieポリシー",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="何かを入力してください..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"何かを入力してください...","untitled":"(無題)","posts":"投稿","pages":"ページ","categories":"カテゴリ","tags":"タグ"});
+        });</script></body></html>

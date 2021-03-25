@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Inside the Black box .</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Inside the Black box ."><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Inside the Black box ."><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta property="og:type" content="blog"><meta property="og:title" content="Inside the Black box ."><meta property="og:url" content="https://daiki-iijima.github.io/"><meta property="og:site_name" content="Inside the Black box ."><meta property="og:locale" content="ja_JP"><meta property="og:image" content="https://daiki-iijima.github.io/img/og_image.png"><meta property="article:author" content="Daiki Iijima"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://Daiki-Iijima.github.io"},"headline":"Inside the Black box .","image":["https://daiki-iijima.github.io/img/og_image.png"],"author":{"@type":"Person","name":"Daiki Iijima"},"description":""}</script><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 5.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Inside the Black box ." height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="検索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2021-02-18T00:21:32.000Z" title="2021-2-18 9:21:32 AM">2021-02-18</time>に投稿</span><span class="level-item"><time dateTime="2021-02-21T02:44:33.141Z" title="2021-2-21 11:44:33 AM">2021-02-21</time>に更新</span><span class="level-item">3分で読む (約402語)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2021/02/18/%E5%85%A5%E5%8A%9B%E8%A3%9C%E5%AE%8C%E3%83%97%E3%83%A9%E3%82%B0%E3%82%A4%E3%83%B3%E3%80%8CDeoplete%E3%80%8D%E3%81%AE%E5%B0%8E%E5%85%A5%E6%96%B9%E6%B3%95/">入力補完プラグイン「Deoplete」の導入方法</a></h1><div class="content"><h1 id="vimにdeopleteを入れる"><a href="#vimにdeopleteを入れる" class="headerlink" title="vimにdeopleteを入れる"></a>vimにdeopleteを入れる</h1><p>インストールに前提条件の多いPluginなので詰まるところが多かった</p>
+<h1 id="環境"><a href="#環境" class="headerlink" title="環境"></a>環境</h1><ul>
+<li>M1 Mac </li>
+<li>macOS Big Sur(11.2)</li>
+<li>vim 8.2</li>
+</ul>
+<h2 id="公式の手順"><a href="#公式の手順" class="headerlink" title="公式の手順"></a>公式の手順</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/Shougo/deoplete.nvim">Shougo/deoplete</a></li>
+</ul>
+<h1 id="日本語訳"><a href="#日本語訳" class="headerlink" title="日本語訳"></a>日本語訳</h1><h2 id="最初に"><a href="#最初に" class="headerlink" title="最初に"></a>最初に</h2><p>注意: <code>deoplete</code> は<code>Vim</code>で使用する場合でも <code>Neovim</code> (最新のものを推奨) が必要<br><code>Vimを使用する場合</code>Vimバージョン8.1以上 で <code>Python 3.6.1以上</code> と<code>timers</code>が有効になっている必要がある。</p>
+<p>注意: deopleteはmsgpackパッケージ1.0.0+を必要とします。pipでmsgpackパッケージをインストール/アップグレードしてください。<br><a target="_blank" rel="noopener" href="https://github.com/msgpack/msgpack-python">msgpack/msgpack-python</a></p>
+<p>注意: どうしても古い msgpack を使う必要がある場合は、代わりに deoplete ver.5.2 を使ってください。<br><a target="_blank" rel="noopener" href="https://github.com/Shougo/deoplete.nvim/releases/tag/5.2">Shougo/deoplete.vim</a></p>
+<h2 id="要件"><a href="#要件" class="headerlink" title="要件"></a>要件</h2><ul>
+<li>neovimをインストールしておく  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install --user pyvim</span><br></pre></td></tr></table></figure></li>
+<li>neovimでpython3が有効かを確認<ul>
+<li>nvimを起動して以下のコマンドで<code>1</code>が出るか確認<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:echo has(&quot;python3&quot;)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="vimrcに記述"><a href="#vimrcに記述" class="headerlink" title=".vimrcに記述"></a>.vimrcに記述</h2><ol>
+<li>今回はプラグイン管理ツールの<code>Vundle</code>を使用する <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Plugin &#39;Shougo&#x2F;deoplete.nvim&#39;</span><br><span class="line">Plugin &#39;roxma&#x2F;nvim-yarp&#39;</span><br><span class="line">Plugin &#39;roxma&#x2F;vim-hug-neovim-rpc&#39;</span><br></pre></td></tr></table></figure>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&quot; deopleteをVim起動時に有効にする</span><br><span class="line">let g:deoplete#enable_at_startup &#x3D; 1</span><br></pre></td></tr></table></figure></li>
+<li><code>:PluginInstall</code>でインストール </li>
+</ol>
+<h2 id="トラブル対応"><a href="#トラブル対応" class="headerlink" title="トラブル対応"></a>トラブル対応</h2><h3 id="ファイルを開くとエラーが表示される"><a href="#ファイルを開くとエラーが表示される" class="headerlink" title="ファイルを開くとエラーが表示される"></a>ファイルを開くとエラーが表示される</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[deoplete] deoplete failed to load. Try the :UpdateRemotePlugins command and restart Neovim. See also :checkhealth.</span><br></pre></td></tr></table></figure>
+<ul>
+<li>参考サイト<br><a target="_blank" rel="noopener" href="https://blog.fakiyer.com/entry/2018/11/20/101826">deoplete.nvimのエラー解消</a></li>
+</ul>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2021-02-17T13:33:59.000Z" title="2021-2-17 10:33:59 PM">2021-02-17</time>に投稿</span><span class="level-item"><time dateTime="2021-02-17T13:34:19.776Z" title="2021-2-17 10:34:19 PM">2021-02-17</time>に更新</span><span class="level-item">1分で読む (約169語)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2021/02/17/Vim%E3%81%ABPlugin%E3%83%9E%E3%83%8D%E3%83%BC%E3%82%B8%E3%83%A3%E3%83%BC%E3%80%8CVundle%E3%80%8D%E3%82%92%E5%85%A5%E3%82%8C%E3%82%8B/">VimにPluginマネージャー「Vundle」を入れる</a></h1><div class="content"><h1 id="環境"><a href="#環境" class="headerlink" title="環境"></a>環境</h1><ul>
+<li>Mac MacBook Air (M1, 2020) </li>
+<li>OS Big Sur v11.0.1</li>
+<li>VIM - Vi IMproved 8.2 (2019 Dec 12, compiled Oct 29 2020 23:33:57)</li>
+</ul>
+<h1 id="手順"><a href="#手順" class="headerlink" title="手順"></a>手順</h1><h2 id="1-ホームディレクトリにフォルダを作る"><a href="#1-ホームディレクトリにフォルダを作る" class="headerlink" title="1. ホームディレクトリにフォルダを作る"></a>1. ホームディレクトリにフォルダを作る</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p ~&#x2F;.vim&#x2F;bundle&#x2F;Vundle.vim</span><br></pre></td></tr></table></figure>
+<h2 id="2-GitHubからダウンロード"><a href="#2-GitHubからダウンロード" class="headerlink" title="2. GitHubからダウンロード"></a>2. GitHubからダウンロード</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;VundleVim&#x2F;Vundle.vim.git ~&#x2F;.vim&#x2F;bundle&#x2F;Vundle.vim</span><br></pre></td></tr></table></figure>
+<h2 id="3-vimrcにの先頭に設定を記述"><a href="#3-vimrcにの先頭に設定を記述" class="headerlink" title="3. .vimrcにの先頭に設定を記述"></a>3. .vimrcにの先頭に設定を記述</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">set nocompatible</span><br><span class="line">filetype off</span><br><span class="line">set rtp+&#x3D;~&#x2F;.vim&#x2F;bundle&#x2F;Vundle.vim</span><br><span class="line">call vundle#begin()</span><br><span class="line"></span><br><span class="line">Plugin &#39;VundleVim&#x2F;Vundle.vim&#39;</span><br><span class="line"></span><br><span class="line">&quot; 導入したいプラグインを以下に列挙</span><br><span class="line">&quot; Plugin &#39;[Github Author]&#x2F;[Github repo]&#39; の形式で記入</span><br><span class="line">Plugin &#39;airblade&#x2F;vim-gitgutter&#39;</span><br><span class="line"></span><br><span class="line">call vundle#end()</span><br><span class="line">filetype plugin indent on</span><br><span class="line"></span><br><span class="line">&quot;　その他のカスタム設定を以下に書く</span><br></pre></td></tr></table></figure>
+<h2 id="4-vimを開いた状態でコマンドを打ってインストール"><a href="#4-vimを開いた状態でコマンドを打ってインストール" class="headerlink" title="4. vimを開いた状態でコマンドを打ってインストール"></a>4. vimを開いた状態でコマンドを打ってインストール</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:PluginInstall</span><br></pre></td></tr></table></figure></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2021-02-16T00:44:35.000Z" title="2021-2-16 9:44:35 AM">2021-02-16</time>に投稿</span><span class="level-item"><time dateTime="2021-02-21T02:45:11.088Z" title="2021-2-21 11:45:11 AM">2021-02-21</time>に更新</span><span class="level-item">5分で読む (約736語)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2021/02/16/zsh%E3%81%A8alias%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/">zshとaliasについて</a></h1><div class="content"><h1 id="zshとは"><a href="#zshとは" class="headerlink" title="zshとは"></a>zshとは</h1><ul>
+<li>読み方: ズィーシェル</li>
+<li>シェルの一種で<code>bash</code>の進化版</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://ja.wikipedia.org/wiki/Z_Shell">https://ja.wikipedia.org/wiki/Z_Shell</a></p>
+<h2 id="シェルとは"><a href="#シェルとは" class="headerlink" title="シェルとは"></a>シェルとは</h2><ul>
+<li>カーネルと対話するためのインターフェイス<ul>
+<li>シェルの名前の由来は、カーネルを包み込んでいることに由来する</li>
+</ul>
+</li>
+<li>カーネルの中に入力機能を入れない理由<ul>
+<li>シェル(ロジック)とカーネル(インターフェイス)を分けることでインターフェイスを他のカーネルでも使いまわすことができるようになる</li>
+<li>インターフェイスのエラーでカーネルをクラッシュする可能性を排除できる</li>
+</ul>
+</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://recruit.cct-inc.co.jp/tecblog/os/shell/">https://recruit.cct-inc.co.jp/tecblog/os/shell/</a></p>
+<h1 id="aliasとは"><a href="#aliasとは" class="headerlink" title="aliasとは"></a>aliasとは</h1><ul>
+<li>シェル上で、長いコマンドや一連のコマンドをまとめて、ひとまとめにすることのできる機能</li>
+</ul>
+<h1 id="使い方-zshの場合"><a href="#使い方-zshの場合" class="headerlink" title="使い方(zshの場合)"></a>使い方(zshの場合)</h1><ol>
+<li><code>~/.zshrc</code>に記述する <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">alias</span> 別名=<span class="string">&#x27;本来のコマンド&#x27;</span></span><br></pre></td></tr></table></figure></li>
+<li>保存して<code>.zshrcL</code>の再読み込みをする <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure></li>
+<li><code>別名</code>で指定したコマンドを打って期待通り動けばOK</li>
+</ol>
+<h2 id="使用例"><a href="#使用例" class="headerlink" title="使用例"></a>使用例</h2><ul>
+<li>長いパスのフォルダに移動<code>cd</code>したい場合<ul>
+<li>このコマンド<code>bc</code>を打つだけで記述した<code>cd</code>コマンドが実行される<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">alias</span> bc=<span class="string">&#x27;cd /Users/daiki/Desktop/Blog/Daiki-Iijima.github.io/source/_posts&#x27;</span></span><br></pre></td></tr></table></figure>
+<h1 id="複数のコマンドを1つのaliasにまとめる"><a href="#複数のコマンドを1つのaliasにまとめる" class="headerlink" title="複数のコマンドを1つのaliasにまとめる"></a>複数のコマンドを1つのaliasにまとめる</h1></li>
+</ul>
+</li>
+<li>各コマンドを<code>;</code>で区切ることで連続したコマンドを記述できる  <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">alias</span> 別名=<span class="string">&#x27;コマンド1;コマンド2&#x27;</span></span><br></pre></td></tr></table></figure>
+<h2 id="使用例-1"><a href="#使用例-1" class="headerlink" title="使用例"></a>使用例</h2></li>
+<li>デスクトップへ移動して、<code>test</code>フォルダを生成する  <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">alias</span> cdmk=<span class="string">&#x27;cd /Users/daiki/Desktop;mkdir test&#x27;</span></span><br></pre></td></tr></table></figure>
+<h1 id="引数を渡す"><a href="#引数を渡す" class="headerlink" title="引数を渡す"></a>引数を渡す</h1></li>
+<li><code>$</code>+<code>数字</code>を本来の引数があるはずの位置に記述することで、引数を渡すことができる  <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">alias</span> 別名=<span class="string">&#x27;mkdir $1&#x27;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>使用する場合  <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">別名 引数</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>複数の引数を渡したい場合は、<code>$</code>の後の<code>数字を</code>繰り上げていく  <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">alias</span> 別名=<span class="string">&#x27;mkdir $1;mkdir $2&#x27;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>使用する場合  <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">別名 引数 引数</span><br></pre></td></tr></table></figure>
+<h2 id="使用例-2"><a href="#使用例-2" class="headerlink" title="使用例"></a>使用例</h2></li>
+</ul>
+</li>
+<li>メモをとるためにディレクトリとディレクトリの中にディレクトリと同名の<code>.md</code>ファイルをvimで編集する<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">alias</span> memo=<span class="string">&#x27;()&#123;cd /Users/daiki/Desktop/memo;mkdir $1;vim $1.md&#125;&#x27;</span></span><br></pre></td></tr></table></figure>
+<h1 id="参照リンク"><a href="#参照リンク" class="headerlink" title="参照リンク"></a>参照リンク</h1></li>
+<li><a target="_blank" rel="noopener" href="http://norizo333.hatenablog.com/entry/20090921/1253523438">シェルの設定ファイルを再読み込み</a></li>
+<li><a target="_blank" rel="noopener" href="https://qiita.com/mikakane/items/ac27582e8e52228adced">bashで複数のコマンドエイリアス</a></li>
+<li><a target="_blank" rel="noopener" href="https://qiita.com/sayama0402/items/46241c07c30e431fe38f">zsh環境で引数を持ったコマンドを作る</a></li>
+<li><a target="_blank" rel="noopener" href="https://qiita.com/terufumi1122/items/1bbb1cf96e376e30e9fc">【時短】zshでエイリアスを設定する方法</a></li>
+</ul>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2021-02-14T14:57:38.000Z" title="2021-2-14 11:57:38 PM">2021-02-14</time>に投稿</span><span class="level-item"><time dateTime="2021-02-14T14:58:30.627Z" title="2021-2-14 11:58:30 PM">2021-02-14</time>に更新</span><span class="level-item">1分で読む (約185語)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2021/02/14/Ctrl-c%E3%81%A8Esc%E3%81%AE%E9%81%95%E3%81%84/">Ctrl+cとEscの違い</a></h1><div class="content"><h1 id="Ctrl-cはEscと同じ挙動をしない場合がある"><a href="#Ctrl-cはEscと同じ挙動をしない場合がある" class="headerlink" title="Ctrl+cはEscと同じ挙動をしない場合がある"></a>Ctrl+cはEscと同じ挙動をしない場合がある</h1><p>例えば、矩形選択モード<code>ctrl + v</code>でマルチカーソル処理を行おうとした時に、入力内容を確定するために、インサートモードを抜けるが、その時の挙動が<code>Ctrl + c</code>と<code>Esc</code>では、違ったものになる</p>
+<ul>
+<li>Ctrl + c : 最初の１行しか入力内容が反映されない</li>
+<li>Esc : 期待通りの選択している全ての行に入力値が反映される</li>
+</ul>
+<h1 id="対策"><a href="#対策" class="headerlink" title="対策"></a>対策</h1><ol>
+<li><p>キーマップを書き換えて<code>Ctrl + c</code>を<code>Esc</code>と同じ扱いにする</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">imap &lt;C-c&gt; &lt;Esc&gt;</span><br></pre></td></tr></table></figure></li>
+<li><p><code>Ctrl + [</code>を使う</p>
+</li>
+<li><p>素直に<code>Esc</code>を使用する</p>
+</li>
+</ol>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2021-02-13T23:39:40.000Z" title="2021-2-14 8:39:40 AM">2021-02-14</time>に投稿</span><span class="level-item"><time dateTime="2021-02-13T23:40:47.211Z" title="2021-2-14 8:40:47 AM">2021-02-14</time>に更新</span><span class="level-item">数秒で読む (約105語)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2021/02/14/Markdown%E3%81%A7%E6%94%B9%E8%A1%8C%E3%82%92%E5%85%A5%E3%82%8C%E3%82%8B/">Markdownで改行を入れる</a></h1><div class="content"><h1 id="改行の入れ方3パターン"><a href="#改行の入れ方3パターン" class="headerlink" title="改行の入れ方3パターン"></a>改行の入れ方3パターン</h1><h2 id="1-半角空白を２つ入れて改行する"><a href="#1-半角空白を２つ入れて改行する" class="headerlink" title="1. 半角空白を２つ入れて改行する"></a>1. 半角空白を２つ入れて改行する</h2><ul>
+<li>この改行の入れ方の場合、ブロックは別れない</li>
+<li><code>HTML</code>で言うところの、<code>&lt;br&gt;</code>タグと同じ<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td></tr></table></figure>
+<h2 id="2-改行を１つ入れる"><a href="#2-改行を１つ入れる" class="headerlink" title="2. 改行を１つ入れる"></a>2. 改行を１つ入れる</h2></li>
+<li>ブロックが別れる</li>
+<li><code>HTML</code>で言うところの、<code>&lt;p&gt;</code>タグと同じ<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line"></span><br><span class="line">2</span><br><span class="line"></span><br><span class="line">3</span><br></pre></td></tr></table></figure>
+<h2 id="3-lt-br-gt-タグを入れる"><a href="#3-lt-br-gt-タグを入れる" class="headerlink" title="3. &lt;br&gt;タグを入れる"></a>3. &lt;br&gt;タグを入れる</h2></li>
+<li><code>HTML</code>のタグと同じ<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1<span class="xml"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span>2<span class="xml"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span>3<span class="xml"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2021-02-12T14:14:32.000Z" title="2021-2-12 11:14:32 PM">2021-02-12</time>に投稿</span><span class="level-item"><time dateTime="2021-02-12T14:14:40.371Z" title="2021-2-12 11:14:40 PM">2021-02-12</time>に更新</span><span class="level-item">1分で読む (約131語)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2021/02/12/iframe%E3%81%AEaline%E5%B1%9E%E6%80%A7%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/">iframeのaline属性について</a></h1><div class="content"><h1 id="alineとは"><a href="#alineとは" class="headerlink" title="alineとは"></a>alineとは</h1><ul>
+<li><code>iframe(インラインフレーム)</code>に並ぶテキスト位置を指定できる</li>
+<li><code>iframe(インラインフレーム)</code>をフロートさせられる<ul>
+<li>フロート : 左右どちらかに寄せて、後続のテキストを回り込ませる</li>
+</ul>
+</li>
+</ul>
+<h2 id="指定可能文字列"><a href="#指定可能文字列" class="headerlink" title="指定可能文字列"></a>指定可能文字列</h2><ul>
+<li>left : 左に配置して、後続の内容を右側に回り込ませる</li>
+<li>right: 右に配置して、後続の内容を左側に回り込ませる<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">width</span>=<span class="string">&quot;560&quot;</span> <span class="attr">height</span>=<span class="string">&quot;315&quot;</span> <span class="attr">src</span>=<span class="string">&quot;https://www.youtube.com/embed/DrDm7uO4Fu0&quot;</span> <span class="attr">align</span> =<span class="string">&quot;right&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2021-02-11T12:32:02.000Z" title="2021-2-11 9:32:02 PM">2021-02-11</time>に投稿</span><span class="level-item"><time dateTime="2021-02-11T12:32:15.119Z" title="2021-2-11 9:32:15 PM">2021-02-11</time>に更新</span><span class="level-item">1分で読む (約127語)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2021/02/11/iframe%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/">iframeについて</a></h1><div class="content"><h1 id="ページ上に複数のページから読み込んだページを表示する"><a href="#ページ上に複数のページから読み込んだページを表示する" class="headerlink" title="ページ上に複数のページから読み込んだページを表示する"></a>ページ上に複数のページから読み込んだページを表示する</h1><h1 id="iframeタグを使用する"><a href="#iframeタグを使用する" class="headerlink" title="iframeタグを使用する"></a>iframeタグを使用する</h1><ul>
+<li>iframe = Inline Frame(行内フレーム)<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">src</span>=<span class="string">&quot;table.html&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h1 id="Youtubeの動画を埋め込む"><a href="#Youtubeの動画を埋め込む" class="headerlink" title="Youtubeの動画を埋め込む"></a>Youtubeの動画を埋め込む</h1></li>
+</ul>
+<ol>
+<li>youtubeで埋め込みたい動画を選択</li>
+<li>動画の再生画面から、<code>埋め込みコード</code>を取得</li>
+<li><code>埋め込みコード</code>は<code>iframe</code>で記述してあるので、そのままコピペする</li>
+</ol>
+<p>取得した埋め込みコード例</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">width</span>=<span class="string">&quot;560&quot;</span> <span class="attr">height</span>=<span class="string">&quot;315&quot;</span> <span class="attr">src</span>=<span class="string">&quot;https://www.youtube.com/embed/y4noU6qgJlc&quot;</span> <span class="attr">frameborder</span>=<span class="string">&quot;0&quot;</span> <span class="attr">allow</span>=<span class="string">&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot;</span> <span class="attr">allowfullscreen</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br></pre></td></tr></table></figure></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2021-02-09T23:59:29.000Z" title="2021-2-10 8:59:29 AM">2021-02-10</time>に投稿</span><span class="level-item"><time dateTime="2021-02-10T00:04:00.216Z" title="2021-2-10 9:04:00 AM">2021-02-10</time>に更新</span><span class="level-item">7分で読む (約1006語)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2021/02/10/form%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/">formについて</a></h1><div class="content"><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a target="_blank" rel="noopener" href="https://www.kanzaki.com/docs/html/htminfo31.html">基本的なフォーム</a></p>
+<h1 id="form-入力・送信フォーム-タグ"><a href="#form-入力・送信フォーム-タグ" class="headerlink" title="form(入力・送信フォーム)タグ"></a>form(入力・送信フォーム)タグ</h1><ul>
+<li>どこに、どうやって送信するかを記述するタグ</li>
+<li>このタグセクションの中には、何を送信するかを示す</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span>&gt;</span><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="input-入力-タグ"><a href="#input-入力-タグ" class="headerlink" title="input(入力)タグ"></a>input(入力)タグ</h2><ul>
+<li>formタグの「何を」送信するかを記述するためのタグ</li>
+<li>formタグで囲む必要があるのは、入力した値を送信したい場合<ul>
+<li>必ずformタグに記述する必要はない</li>
+</ul>
+</li>
+<li><code>type</code>属性を指定することで、入力インターフェイスを変更できる</li>
+</ul>
+<h3 id="type属性の種類"><a href="#type属性の種類" class="headerlink" title="type属性の種類"></a>type属性の種類</h3><p><a target="_blank" rel="noopener" href="http://www.htmq.com/html5/input.shtml">type属性の値</a></p>
+<ul>
+<li>type=”hidden”<ul>
+<li>画面上は表示されない隠しデータを指定する</li>
+</ul>
+</li>
+<li>type=”text”<ul>
+<li>一行テキストボックスを作成する（初期値）</li>
+</ul>
+</li>
+<li>type=”search”<ul>
+<li>検索テキストの入力欄を作成するHTML5から追加</li>
+</ul>
+</li>
+<li>type=”tel”<ul>
+<li>電話番号の入力欄を作成するHTML5から追加</li>
+</ul>
+</li>
+<li>type=”url”<ul>
+<li>URLの入力欄を作成するHTML5から追加</li>
+</ul>
+</li>
+<li>type=”email”<ul>
+<li>メールアドレスの入力欄を作成するHTML5から追加</li>
+</ul>
+</li>
+<li>type=”password”<ul>
+<li>パスワード入力欄を作成する</li>
+</ul>
+</li>
+<li>type=”datetime”<ul>
+<li>UTC（協定世界時）による日時の入力欄を作成するHTML5から追加</li>
+</ul>
+</li>
+<li>type=”date”<ul>
+<li>日付の入力欄を作成するHTML5から追加</li>
+</ul>
+</li>
+<li>type=”month”<ul>
+<li>月の入力欄を作成するHTML5から追加</li>
+</ul>
+</li>
+<li>type=”week”<ul>
+<li>週の入力欄を作成するHTML5から追加</li>
+</ul>
+</li>
+<li>type=”time”<ul>
+<li>時間の入力欄を作成するHTML5から追加</li>
+</ul>
+</li>
+<li>type=”datetime-local”<ul>
+<li>UTC（協定世界時）によらないローカル日時の入力欄を作成するHTML5から追加</li>
+</ul>
+</li>
+<li>type=”number”<ul>
+<li>数値の入力欄を作成するHTML5から追加</li>
+</ul>
+</li>
+<li>type=”range”<ul>
+<li>レンジの入力欄を作成するHTML5から追加</li>
+</ul>
+</li>
+<li>type=”color”<ul>
+<li>色の入力欄を作成するHTML5から追加</li>
+</ul>
+</li>
+<li>type=”checkbox”<ul>
+<li>チェックボックスを作成する</li>
+</ul>
+</li>
+<li>type=”radio”<ul>
+<li>ラジオボタンを作成する</li>
+</ul>
+</li>
+<li>type=”file”<ul>
+<li>サーバーへファイルを送信する</li>
+</ul>
+</li>
+<li>type=”submit”<ul>
+<li>送信ボタンを作成する</li>
+</ul>
+</li>
+<li>type=”image”<ul>
+<li>画像ボタンを作成する</li>
+</ul>
+</li>
+<li>type=”reset”<ul>
+<li>リセットボタンを作成する</li>
+</ul>
+</li>
+<li>type=”button”<ul>
+<li>汎用ボタンを作成する</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="ボタンにアクションを設定する"><a href="#ボタンにアクションを設定する" class="headerlink" title="ボタンにアクションを設定する"></a>ボタンにアクションを設定する</h3><ul>
+<li><code>action</code>属性を設定することで、ボタンを押した時の挙動を指定できる</li>
+</ul>
+<p>この例の場合、ボタンを押すと<code>action</code>で指定しているURLを開く</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;http://www.google.co.jp&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="テキストをデフォルトで設定しておく"><a href="#テキストをデフォルトで設定しておく" class="headerlink" title="テキストをデフォルトで設定しておく"></a>テキストをデフォルトで設定しておく</h3><ul>
+<li>入力された状態でデフォルト設定<ul>
+<li><code>value</code>タグを使用する<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">value</span>=<span class="string">&quot;デフォルト&quot;</span>&gt;</span> </span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>ガイドラインとして表示する<ul>
+<li><code>placeholder</code>タグを使用する<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">placeholder</span>=<span class="string">&quot;デフォルト&quot;</span>&gt;</span> </span><br></pre></td></tr></table></figure>
+<h3 id="チェックボックスをデフォルトでチェックした状態にする"><a href="#チェックボックスをデフォルトでチェックした状態にする" class="headerlink" title="チェックボックスをデフォルトでチェックした状態にする"></a>チェックボックスをデフォルトでチェックした状態にする</h3></li>
+</ul>
+</li>
+<li><code>checked</code>属性を使う<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> <span class="attr">checked</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="ボタンの表示名を変える"><a href="#ボタンの表示名を変える" class="headerlink" title="ボタンの表示名を変える"></a>ボタンの表示名を変える</h3></li>
+<li><code>value</code>属性を設定する</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type&#x3D;&quot;button&quot; value&#x3D;&quot;これはボタンです&quot;&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="複数のラジオボタンの連携"><a href="#複数のラジオボタンの連携" class="headerlink" title="複数のラジオボタンの連携"></a>複数のラジオボタンの連携</h3><ul>
+<li><code>name</code>属性をつけることで、グルーピングができる</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">name</span>=<span class="string">&quot;test&quot;</span>&gt;</span></span><br><span class="line">2<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">name</span>=<span class="string">&quot;test&quot;</span>&gt;</span></span><br><span class="line">3<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">name</span>=<span class="string">&quot;test&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="ラジオボタンをデフォルトでチェックした状態にする"><a href="#ラジオボタンをデフォルトでチェックした状態にする" class="headerlink" title="ラジオボタンをデフォルトでチェックした状態にする"></a>ラジオボタンをデフォルトでチェックした状態にする</h3><ul>
+<li><code>checked</code>属性を使う<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> <span class="attr">checked</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="ドロップダウンを生成する"><a href="#ドロップダウンを生成する" class="headerlink" title="ドロップダウンを生成する"></a>ドロップダウンを生成する</h2><ul>
+<li><code>&lt;select&gt;&lt;/select&gt;</code>タグを使用して、その中のセクションに<code>&lt;option&gt;&lt;/option&gt;</code>タグで項目を記述する<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">option</span>&gt;</span>塩ラーメン<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">option</span>&gt;</span>味噌ラーメン<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">option</span>&gt;</span>醤油ラーメン<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">option</span>&gt;</span>豚骨ラーメン<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="ドロップダウンのデフォルト選択項目を指定する"><a href="#ドロップダウンのデフォルト選択項目を指定する" class="headerlink" title="ドロップダウンのデフォルト選択項目を指定する"></a>ドロップダウンのデフォルト選択項目を指定する</h3></li>
+<li>デフォルトで選択させた状態にしたい<code>&lt;option&gt;</code>タグに、<code>selected</code>属性を付与する</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">option</span>&gt;</span>塩ラーメン<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">option</span>&gt;</span>味噌ラーメン<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">option</span> <span class="attr">selected</span>&gt;</span>醤油ラーメン<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">option</span>&gt;</span>豚骨ラーメン<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2021-02-09T23:46:10.000Z" title="2021-2-10 8:46:10 AM">2021-02-10</time>に投稿</span><span class="level-item"><time dateTime="2021-02-09T23:46:30.587Z" title="2021-2-10 8:46:30 AM">2021-02-10</time>に更新</span><span class="level-item">2分で読む (約336語)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2021/02/10/%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/">テーブルについて</a></h1><div class="content"><h1 id="table-テーブル-を生成する方法"><a href="#table-テーブル-を生成する方法" class="headerlink" title="table(テーブル)を生成する方法"></a>table(テーブル)を生成する方法</h1><ul>
+<li><code>&lt;table&gt;&lt;/table&gt;</code>タグを使用して、テーブルセクションを作成する<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span></span><br><span class="line">	テーブルの内容の記述</span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h1 id="テーブルの内容を追加する"><a href="#テーブルの内容を追加する" class="headerlink" title="テーブルの内容を追加する"></a>テーブルの内容を追加する</h1>行とデータを別々に記述する必要がある</li>
+<li><code>&lt;tr&gt;&lt;/tr&gt;</code>タグで<code>行</code>を生成<ul>
+<li>tr = table row</li>
+</ul>
+</li>
+<li><code>&lt;td&gt;&lt;/td&gt;</code>タグで行内の要素指定<ul>
+<li>td = table data</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">ラーメン値段表	&lt;!--タイトルのつもり--&gt;</span><br><span class="line">&lt;table&gt;</span><br><span class="line">	&lt;tr&gt;</span><br><span class="line">		&lt;td&gt;塩ラーメン&lt;&#x2F;td&gt;</span><br><span class="line">		&lt;td&gt;299&lt;&#x2F;td&gt;</span><br><span class="line">	&lt;&#x2F;tr&gt;</span><br><span class="line">	&lt;tr&gt;</span><br><span class="line">		&lt;td&gt;豚骨ラーメン&lt;&#x2F;td&gt;</span><br><span class="line">		&lt;td&gt;399&lt;&#x2F;td&gt;</span><br><span class="line">	&lt;&#x2F;tr&gt;</span><br><span class="line">	&lt;tr&gt;</span><br><span class="line">		&lt;td&gt;醤油ラーメン&lt;&#x2F;td&gt;</span><br><span class="line">		&lt;td&gt;499&lt;&#x2F;td&gt;</span><br><span class="line">	&lt;&#x2F;tr&gt;</span><br><span class="line">	&lt;tr&gt;</span><br><span class="line">		&lt;td&gt;味噌ラーメン&lt;&#x2F;td&gt;</span><br><span class="line">		&lt;td&gt;599&lt;&#x2F;td&gt;</span><br><span class="line">	&lt;&#x2F;tr&gt;</span><br><span class="line">&lt;&#x2F;table&gt;</span><br></pre></td></tr></table></figure>
+<h1 id="もう少しリッチな表現を入れる"><a href="#もう少しリッチな表現を入れる" class="headerlink" title="もう少しリッチな表現を入れる"></a>もう少しリッチな表現を入れる</h1><h2 id="枠線をつける"><a href="#枠線をつける" class="headerlink" title="枠線をつける"></a>枠線をつける</h2><ul>
+<li><code>&lt;table&gt;</code>タグに<code>border</code>属性を記述する<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">ラーメン値段表	<span class="comment">&lt;!--タイトルのつもり--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">border</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">td</span>&gt;</span>塩ラーメン<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">td</span>&gt;</span>299<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">td</span>&gt;</span>豚骨ラーメン<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">td</span>&gt;</span>399<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">td</span>&gt;</span>醤油ラーメン<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">td</span>&gt;</span>499<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">td</span>&gt;</span>味噌ラーメン<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">td</span>&gt;</span>599<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="見出しをつける"><a href="#見出しをつける" class="headerlink" title="見出しをつける"></a>見出しをつける</h2></li>
+<li><code>&lt;thead&gt;&lt;/thead&gt;</code>タグでヘッダーセクションを生成する<ul>
+<li>thead = table head</li>
+</ul>
+</li>
+<li><code>&lt;tr&gt;&lt;/tr&gt;</code>タグで行セクションを生成する</li>
+<li><code>&lt;th&gt;&lt;/th&gt;</code>タグでヘッダー情報を記述する </li>
+<li>ヘッダーと本文を区別するために本文部分は<code>&lt;tbody&gt;&lt;/tbody&gt;</code>セクションで囲む</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">ラーメン値段表	<span class="comment">&lt;!--タイトルのつもり--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">thead</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">th</span>&gt;</span>ラーメン名<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">th</span>&gt;</span>価格<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">thead</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">tbody</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">td</span>&gt;</span>塩ラーメン<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">td</span>&gt;</span>299<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">td</span>&gt;</span>豚骨ラーメン<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">td</span>&gt;</span>399<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">td</span>&gt;</span>醤油ラーメン<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">td</span>&gt;</span>499<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">td</span>&gt;</span>味噌ラーメン<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">td</span>&gt;</span>599<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">tbody</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2021-02-09T23:33:10.000Z" title="2021-2-10 8:33:10 AM">2021-02-10</time>に投稿</span><span class="level-item"><time dateTime="2021-03-01T14:21:21.337Z" title="2021-3-1 11:21:21 PM">2021-03-01</time>に更新</span><span class="level-item">2分で読む (約272語)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2021/02/10/%E3%83%AA%E3%83%B3%E3%82%AF%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/">リンクについて</a></h1><div class="content"><h1 id="a-hrefを使用してリンクする"><a href="#a-hrefを使用してリンクする" class="headerlink" title="a hrefを使用してリンクする"></a>a hrefを使用してリンクする</h1><ul>
+<li>a = Anker</li>
+<li>href = hiper reference<ul>
+<li>hrefにURL or パス    </li>
+</ul>
+</li>
+</ul>
+<h1 id="リンクの種類"><a href="#リンクの種類" class="headerlink" title="リンクの種類"></a>リンクの種類</h1><p><code>href</code>属性にURLを指定する</p>
+<ul>
+<li>絶対リンク</li>
+<li>相対リンク</li>
+</ul>
+<p>タグを使うことでリンクさせる</p>
+<ul>
+<li>アンカーリンク</li>
+</ul>
+<h1 id="絶対リンク"><a href="#絶対リンク" class="headerlink" title="絶対リンク"></a>絶対リンク</h1><ul>
+<li><code>ホームディレクトリからのパス</code>or<code>http://xxx</code>に移動する<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;http://www.wikipedia.org&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h1 id="相対リンク"><a href="#相対リンク" class="headerlink" title="相対リンク"></a>相対リンク</h1></li>
+<li>今のディレクトリからの相対的なリンクに移動する<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;table.html&quot;</span>&gt;</span>table.htmlへのリンク<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h1 id="アンカーリンク"><a href="#アンカーリンク" class="headerlink" title="アンカーリンク"></a>アンカーリンク</h1></li>
+<li>ページ内で移動する(スクロール位置を移動する)</li>
+<li><code>a</code>タグの<code>href</code>に任意の<code>識別子</code>を指定</li>
+<li><code>p</code>タグの<code>id</code>属性に<code>a</code>タグで指定した<code>識別子</code>と同じ<code>識別子</code>を指定<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">&quot;top&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;http://www.google.com&quot;</span>&gt;</span>google検索<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;table.html&quot;</span>&gt;</span>テーブル.htmlへのリンク<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>スペース<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>スペース<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>スペース<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>スペース<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>スペース<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>スペース<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>スペース<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#top&quot;</span>&gt;</span>トップへ戻る<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h1 id="画像にリンクを設置する"><a href="#画像にリンクを設置する" class="headerlink" title="画像にリンクを設置する"></a>画像にリンクを設置する</h1></li>
+<li><code>img</code>タグを<code>&lt;a href=&quot;&quot;&gt;</code>で囲む<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;http://www.google.com&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;image.png&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous"><a href="/page/3/">前</a></div><div class="pagination-next"><a href="/page/5/">次</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link" href="/">1</a></li><li><a class="pagination-link" href="/page/2/">2</a></li><li><a class="pagination-link" href="/page/3/">3</a></li><li><a class="pagination-link is-current" href="/page/4/">4</a></li><li><a class="pagination-link" href="/page/5/">5</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/img/avatar.png" alt="Your name"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Your name</p><p class="is-size-6 is-block">Your title</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Your location</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">投稿</p><a href="/archives"><p class="title">48</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">カテゴリ</p><a href="/categories"><p class="title">1</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">タグ</p><a href="/tags"><p class="title">27</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/ppoffice" target="_blank" rel="noopener">フォローする</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/ppoffice"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Facebook" href="https://facebook.com"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Twitter" href="https://twitter.com"><i class="fab fa-twitter"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Dribbble" href="https://dribbble.com"><i class="fab fa-dribbble"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">リンク</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile" href="https://bulma.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bulma</span></span><span class="level-right"><span class="level-item tag">bulma.io</span></span></a></li></ul></div></div></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">カテゴリ</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/Blog/"><span class="level-start"><span class="level-item">Blog</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">最近の記事</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-03-16T19:33:29.000Z">2021-03-17</time></p><p class="title"><a href="/2021/03/17/%E3%80%90Winodws%E3%80%91%E3%82%B3%E3%83%B3%E3%82%BD%E3%83%BC%E3%83%AB%E3%81%AE%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%83%90%E3%83%83%E3%83%95%E3%82%A1%E3%82%92%E8%A4%87%E6%95%B0%E6%9E%9A%E4%BD%9C%E3%82%8B/">【Winodws】コンソールのスクリーンバッファを複数枚作る</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-03-16T13:56:54.000Z">2021-03-16</time></p><p class="title"><a href="/2021/03/16/%E3%80%90Android-Studio%E3%80%91Materila-Design%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%97%E3%81%A6%E8%A6%8B%E3%81%9F%E7%9B%AE%E3%82%92%E3%83%AA%E3%83%83%E3%83%81%E3%81%AB%E3%81%99%E3%82%8B/">【Android Studio】Materila Designを使用して見た目をリッチにする</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-03-14T16:04:43.000Z">2021-03-15</time></p><p class="title"><a href="/2021/03/15/%E3%80%90Android-Studio%E3%80%91build-Gradle%E3%81%8C%EF%BC%92%E3%81%A4%E3%81%82%E3%82%8B%E3%81%AE%E3%81%AF%E3%81%AA%E3%81%9C%E3%81%AA%E3%81%AE%E3%81%8B/">【Android Studio】build.Gradleが２つあるのはなぜなのか</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-03-14T14:28:07.000Z">2021-03-14</time></p><p class="title"><a href="/2021/03/14/%E3%80%90XCode%E3%80%91TableView%E3%81%AECell%E3%82%92%E3%82%AB%E3%82%B9%E3%82%BF%E3%83%9E%E3%82%A4%E3%82%BA%E3%81%99%E3%82%8B/">【XCode】TableViewのCellをカスタマイズする</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-03-12T19:03:54.000Z">2021-03-13</time></p><p class="title"><a href="/2021/03/13/%E3%80%90Git%E3%80%91%E3%82%BF%E3%82%B0%E3%81%AE%E6%89%B1%E3%81%84%E6%96%B9/">【Git】タグの扱い方</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">アーカイブ</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2021/03/"><span class="level-start"><span class="level-item">3月 2021</span></span><span class="level-end"><span class="level-item tag">19</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/02/"><span class="level-start"><span class="level-item">2月 2021</span></span><span class="level-end"><span class="level-item tag">26</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/01/"><span class="level-start"><span class="level-item">1月 2021</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">タグ</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/Android/"><span class="tag">Android</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Android-Studio/"><span class="tag">Android Studio</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/AppleScript/"><span class="tag">AppleScript</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/CSS/"><span class="tag">CSS</span><span class="tag">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Git/"><span class="tag">Git</span><span class="tag">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/GitHub/"><span class="tag">GitHub</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/HTML/"><span class="tag">HTML</span><span class="tag">12</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Hexo/"><span class="tag">Hexo</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Kotlin/"><span class="tag">Kotlin</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Linux/"><span class="tag">Linux</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Linux%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89/"><span class="tag">Linuxコマンド</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Markdown/"><span class="tag">Markdown</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Shell/"><span class="tag">Shell</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Swift/"><span class="tag">Swift</span><span class="tag">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Ubuntu/"><span class="tag">Ubuntu</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/VSCode/"><span class="tag">VSCode</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Vim/"><span class="tag">Vim</span><span class="tag">7</span></a></div><div class="control"><a class="tags has-addons" href="/tags/VimPlugin/"><span class="tag">VimPlugin</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Vim%E3%83%97%E3%83%A9%E3%82%B0%E3%82%A4%E3%83%B3/"><span class="tag">Vimプラグイン</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Windows/"><span class="tag">Windows</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Windows-API/"><span class="tag">Windows API</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/XCode/"><span class="tag">XCode</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Xcode/"><span class="tag">Xcode</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Zsh/"><span class="tag">Zsh</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/alias/"><span class="tag">alias</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/zsh/"><span class="tag">zsh</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%87%AA%E5%8B%95%E5%8C%96/"><span class="tag">自動化</span><span class="tag">1</span></a></div></div></div></div></div><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">更新を購読する</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="購読する"></div></div></form></div></div></div><div class="card widget"><div class="card-content"><div class="notification is-danger">You need to set <code>client_id</code> and <code>slot_id</code> to show this AD unit. Please set it in <code>_config.yml</code>.</div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="Inside the Black box ." height="28"></a><p class="is-size-7"><span>&copy; 2021 Daiki Iijima</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("ja");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="トップに戻る" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "このウェブサイトはあなたの経験を改善するためにCookieを使用しています。",
+          dismiss: "了解しました",
+          allow: "Cookiesを許可する",
+          deny: "拒否する",
+          link: "もっと詳しく知る",
+          policy: "Cookieポリシー",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="何かを入力してください..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"何かを入力してください...","untitled":"(無題)","posts":"投稿","pages":"ページ","categories":"カテゴリ","tags":"タグ"});
+        });</script></body></html>
