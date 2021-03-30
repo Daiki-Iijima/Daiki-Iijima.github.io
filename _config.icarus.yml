@@ -221,9 +221,9 @@ widgets:
         # Author title
         author_title: システムエンジニア
         # Author's current location
-        location: 千葉県 船橋市
+        location: 千葉県
         # URL or path to the avatar image
-        avatar: 
+        avatar: /img/myavatar.png
         # Whether show the rounded avatar image
         avatar_rounded: true
         # Email address for the Gravatar
