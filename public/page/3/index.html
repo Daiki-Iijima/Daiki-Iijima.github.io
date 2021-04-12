@@ -117,12 +117,12 @@
 <h2><span id="作成時の注意点">作成時の注意点</span></h2><ul>
 <li>ベアリポジトリを作る場合のファイル名は末尾に<code>.git</code>をつける必要がある</li>
 </ul>
-</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2021-03-16T19:33:29.000Z" title="2021-3-17 4:33:29 AM">2021-03-17</time>に投稿</span><span class="level-item"><time dateTime="2021-03-16T19:53:11.123Z" title="2021-3-17 4:53:11 AM">2021-03-17</time>に更新</span><span class="level-item">2分で読む (約329語)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2021/03/17/%E3%80%90Winodws%E3%80%91%E3%82%B3%E3%83%B3%E3%82%BD%E3%83%BC%E3%83%AB%E3%81%AE%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%83%90%E3%83%83%E3%83%95%E3%82%A1%E3%82%92%E8%A4%87%E6%95%B0%E6%9E%9A%E4%BD%9C%E3%82%8B/">【Winodws】コンソールのスクリーンバッファを複数枚作る</a></h1><div class="content"><h2 id="スクリーンバッファとは"><a href="#スクリーンバッファとは" class="headerlink" title="スクリーンバッファとは?"></a>スクリーンバッファとは?</h2><ul>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2021-03-16T19:33:29.000Z" title="2021-3-17 4:33:29 AM">2021-03-17</time>に投稿</span><span class="level-item"><time dateTime="2021-03-16T19:53:11.123Z" title="2021-3-17 4:53:11 AM">2021-03-17</time>に更新</span><span class="level-item">2分で読む (約329語)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2021/03/17/%E3%80%90Winodws%E3%80%91%E3%82%B3%E3%83%B3%E3%82%BD%E3%83%BC%E3%83%AB%E3%81%AE%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%83%90%E3%83%83%E3%83%95%E3%82%A1%E3%82%92%E8%A4%87%E6%95%B0%E6%9E%9A%E4%BD%9C%E3%82%8B/">【Winodws】コンソールのスクリーンバッファを複数枚作る</a></h1><div class="content"><h2><span id="スクリーンバッファとは">スクリーンバッファとは?</span></h2><ul>
 <li>実際の文字が書き込まれるバッファのことで、実際にコンソールに描画されるのはこのスクリーンバッファの内容</li>
 <li>コンソールが作成された時点で既定で1つ作成されている(描画されから当たり前)</li>
 <li>独自のスクリーンバッファを作成して出力を行うことも可能</li>
 </ul>
-<h2 id="CreateConsoleScreenBuffer"><a href="#CreateConsoleScreenBuffer" class="headerlink" title="CreateConsoleScreenBuffer"></a>CreateConsoleScreenBuffer</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">HANDLE WINAPI CreateConsoleScreenBuffer(</span><br><span class="line">    DWORD dwDesiredAccess,</span><br><span class="line">    DWORD dwShareMode,</span><br><span class="line">    const SECURITY_ATTRIBUTES *lpSecurityAttributes,</span><br><span class="line">    DWORD dwFlags,</span><br><span class="line">    LPVOID lpScreenBufferData</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<h2><span id="createconsolescreenbuffer">CreateConsoleScreenBuffer</span></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">HANDLE WINAPI CreateConsoleScreenBuffer(</span><br><span class="line">    DWORD dwDesiredAccess,</span><br><span class="line">    DWORD dwShareMode,</span><br><span class="line">    const SECURITY_ATTRIBUTES *lpSecurityAttributes,</span><br><span class="line">    DWORD dwFlags,</span><br><span class="line">    LPVOID lpScreenBufferData</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
 <table>
 <thead>
 <tr>
@@ -162,7 +162,7 @@
 <td></td>
 </tr>
 </tbody></table>
-<h2 id="SetConsoleActiveScreenBuffer"><a href="#SetConsoleActiveScreenBuffer" class="headerlink" title="SetConsoleActiveScreenBuffer"></a>SetConsoleActiveScreenBuffer</h2><ul>
+<h2><span id="setconsoleactivescreenbuffer">SetConsoleActiveScreenBuffer</span></h2><ul>
 <li>スクリーンバッファをアクティブにしてコンソールに描画</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">BOOL WINAPI SetConsoleActiveScreenBuffer(</span><br><span class="line">    HANDLE hConsoleOutput</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
