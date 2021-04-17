@@ -1,10 +1,14 @@
 ---
 title: 【Windows】PowerShellでスクリプトを実行できるようにする
-date: 2021-04-14 02:56:58
+date: 2021-04-26 02:56:58
 tags:
 - Windows
 - PowerShell
 ---
+# 目次
+<!-- toc -->
+<!-- more -->
+
 # スクリプトを実行するとエラーが表示される
 何も設定されていない`Widnows PowerShell`でスクリプトを実行しようとすると、以下のようなエラーが出てしまいます。
 

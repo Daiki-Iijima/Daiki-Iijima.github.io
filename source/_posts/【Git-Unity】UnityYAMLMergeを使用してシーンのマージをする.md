@@ -1,19 +1,22 @@
 ---
-title: '【Git,Unity】SmartMerge使用してシーンのマージをする'
-date: 2021-04-14 02:56:11
+title: '【Git,Unity】UnityYAMLMerge使用してシーンのマージをする'
+date: 2021-04-25 02:56:11
 tags:
 - Git
 - Unity
 ---
-# UnityのSceneファイルのマージは人力でやると壊れかねない
+# 目次
+<!-- toc -->
+<!-- more -->
 
 # SceneファイルのマージにはSmartMergeを使おう
+Unityので使用するシーンファイルのgit管理時のコンフリクト対応を手動で行うことは可能ではありますが、１つ間違えると、シーンが開けなくなる可能性があるので、基本的には、Unityが提供してくれている`UnityYAMLMerge`というツールを使うことをおすすめします。
 
 # 設定方法
 以降の解説はGit(CUI)を使用して、SmartMergeを使用するための手順です。
 
 ## 1. どのレベルに設定するか
-SmartMergeをどの程度の範囲で利用したいかを考慮して、以下のディレクトリにある`config`ファイルに追記していきます。
+UnityYAMLMergeをどの程度の範囲で利用したいかを考慮して、以下のディレクトリにある`config`ファイルに追記していきます。
 
 - local : `$GIT_DIR/config`
 - global : `$HOME/.gitconfig`
