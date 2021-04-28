@@ -1,5 +1,5 @@
 ---
-title: '【Git,Unity】UnityYAMLMerge使用してシーンのマージをする'
+title: '【Git&Unity】UnityYAMLMerge使用してシーンファイルをマージをする'
 date: 2021-04-25 02:56:11
 tags:
 - Git
