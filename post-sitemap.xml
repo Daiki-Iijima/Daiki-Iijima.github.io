@@ -9,6 +9,22 @@
 
 
     <url>
+        <loc>https://Daiki-Iijima.github.io/2021/05/17/%E3%80%90PHP%E3%80%91Composer%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E6%96%B9%E6%B3%95/</loc>
+        <lastmod>2021-06-23T16:15:06.302Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://Daiki-Iijima.github.io/2021/05/16/%E3%80%90Git%E3%80%91Git%E3%81%AE%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E5%90%8D%E3%81%A7%E3%82%B3%E3%83%9F%E3%83%83%E3%83%88%E3%82%92%E6%A4%9C%E7%B4%A2%E3%81%99%E3%82%8B/</loc>
+        <lastmod>2021-06-23T16:13:08.898Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://Daiki-Iijima.github.io/2021/05/15/%E3%80%90PHP%E3%80%91PHPUnit%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6%E5%8D%98%E4%BD%93%E3%83%86%E3%82%B9%E3%83%88/</loc>
         <lastmod>2021-06-23T16:11:39.212Z</lastmod>
         <changefreq>weekly</changefreq>
