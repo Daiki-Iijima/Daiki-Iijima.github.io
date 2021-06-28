@@ -27,13 +27,17 @@
 </ul>
 </li>
 </ul>
-<!-- tocstop --></div><a class="article-more button is-small is-size-7" href="/2021/05/20/%E3%80%90PHP%E3%80%91use%E3%82%92%E4%BD%BF%E3%81%86%E5%A0%B4%E9%9D%A2/#more">続きを読む</a></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2021-05-17T16:16:15.000Z" title="2021-5-18 1:16:15 AM">2021-05-18</time>に投稿</span><span class="level-item"><time dateTime="2021-06-23T16:16:32.889Z" title="2021-6-24 1:16:32 AM">2021-06-24</time>に更新</span><span class="level-item">3分で読む (約483語)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2021/05/18/%E3%80%90PHP%E3%80%91%E3%82%AF%E3%83%A9%E3%82%B9%E3%80%81%E3%83%A1%E3%82%BD%E3%83%83%E3%83%89%E3%80%81%E3%83%97%E3%83%AD%E3%83%91%E3%83%86%E3%82%A3%E3%81%AE%E5%8B%95%E7%9A%84%E3%82%B3%E3%83%BC%E3%83%AB/">【PHP】クラス、メソッド、プロパティの動的コール</a></h1><div class="content"><h1 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h1><!-- toc -->
+<!-- tocstop --></div><a class="article-more button is-small is-size-7" href="/2021/05/20/%E3%80%90PHP%E3%80%91use%E3%82%92%E4%BD%BF%E3%81%86%E5%A0%B4%E9%9D%A2/#more">続きを読む</a></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2021-05-17T16:16:15.000Z" title="2021-5-18 1:16:15 AM">2021-05-18</time>に投稿</span><span class="level-item"><time dateTime="2021-06-28T09:02:24.695Z" title="2021-6-28 6:02:24 PM">2021-06-28</time>に更新</span><span class="level-item">4分で読む (約670語)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2021/05/18/%E3%80%90PHP%E3%80%91%E3%82%AF%E3%83%A9%E3%82%B9%E3%80%81%E3%83%A1%E3%82%BD%E3%83%83%E3%83%89%E3%80%81%E3%83%97%E3%83%AD%E3%83%91%E3%83%86%E3%82%A3%E3%81%AE%E5%8B%95%E7%9A%84%E3%82%B3%E3%83%BC%E3%83%AB/">【PHP】クラス、メソッド、プロパティの動的コール</a></h1><div class="content"><h1 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h1><!-- toc -->
 
 <ul>
-<li><a href="#composer%E3%81%A8%E3%81%AF">Composerとは</a></li>
-<li><a href="#%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E6%89%8B%E9%A0%86">インストール手順</a><ul>
-<li><a href="#windows">Windows</a></li>
-<li><a href="#mac">Mac</a></li>
+<li><a href="#%E5%8B%95%E7%9A%84%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9">動的アクセス</a><ul>
+<li><a href="#%E3%83%97%E3%83%AD%E3%83%91%E3%83%86%E3%82%A3%E3%81%AB%E5%AF%BE%E3%81%97%E3%81%A6%E3%81%AE%E5%8B%95%E7%9A%84%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9">プロパティに対しての動的アクセス</a><ul>
+<li><a href="#%E4%BE%8B">例</a></li>
+<li><a href="#%E5%8B%95%E7%9A%84%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%9F%E5%A0%B4%E5%90%88">動的アクセスを使った場合</a></li>
+</ul>
+</li>
+<li><a href="#%E3%83%A1%E3%82%BD%E3%83%83%E3%83%89%E3%81%AE%E5%8B%95%E7%9A%84%E3%82%B3%E3%83%BC%E3%83%AB">メソッドの動的コール</a></li>
+<li><a href="#%E3%82%AF%E3%83%A9%E3%82%B9%E3%81%AE%E5%8B%95%E7%9A%84%E3%82%B3%E3%83%BC%E3%83%AB">クラスの動的コール</a></li>
 </ul>
 </li>
 </ul>
